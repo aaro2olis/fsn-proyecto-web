@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-18-2014 09:44:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Modelo.Transferencia" table="transferencia" schema="public">
+        <id name="idtransferencia" type="int">
+            <column name="idtransferencia" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="activo" class="Modelo.Activo" fetch="select">
+            <column name="idactivo" length="30" not-null="true" />
+        </many-to-one>
+        <property name="fechatransferencia" type="date">
+            <column name="fechatransferencia" length="13" not-null="true" />
+        </property>
+        <property name="idresponsableantiguo" type="string">
+            <column name="idresponsableantiguo" length="10" />
+        </property>
+        <property name="idresponsablenuevo" type="string">
+            <column name="idresponsablenuevo" length="10" />
+        </property>
+        <property name="idubicacionantigua" type="string">
+            <column name="idubicacionantigua" length="3" />
+        </property>
+        <property name="idubicacionnueva" type="string">
+            <column name="idubicacionnueva" length="3" />
+        </property>
+    </class>
+</hibernate-mapping>

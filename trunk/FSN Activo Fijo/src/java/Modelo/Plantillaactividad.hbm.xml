@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-18-2014 09:44:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Modelo.Plantillaactividad" table="plantillaactividad" schema="public">
+        <id name="idplantilla" type="int">
+            <column name="idplantilla" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rol" class="Modelo.Rol" fetch="select">
+            <column name="idrol" not-null="true" />
+        </many-to-one>
+        <property name="dscplantilla" type="string">
+            <column name="dscplantilla" length="25" not-null="true" />
+        </property>
+        <property name="estadoplantilla" type="char">
+            <column name="estadoplantilla" length="1" not-null="true" />
+        </property>
+        <set name="actividads" table="actividad" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idplantilla" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Actividad" />
+        </set>
+    </class>
+</hibernate-mapping>
