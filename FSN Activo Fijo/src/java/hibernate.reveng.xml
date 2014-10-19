@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="fsn" match-schema="public"/>
+  <table-filter match-name="proporciona"/>
+  <table-filter match-name="detallecategoria"/>
+  <table-filter match-name="tipopersona"/>
+  <table-filter match-name="plantillaactividad"/>
+  <table-filter match-name="mantenimiento"/>
+  <table-filter match-name="activo"/>
+  <table-filter match-name="rolpersona"/>
+  <table-filter match-name="tipoactivo"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="ubicacionfisica"/>
+  <table-filter match-name="empleado"/>
+  <table-filter match-name="categoria"/>
+  <table-filter match-name="cargo"/>
+  <table-filter match-name="actividad"/>
+  <table-filter match-name="municipio"/>
+  <table-filter match-name="inventario"/>
+  <table-filter match-name="persona"/>
+  <table-filter match-name="especificacionactivo"/>
+  <table-filter match-name="departamento"/>
+  <table-filter match-name="tipodesafectacion"/>
+  <table-filter match-name="rol"/>
+  <table-filter match-name="desafectacion"/>
+  <table-filter match-name="transferencia"/>
+  <table-filter match-name="tipoestado"/>
+  <table-filter match-name="unidad_organizativa"/>
+  <table-filter match-name="tipomodalidad"/>
+</hibernate-reverse-engineering>

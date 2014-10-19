@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-18-2014 09:44:41 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Modelo.Desafectacion" table="desafectacion" schema="public">
+        <id name="iddesafectacion" type="int">
+            <column name="iddesafectacion" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="empleadoByEmpIdempleado" class="Modelo.Empleado" fetch="select">
+            <column name="emp_idempleado" length="10" />
+        </many-to-one>
+        <many-to-one name="tipodesafectacion" class="Modelo.Tipodesafectacion" fetch="select">
+            <column name="idtipodesafectacion" />
+        </many-to-one>
+        <many-to-one name="empleadoByIdempleado" class="Modelo.Empleado" fetch="select">
+            <column name="idempleado" length="10" />
+        </many-to-one>
+        <many-to-one name="persona" class="Modelo.Persona" fetch="select">
+            <column name="idpersona" />
+        </many-to-one>
+        <property name="ingresodesafectacion" type="big_decimal">
+            <column name="ingresodesafectacion" precision="5" />
+        </property>
+        <property name="fechacrea" type="date">
+            <column name="fechacrea" length="13" not-null="true" />
+        </property>
+        <property name="fechaauto" type="date">
+            <column name="fechaauto" length="13" />
+        </property>
+        <property name="numactajd" type="java.lang.Integer">
+            <column name="numactajd" />
+        </property>
+        <property name="fechaacta" type="date">
+            <column name="fechaacta" length="13" />
+        </property>
+        <property name="numreporterobo" type="java.lang.Integer">
+            <column name="numreporterobo" />
+        </property>
+        <property name="fechadesafectacion" type="date">
+            <column name="fechadesafectacion" length="13" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
