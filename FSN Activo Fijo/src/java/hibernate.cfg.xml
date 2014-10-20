@@ -8,7 +8,6 @@
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">mh09016</property>
     <mapping resource="Modelo/Categoria.hbm.xml"/>
-    <mapping resource="Modelo/Rol.hbm.xml"/>
     <mapping resource="Modelo/Plantillaactividad.hbm.xml"/>
     <mapping resource="Modelo/Mantenimiento.hbm.xml"/>
     <mapping resource="Modelo/Especificacionactivo.hbm.xml"/>
@@ -18,7 +17,6 @@
     <mapping resource="Modelo/Persona.hbm.xml"/>
     <mapping resource="Modelo/UnidadOrganizativa.hbm.xml"/>
     <mapping resource="Modelo/Detallecategoria.hbm.xml"/>
-    <mapping resource="Modelo/Rolpersona.hbm.xml"/>
     <mapping resource="Modelo/Departamento.hbm.xml"/>
     <mapping resource="Modelo/Cargo.hbm.xml"/>
     <mapping resource="Modelo/Transferencia.hbm.xml"/>
@@ -31,6 +29,8 @@
     <mapping resource="Modelo/Tipodesafectacion.hbm.xml"/>
     <mapping resource="Modelo/Tipoestado.hbm.xml"/>
     <mapping resource="Modelo/Inventario.hbm.xml"/>
-    <mapping class="Modelo.Desafectacion" resource="Modelo/Rol.hbm.xml"/>
+    <mapping resource="Modelo/Rolpersona.hbm.xml"/>
+    <mapping resource="Modelo/Rol.hbm.xml"/>
+    <mapping resource="Modelo/Desafectacion.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
