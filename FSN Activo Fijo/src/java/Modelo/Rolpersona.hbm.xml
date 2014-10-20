@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2014 02:19:13 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Modelo.Rolpersona" table="rolpersona" schema="public">
+        <comment>describe la naturaleza de la relacion, puede ser propietario (cuando es sobre tenencia de activos) , receptor , comprador , beneficiario ,proveedor( cuando le
+        esta dando mantenimiento al activo) u otros.</comment>
+        <id name="idrolpersona" type="int">
+            <column name="idrolpersona" />
+            <generator class="assigned" />
+        </id>
+        <property name="nmbrolpersona" type="string">
+            <column name="nmbrolpersona" length="25" />
+        </property>
+        <property name="dscrol" type="string">
+            <column name="dscrol_" length="50" />
+        </property>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idrolpersona" />
+            </key>
+            <one-to-many class="Modelo.Persona" />
+        </set>
+    </class>
+</hibernate-mapping>

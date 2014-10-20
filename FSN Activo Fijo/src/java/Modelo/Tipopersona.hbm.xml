@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-20-2014 02:19:13 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Modelo.Tipopersona" table="tipopersona" schema="public">
+        <id name="idtipopersona" type="int">
+            <column name="idtipopersona" />
+            <generator class="assigned" />
+        </id>
+        <property name="nmbtipopersona" type="string">
+            <column name="nmbtipopersona" length="25" not-null="true" />
+        </property>
+        <property name="dsctipopersona" type="string">
+            <column name="dsctipopersona" length="25" />
+        </property>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtipopersona" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Persona" />
+        </set>
+    </class>
+</hibernate-mapping>
