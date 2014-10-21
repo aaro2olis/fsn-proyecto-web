@@ -7,35 +7,35 @@
         <title>Mantenimieno ROL</title>
     </h:head>
     <h:body>
-        <f:view>
+        <h:outputStylesheet library="styles" name="navstyle.css"  />
+        <h:outputStylesheet library="styles" name="componentes.css"  />
+        <h:outputStylesheet library="styles" name="default.css"  />
+      
             <h:form id="frmRolpersona">
 
-                <center>
-                    <table>
-                        <tr>
-                            <td style="font-weight: bold; size: 12px; color: blue;" align="right">ID</td>
-                            <td><h:inputText value="#{rolpersonaBEAN.idrolpersona}" converter="#{String}" maxlength="15" size="15"/></td>
+           
+                <table>
+                         <tr>
+                            <td>ID</td>
+                            <td><h:inputText value="#{rolpersonaBEAN.idrolpersona}" converter="#{String}" /></td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; size: 12px; color: blue;" align="right">Nombre</td>
-                            <td><h:inputText value="#{rolpersonaBEAN.nmbrolpersona}" converter="#{String}" maxlength="15" size="15"/></td>
+                            <td>Nombre</td>
+                            <td><h:inputText value="#{rolpersonaBEAN.nmbrolpersona}" converter="#{String}" /></td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; size: 12px; color: blue;" align="right">Descripcion</td>
-                            <td><h:inputText value="#{rolpersonaBEAN.dscrol}" converter="#{String}" maxlength="15" size="15"/></td>
+                            <td>Descripcion</td>
+                            <td><h:inputText value="#{rolpersonaBEAN.dscrol}" converter="#{String}" /></td>
                         </tr>
                         <tr>
                             <td colspan="2">
+                                <center>
                                 <h:commandButton id="btnguardar" value="Guardar" action="#{rolpersonaBEAN.insertar()}"/>
+                                </center>
                             </td>
                         </tr>
                     </table>
-                </center>
-
-
-
             </h:form>  
-        </f:view>
-    </h:body>
+        </h:body>
 </html>
 
