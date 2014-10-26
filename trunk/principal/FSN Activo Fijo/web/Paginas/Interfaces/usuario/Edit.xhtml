@@ -16,11 +16,10 @@
                         <p:inputText id="idusuario" value="#{usuarioController.selected.idusuario}" title="#{bundle.EditUsuarioTitle_idusuario}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_idusuario}"/>
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_password}" for="password" />
                         <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.EditUsuarioTitle_password}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_password}"/>
-                        <p:outputLabel value="#{bundle.EditUsuarioLabel_estadousuario}" for="estadousuario" />
-                        <p:inputText id="estadousuario" value="#{usuarioController.selected.estadousuario}" title="#{bundle.EditUsuarioTitle_estadousuario}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_estadousuario}"/>
+                        
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_idempleado}" for="idempleado" />
                         <p:selectOneMenu id="idempleado" value="#{usuarioController.selected.idempleado}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}" />
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
                                            var="idempleadoItem"
                                            itemValue="#{idempleadoItem}"/>

@@ -267,7 +267,7 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Empleado[ idempleado=" + idempleado + " ]";
+        return nombres+" "+apepaterno +" "+apematerno;
     }
     
 }

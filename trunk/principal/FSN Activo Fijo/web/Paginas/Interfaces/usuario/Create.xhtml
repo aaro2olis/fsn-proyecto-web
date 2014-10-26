@@ -15,7 +15,7 @@
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_idusuario}" for="idusuario" />
                         <p:inputText id="idusuario" value="#{usuarioController.selected.idusuario}" title="#{bundle.CreateUsuarioTitle_idusuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_idusuario}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_password}"/>
+                        <p:password id="password" value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_password}" feedback="true" promptLabel="Ingrese una contraseña" weakLabel="Debil" goodLabel="Buena" strongLabel="Fuerte"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_estadousuario}" for="estadousuario" />
                         <p:inputText id="estadousuario" value="#{usuarioController.selected.estadousuario}" title="#{bundle.CreateUsuarioTitle_estadousuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_estadousuario}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_idempleado}" for="idempleado" />
