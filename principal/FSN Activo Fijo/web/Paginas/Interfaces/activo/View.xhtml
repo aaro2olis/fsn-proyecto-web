@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ActivoViewDlg" widgetVar="ActivoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewActivoTitle}">
+            <h:form id="ActivoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{activoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewActivoLabel_idactivo}"/>
+                        <h:outputText value="#{activoController.selected.idactivo}" title="#{bundle.ViewActivoTitle_idactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_nmbactivo}"/>
+                        <h:outputText value="#{activoController.selected.nmbactivo}" title="#{bundle.ViewActivoTitle_nmbactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_dscactivo}"/>
+                        <h:outputText value="#{activoController.selected.dscactivo}" title="#{bundle.ViewActivoTitle_dscactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_obsactivo}"/>
+                        <h:outputText value="#{activoController.selected.obsactivo}" title="#{bundle.ViewActivoTitle_obsactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_marcaactivo}"/>
+                        <h:outputText value="#{activoController.selected.marcaactivo}" title="#{bundle.ViewActivoTitle_marcaactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_modeloactivo}"/>
+                        <h:outputText value="#{activoController.selected.modeloactivo}" title="#{bundle.ViewActivoTitle_modeloactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_fechaAdquisicion}"/>
+                        <h:outputText value="#{activoController.selected.fechaAdquisicion}" title="#{bundle.ViewActivoTitle_fechaAdquisicion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewActivoLabel_estadoactivo}"/>
+                        <h:outputText value="#{activoController.selected.estadoactivo}" title="#{bundle.ViewActivoTitle_estadoactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_costoadquicision}"/>
+                        <h:outputText value="#{activoController.selected.costoadquicision}" title="#{bundle.ViewActivoTitle_costoadquicision}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_valorresidual}"/>
+                        <h:outputText value="#{activoController.selected.valorresidual}" title="#{bundle.ViewActivoTitle_valorresidual}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_nuevo}"/>
+                        <h:outputText value="#{activoController.selected.nuevo}" title="#{bundle.ViewActivoTitle_nuevo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_idcategoria}"/>
+                        <h:outputText value="#{activoController.selected.idcategoria}" title="#{bundle.ViewActivoTitle_idcategoria}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_idempleado}"/>
+                        <h:outputText value="#{activoController.selected.idempleado}" title="#{bundle.ViewActivoTitle_idempleado}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_idpersona}"/>
+                        <h:outputText value="#{activoController.selected.idpersona}" title="#{bundle.ViewActivoTitle_idpersona}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_idtipoactivo}"/>
+                        <h:outputText value="#{activoController.selected.idtipoactivo}" title="#{bundle.ViewActivoTitle_idtipoactivo}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_idtipoestado}"/>
+                        <h:outputText value="#{activoController.selected.idtipoestado}" title="#{bundle.ViewActivoTitle_idtipoestado}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_idmodalidad}"/>
+                        <h:outputText value="#{activoController.selected.idmodalidad}" title="#{bundle.ViewActivoTitle_idmodalidad}"/>
+                        <h:outputText value="#{bundle.ViewActivoLabel_idubicacion}"/>
+                        <h:outputText value="#{activoController.selected.idubicacion}" title="#{bundle.ViewActivoTitle_idubicacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ActivoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

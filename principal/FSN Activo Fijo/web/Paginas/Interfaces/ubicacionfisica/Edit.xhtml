@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UbicacionfisicaEditDlg" widgetVar="UbicacionfisicaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUbicacionfisicaTitle}">
+            <h:form id="UbicacionfisicaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ubicacionfisicaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_idubicacion}" for="idubicacion" />
+                        <p:inputText id="idubicacion" value="#{ubicacionfisicaController.selected.idubicacion}" title="#{bundle.EditUbicacionfisicaTitle_idubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_idubicacion}"/>
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_nmbubicacion}" for="nmbubicacion" />
+                        <p:inputText id="nmbubicacion" value="#{ubicacionfisicaController.selected.nmbubicacion}" title="#{bundle.EditUbicacionfisicaTitle_nmbubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_nmbubicacion}"/>
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_dirubicacion}" for="dirubicacion" />
+                        <p:inputText id="dirubicacion" value="#{ubicacionfisicaController.selected.dirubicacion}" title="#{bundle.EditUbicacionfisicaTitle_dirubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_dirubicacion}"/>
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{ubicacionfisicaController.selected.telefono}" title="#{bundle.EditUbicacionfisicaTitle_telefono}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_telefono}"/>
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_obsubicacion}" for="obsubicacion" />
+                        <p:inputText id="obsubicacion" value="#{ubicacionfisicaController.selected.obsubicacion}" title="#{bundle.EditUbicacionfisicaTitle_obsubicacion}" />
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_estadoubicacion}" for="estadoubicacion" />
+                        <p:inputText id="estadoubicacion" value="#{ubicacionfisicaController.selected.estadoubicacion}" title="#{bundle.EditUbicacionfisicaTitle_estadoubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_estadoubicacion}"/>
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_iddpto}" for="iddpto" />
+                        <p:selectOneMenu id="iddpto" value="#{ubicacionfisicaController.selected.iddpto}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_iddpto}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
+                                           var="iddptoItem"
+                                           itemValue="#{iddptoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_idmunicipio}" for="idmunicipio" />
+                        <p:selectOneMenu id="idmunicipio" value="#{ubicacionfisicaController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_idmunicipio}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
+                                           var="idmunicipioItem"
+                                           itemValue="#{idmunicipioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ubicacionfisicaController.update}" value="#{bundle.Save}" update="display,:UbicacionfisicaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UbicacionfisicaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UbicacionfisicaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

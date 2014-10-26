@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MantenimientoCreateDlg" widgetVar="MantenimientoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMantenimientoTitle}">
+            <h:form id="MantenimientoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{mantenimientoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_idmantenimiento}" for="idmantenimiento" />
+                        <p:inputText id="idmantenimiento" value="#{mantenimientoController.selected.idmantenimiento}" title="#{bundle.CreateMantenimientoTitle_idmantenimiento}" required="true" requiredMessage="#{bundle.CreateMantenimientoRequiredMessage_idmantenimiento}"/>
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_dscmantenimiento}" for="dscmantenimiento" />
+                        <p:inputText id="dscmantenimiento" value="#{mantenimientoController.selected.dscmantenimiento}" title="#{bundle.CreateMantenimientoTitle_dscmantenimiento}" required="true" requiredMessage="#{bundle.CreateMantenimientoRequiredMessage_dscmantenimiento}"/>
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_costomantenimiento}" for="costomantenimiento" />
+                        <p:inputText id="costomantenimiento" value="#{mantenimientoController.selected.costomantenimiento}" title="#{bundle.CreateMantenimientoTitle_costomantenimiento}" required="true" requiredMessage="#{bundle.CreateMantenimientoRequiredMessage_costomantenimiento}"/>
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_fechaentregado}" for="fechaentregado" />
+                        <p:calendar id="fechaentregado" pattern="MM/dd/yyyy" value="#{mantenimientoController.selected.fechaentregado}" title="#{bundle.EditMantenimientoTitle_fechaentregado}" required="true" requiredMessage="#{bundle.EditMantenimientoRequiredMessage_fechaentregado}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_fechaestimadarecepcion}" for="fechaestimadarecepcion" />
+                        <p:calendar id="fechaestimadarecepcion" pattern="MM/dd/yyyy" value="#{mantenimientoController.selected.fechaestimadarecepcion}" title="#{bundle.EditMantenimientoTitle_fechaestimadarecepcion}" required="true" requiredMessage="#{bundle.EditMantenimientoRequiredMessage_fechaestimadarecepcion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_fecharealrecepcion}" for="fecharealrecepcion" />
+                        <p:calendar id="fecharealrecepcion" pattern="MM/dd/yyyy" value="#{mantenimientoController.selected.fecharealrecepcion}" title="#{bundle.EditMantenimientoTitle_fecharealrecepcion}" required="true" requiredMessage="#{bundle.EditMantenimientoRequiredMessage_fecharealrecepcion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_estadomantenimiento}" for="estadomantenimiento" />
+                        <p:inputText id="estadomantenimiento" value="#{mantenimientoController.selected.estadomantenimiento}" title="#{bundle.CreateMantenimientoTitle_estadomantenimiento}" required="true" requiredMessage="#{bundle.CreateMantenimientoRequiredMessage_estadomantenimiento}"/>
+                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_idactivo}" for="idactivo" />
+                        <p:selectOneMenu id="idactivo" value="#{mantenimientoController.selected.idactivo}" >
+                            <f:selectItems value="#{activoController.itemsAvailableSelectOne}"
+                                           var="idactivoItem"
+                                           itemValue="#{idactivoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{mantenimientoController.create}" value="#{bundle.Save}" update="display,:MantenimientoListForm:datalist,:growl" oncomplete="handleSubmit(args,'MantenimientoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MantenimientoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

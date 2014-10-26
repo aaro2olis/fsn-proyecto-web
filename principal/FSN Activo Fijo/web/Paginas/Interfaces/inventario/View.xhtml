@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InventarioViewDlg" widgetVar="InventarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInventarioTitle}">
+            <h:form id="InventarioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inventarioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInventarioLabel_idinventario}"/>
+                        <h:outputText value="#{inventarioController.selected.idinventario}" title="#{bundle.ViewInventarioTitle_idinventario}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_fecharealizacion}"/>
+                        <h:outputText value="#{inventarioController.selected.fecharealizacion}" title="#{bundle.ViewInventarioTitle_fecharealizacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_horarealizacion}"/>
+                        <h:outputText value="#{inventarioController.selected.horarealizacion}" title="#{bundle.ViewInventarioTitle_horarealizacion}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_estadobienactual}"/>
+                        <h:outputText value="#{inventarioController.selected.estadobienactual}" title="#{bundle.ViewInventarioTitle_estadobienactual}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_observacion}"/>
+                        <h:outputText value="#{inventarioController.selected.observacion}" title="#{bundle.ViewInventarioTitle_observacion}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_poseevineta}"/>
+                        <h:outputText value="#{inventarioController.selected.poseevineta}" title="#{bundle.ViewInventarioTitle_poseevineta}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_existe}"/>
+                        <h:outputText value="#{inventarioController.selected.existe}" title="#{bundle.ViewInventarioTitle_existe}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_bajocustodia}"/>
+                        <h:outputText value="#{inventarioController.selected.bajocustodia}" title="#{bundle.ViewInventarioTitle_bajocustodia}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_ubicacionfisica}"/>
+                        <h:outputText value="#{inventarioController.selected.ubicacionfisica}" title="#{bundle.ViewInventarioTitle_ubicacionfisica}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_justificaciondiferencias}"/>
+                        <h:outputText value="#{inventarioController.selected.justificaciondiferencias}" title="#{bundle.ViewInventarioTitle_justificaciondiferencias}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_fechajustificacion}"/>
+                        <h:outputText value="#{inventarioController.selected.fechajustificacion}" title="#{bundle.ViewInventarioTitle_fechajustificacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_idactivo}"/>
+                        <h:outputText value="#{inventarioController.selected.idactivo}" title="#{bundle.ViewInventarioTitle_idactivo}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_empIdempleado}"/>
+                        <h:outputText value="#{inventarioController.selected.empIdempleado}" title="#{bundle.ViewInventarioTitle_empIdempleado}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_idempleado}"/>
+                        <h:outputText value="#{inventarioController.selected.idempleado}" title="#{bundle.ViewInventarioTitle_idempleado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InventarioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

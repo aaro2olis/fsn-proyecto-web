@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TransferenciaEditDlg" widgetVar="TransferenciaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTransferenciaTitle}">
+            <h:form id="TransferenciaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{transferenciaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTransferenciaLabel_idtransferencia}" for="idtransferencia" />
+                        <p:inputText id="idtransferencia" value="#{transferenciaController.selected.idtransferencia}" title="#{bundle.EditTransferenciaTitle_idtransferencia}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_idtransferencia}"/>
+                        <p:outputLabel value="#{bundle.EditTransferenciaLabel_fechatransferencia}" for="fechatransferencia" />
+                        <p:calendar id="fechatransferencia" pattern="MM/dd/yyyy" value="#{transferenciaController.selected.fechatransferencia}" title="#{bundle.EditTransferenciaTitle_fechatransferencia}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_fechatransferencia}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditTransferenciaLabel_idresponsableantiguo}" for="idresponsableantiguo" />
+                        <p:inputText id="idresponsableantiguo" value="#{transferenciaController.selected.idresponsableantiguo}" title="#{bundle.EditTransferenciaTitle_idresponsableantiguo}" />
+                        <p:outputLabel value="#{bundle.EditTransferenciaLabel_idresponsablenuevo}" for="idresponsablenuevo" />
+                        <p:inputText id="idresponsablenuevo" value="#{transferenciaController.selected.idresponsablenuevo}" title="#{bundle.EditTransferenciaTitle_idresponsablenuevo}" />
+                        <p:outputLabel value="#{bundle.EditTransferenciaLabel_idubicacionantigua}" for="idubicacionantigua" />
+                        <p:inputText id="idubicacionantigua" value="#{transferenciaController.selected.idubicacionantigua}" title="#{bundle.EditTransferenciaTitle_idubicacionantigua}" />
+                        <p:outputLabel value="#{bundle.EditTransferenciaLabel_idubicacionnueva}" for="idubicacionnueva" />
+                        <p:inputText id="idubicacionnueva" value="#{transferenciaController.selected.idubicacionnueva}" title="#{bundle.EditTransferenciaTitle_idubicacionnueva}" />
+                        <p:outputLabel value="#{bundle.EditTransferenciaLabel_idactivo}" for="idactivo" />
+                        <p:selectOneMenu id="idactivo" value="#{transferenciaController.selected.idactivo}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_idactivo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{activoController.itemsAvailableSelectOne}"
+                                           var="idactivoItem"
+                                           itemValue="#{idactivoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{transferenciaController.update}" value="#{bundle.Save}" update="display,:TransferenciaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TransferenciaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TransferenciaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

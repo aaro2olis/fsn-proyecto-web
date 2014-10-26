@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UnidadOrganizativaViewDlg" widgetVar="UnidadOrganizativaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUnidadOrganizativaTitle}">
+            <h:form id="UnidadOrganizativaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{unidadOrganizativaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_idunidad}"/>
+                        <h:outputText value="#{unidadOrganizativaController.selected.idunidad}" title="#{bundle.ViewUnidadOrganizativaTitle_idunidad}"/>
+                        <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_nmbunidad}"/>
+                        <h:outputText value="#{unidadOrganizativaController.selected.nmbunidad}" title="#{bundle.ViewUnidadOrganizativaTitle_nmbunidad}"/>
+                        <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_dscunidad}"/>
+                        <h:outputText value="#{unidadOrganizativaController.selected.dscunidad}" title="#{bundle.ViewUnidadOrganizativaTitle_dscunidad}"/>
+                        <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_estadounidad}"/>
+                        <h:outputText value="#{unidadOrganizativaController.selected.estadounidad}" title="#{bundle.ViewUnidadOrganizativaTitle_estadounidad}"/>
+                        <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_uniIdunidad}"/>
+                        <h:outputText value="#{unidadOrganizativaController.selected.uniIdunidad}" title="#{bundle.ViewUnidadOrganizativaTitle_uniIdunidad}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UnidadOrganizativaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

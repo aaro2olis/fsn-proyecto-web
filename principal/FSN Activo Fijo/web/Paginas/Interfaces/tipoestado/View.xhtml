@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoestadoViewDlg" widgetVar="TipoestadoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTipoestadoTitle}">
+            <h:form id="TipoestadoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoestadoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTipoestadoLabel_idtipoestado}"/>
+                        <h:outputText value="#{tipoestadoController.selected.idtipoestado}" title="#{bundle.ViewTipoestadoTitle_idtipoestado}"/>
+                        <h:outputText value="#{bundle.ViewTipoestadoLabel_nmbtipoestado}"/>
+                        <h:outputText value="#{tipoestadoController.selected.nmbtipoestado}" title="#{bundle.ViewTipoestadoTitle_nmbtipoestado}"/>
+                        <h:outputText value="#{bundle.ViewTipoestadoLabel_dsctipoestado}"/>
+                        <h:outputText value="#{tipoestadoController.selected.dsctipoestado}" title="#{bundle.ViewTipoestadoTitle_dsctipoestado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TipoestadoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
