@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListActivoTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ActivoListForm">
+                <p:panel header="#{bundle.ListActivoTitle}">
+                    <p:dataTable id="datalist" value="#{activoController.items}" var="item"
+                                 selectionMode="single" selection="#{activoController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idactivo}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_nmbactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nmbactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_dscactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dscactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_obsactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.obsactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_marcaactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marcaactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_modeloactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.modeloactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_fechaAdquisicion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaAdquisicion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_estadoactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_costoadquicision}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costoadquicision}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_valorresidual}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorresidual}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_nuevo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nuevo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idcategoria}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcategoria}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idempleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idempleado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idpersona}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idpersona}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idtipoactivo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idtipoactivo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idtipoestado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idtipoestado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idmodalidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idmodalidad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListActivoTitle_idubicacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idubicacion}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{activoController.prepareCreate}" update=":ActivoCreateForm" oncomplete="PF('ActivoCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ActivoViewForm" oncomplete="PF('ActivoViewDialog').show()" disabled="#{empty activoController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ActivoEditForm" oncomplete="PF('ActivoEditDialog').show()" disabled="#{empty activoController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{activoController.destroy}" update=":growl,datalist" disabled="#{empty activoController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

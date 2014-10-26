@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ActivoEditDlg" widgetVar="ActivoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditActivoTitle}">
+            <h:form id="ActivoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{activoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idactivo}" for="idactivo" />
+                        <p:inputText id="idactivo" value="#{activoController.selected.idactivo}" title="#{bundle.EditActivoTitle_idactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idactivo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_nmbactivo}" for="nmbactivo" />
+                        <p:inputText id="nmbactivo" value="#{activoController.selected.nmbactivo}" title="#{bundle.EditActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_nmbactivo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_dscactivo}" for="dscactivo" />
+                        <p:inputText id="dscactivo" value="#{activoController.selected.dscactivo}" title="#{bundle.EditActivoTitle_dscactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_dscactivo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_obsactivo}" for="obsactivo" />
+                        <p:inputText id="obsactivo" value="#{activoController.selected.obsactivo}" title="#{bundle.EditActivoTitle_obsactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_obsactivo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_marcaactivo}" for="marcaactivo" />
+                        <p:inputText id="marcaactivo" value="#{activoController.selected.marcaactivo}" title="#{bundle.EditActivoTitle_marcaactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_marcaactivo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_modeloactivo}" for="modeloactivo" />
+                        <p:inputText id="modeloactivo" value="#{activoController.selected.modeloactivo}" title="#{bundle.EditActivoTitle_modeloactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_modeloactivo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_fechaAdquisicion}" for="fechaAdquisicion" />
+                        <p:calendar id="fechaAdquisicion" pattern="MM/dd/yyyy" value="#{activoController.selected.fechaAdquisicion}" title="#{bundle.EditActivoTitle_fechaAdquisicion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_fechaAdquisicion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_estadoactivo}" for="estadoactivo" />
+                        <p:inputText id="estadoactivo" value="#{activoController.selected.estadoactivo}" title="#{bundle.EditActivoTitle_estadoactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_estadoactivo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_costoadquicision}" for="costoadquicision" />
+                        <p:inputText id="costoadquicision" value="#{activoController.selected.costoadquicision}" title="#{bundle.EditActivoTitle_costoadquicision}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_costoadquicision}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_valorresidual}" for="valorresidual" />
+                        <p:inputText id="valorresidual" value="#{activoController.selected.valorresidual}" title="#{bundle.EditActivoTitle_valorresidual}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_valorresidual}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_nuevo}" for="nuevo" />
+                        <p:inputText id="nuevo" value="#{activoController.selected.nuevo}" title="#{bundle.EditActivoTitle_nuevo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_nuevo}"/>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idcategoria}" for="idcategoria" />
+                        <p:selectOneMenu id="idcategoria" value="#{activoController.selected.idcategoria}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idcategoria}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"
+                                           var="idcategoriaItem"
+                                           itemValue="#{idcategoriaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idempleado}" for="idempleado" />
+                        <p:selectOneMenu id="idempleado" value="#{activoController.selected.idempleado}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="idempleadoItem"
+                                           itemValue="#{idempleadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idpersona}" for="idpersona" />
+                        <p:selectOneMenu id="idpersona" value="#{activoController.selected.idpersona}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
+                                           var="idpersonaItem"
+                                           itemValue="#{idpersonaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idtipoactivo}" for="idtipoactivo" />
+                        <p:selectOneMenu id="idtipoactivo" value="#{activoController.selected.idtipoactivo}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoactivoController.itemsAvailableSelectOne}"
+                                           var="idtipoactivoItem"
+                                           itemValue="#{idtipoactivoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idtipoestado}" for="idtipoestado" />
+                        <p:selectOneMenu id="idtipoestado" value="#{activoController.selected.idtipoestado}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idtipoestado}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipoestadoController.itemsAvailableSelectOne}"
+                                           var="idtipoestadoItem"
+                                           itemValue="#{idtipoestadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idmodalidad}" for="idmodalidad" />
+                        <p:selectOneMenu id="idmodalidad" value="#{activoController.selected.idmodalidad}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tipomodalidadController.itemsAvailableSelectOne}"
+                                           var="idmodalidadItem"
+                                           itemValue="#{idmodalidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditActivoLabel_idubicacion}" for="idubicacion" />
+                        <p:selectOneMenu id="idubicacion" value="#{activoController.selected.idubicacion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idubicacion}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{ubicacionfisicaController.itemsAvailableSelectOne}"
+                                           var="idubicacionItem"
+                                           itemValue="#{idubicacionItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{activoController.update}" value="#{bundle.Save}" update="display,:ActivoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ActivoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ActivoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

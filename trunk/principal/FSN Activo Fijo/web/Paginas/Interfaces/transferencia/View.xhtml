@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TransferenciaViewDlg" widgetVar="TransferenciaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTransferenciaTitle}">
+            <h:form id="TransferenciaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{transferenciaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTransferenciaLabel_idtransferencia}"/>
+                        <h:outputText value="#{transferenciaController.selected.idtransferencia}" title="#{bundle.ViewTransferenciaTitle_idtransferencia}"/>
+                        <h:outputText value="#{bundle.ViewTransferenciaLabel_fechatransferencia}"/>
+                        <h:outputText value="#{transferenciaController.selected.fechatransferencia}" title="#{bundle.ViewTransferenciaTitle_fechatransferencia}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewTransferenciaLabel_idresponsableantiguo}"/>
+                        <h:outputText value="#{transferenciaController.selected.idresponsableantiguo}" title="#{bundle.ViewTransferenciaTitle_idresponsableantiguo}"/>
+                        <h:outputText value="#{bundle.ViewTransferenciaLabel_idresponsablenuevo}"/>
+                        <h:outputText value="#{transferenciaController.selected.idresponsablenuevo}" title="#{bundle.ViewTransferenciaTitle_idresponsablenuevo}"/>
+                        <h:outputText value="#{bundle.ViewTransferenciaLabel_idubicacionantigua}"/>
+                        <h:outputText value="#{transferenciaController.selected.idubicacionantigua}" title="#{bundle.ViewTransferenciaTitle_idubicacionantigua}"/>
+                        <h:outputText value="#{bundle.ViewTransferenciaLabel_idubicacionnueva}"/>
+                        <h:outputText value="#{transferenciaController.selected.idubicacionnueva}" title="#{bundle.ViewTransferenciaTitle_idubicacionnueva}"/>
+                        <h:outputText value="#{bundle.ViewTransferenciaLabel_idactivo}"/>
+                        <h:outputText value="#{transferenciaController.selected.idactivo}" title="#{bundle.ViewTransferenciaTitle_idactivo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TransferenciaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

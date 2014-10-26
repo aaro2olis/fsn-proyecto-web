@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="RolpersonaCreateDlg" widgetVar="RolpersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRolpersonaTitle}">
+            <h:form id="RolpersonaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{rolpersonaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateRolpersonaLabel_idrolpersona}" for="idrolpersona" />
+                        <p:inputText id="idrolpersona" value="#{rolpersonaController.selected.idrolpersona}" title="#{bundle.CreateRolpersonaTitle_idrolpersona}" required="true" requiredMessage="#{bundle.CreateRolpersonaRequiredMessage_idrolpersona}"/>
+                        <p:outputLabel value="#{bundle.CreateRolpersonaLabel_nmbrolpersona}" for="nmbrolpersona" />
+                        <p:inputText id="nmbrolpersona" value="#{rolpersonaController.selected.nmbrolpersona}" title="#{bundle.CreateRolpersonaTitle_nmbrolpersona}" />
+                        <p:outputLabel value="#{bundle.CreateRolpersonaLabel_dscrol}" for="dscrol" />
+                        <p:inputText id="dscrol" value="#{rolpersonaController.selected.dscrol}" title="#{bundle.CreateRolpersonaTitle_dscrol}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{rolpersonaController.create}" value="#{bundle.Save}" update="display,:RolpersonaListForm:datalist,:growl" oncomplete="handleSubmit(args,'RolpersonaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="RolpersonaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
