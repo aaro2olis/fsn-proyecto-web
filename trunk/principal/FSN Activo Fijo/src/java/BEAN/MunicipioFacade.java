@@ -6,9 +6,11 @@
 
 package BEAN;
 
+import Modelo.Mantenimiento;
 import Modelo.Municipio;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -17,13 +19,18 @@ import javax.persistence.EntityManager;
 @Stateless
 public class MunicipioFacade extends AbstractFacade<Municipio> {
 
-    public MunicipioFacade() {
-        super(Municipio.class);
-    }
+    
+ @PersistenceContext(unitName = "FSN_Activo_FijoPU")
+    private EntityManager em;
 
     @Override
     protected EntityManager getEntityManager() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em;
     }
+
+    public MunicipioFacade() {
+        super(Municipio.class);
+    }
+        
     
 }
