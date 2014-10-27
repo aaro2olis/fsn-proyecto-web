@@ -12,12 +12,10 @@
             <h:form id="RolCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rolController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateRolLabel_idrol}" for="idrol" />
-                        <p:inputText id="idrol" value="#{rolController.selected.idrol}" title="#{bundle.CreateRolTitle_idrol}" required="true" requiredMessage="#{bundle.CreateRolRequiredMessage_idrol}"/>
                         <p:outputLabel value="#{bundle.CreateRolLabel_nmbtipousuario}" for="nmbtipousuario" />
                         <p:inputText id="nmbtipousuario" value="#{rolController.selected.nmbtipousuario}" title="#{bundle.CreateRolTitle_nmbtipousuario}" required="true" requiredMessage="#{bundle.CreateRolRequiredMessage_nmbtipousuario}"/>
                         <p:outputLabel value="#{bundle.CreateRolLabel_dsctipousuario}" for="dsctipousuario" />
-                        <p:inputText id="dsctipousuario" value="#{rolController.selected.dsctipousuario}" title="#{bundle.CreateRolTitle_dsctipousuario}" />
+                        <p:inputTextarea id="dsctipousuario" value="#{rolController.selected.dsctipousuario}" title="#{bundle.CreateRolTitle_dsctipousuario}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{rolController.create}" value="#{bundle.Save}" update="display,:RolListForm:datalist,:growl" oncomplete="handleSubmit(args,'RolCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="RolCreateDialog.hide()"/>
