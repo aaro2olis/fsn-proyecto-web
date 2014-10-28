@@ -106,10 +106,15 @@ public class UnidadOrganizativa implements Serializable {
     public Character getEstadounidad() {
         return estadounidad;
     }
-
+    
+ 
     public void setEstadounidad(Character estadounidad) {
         this.estadounidad = estadounidad;
     }
+    //Creada para el caso por defecto inicial
+       public void setEstadounidad() {
+        this.estadounidad = 1;
+    } 
 
     @XmlTransient
     public Collection<Empleado> getEmpleadoCollection() {
@@ -159,7 +164,7 @@ public class UnidadOrganizativa implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.UnidadOrganizativa[ idunidad=" + idunidad + " ]";
+        return idunidad+".- "+nmbunidad;
     }
     
 }
