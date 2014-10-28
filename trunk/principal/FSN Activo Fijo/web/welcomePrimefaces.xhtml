@@ -7,6 +7,9 @@
 
     <f:view contentType="text/html">
         <h:head>
+            <h:outputStylesheet library="css" name="componentes.css"/>
+            <h:outputStylesheet library="css" name="default.css"/>
+            <h:outputStylesheet library="css" name="navstyle.css"/>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <title>PrimeFaces</title>
@@ -17,8 +20,15 @@
 
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
+                <p:layoutUnit position="north" size="200" resizable="true" closable="true" collapsible="true">
+                    <header>
+                       
+                        <div id="logo"></div>
+                        
+                        <h1>Control de Activos Fijos</h1>
+
+                        
+                    </header>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
@@ -39,7 +49,7 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    Welcome to PrimeFaces
+                    <iframe src="Paginas/Interfaces/usuario/List.xhtml" style="height:100%!important ; width:100%!important;" />
                 </p:layoutUnit>
 
             </p:layout>

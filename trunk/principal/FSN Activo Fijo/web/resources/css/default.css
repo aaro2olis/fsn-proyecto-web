@@ -1,0 +1,349 @@
+
+body { 
+     background-color:silver;
+     font-family:helvetica;
+}
+
+/************************************
+ESTRUCTURA
+************************************/
+
+#wrapper{
+    position:absolute; 
+    top:3%;
+    left:3%;
+    width:94%;
+    height:auto;
+    background-color:white;
+    margin:auto;
+}
+header{
+    position:relative;
+    /*texto*/
+	text-align:center;
+    padding:5px;
+	font-family:helvetica;
+	font-size:30px;
+	font-weight:bold;
+	color:darkblue /*#993300*/;
+	text-shadow: 2px 2px 4px #999;
+	/*background-color: #FFD700; /*rgba(255, 255, 255, 0.2);*/
+	box-shadow: 0px 0px 10px 10px rgba(255,255,255, 0.2);
+}
+ /*contiene el logo*/
+#logo{
+    display: block;
+    float: left;
+    margin: 0px 6px 0px;
+    width: 190px;
+    height: 200px;
+	z-index:8888;
+	/*fondo*/
+	-webkit-background-size: 100% 100%; /*safari y chrome*/
+	-moz-background-size: 100% 100%;/*mozilla*/
+	-o-background-size: 100% 100%;/* opera*/
+	background-image:url("../img/fsn_logo_sombra.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%; /*w3c*/
+ }
+ nav{ 
+    clear:left;
+    margin:auto;
+    margin: 1%
+}
+ /**************************
+ contiene todo el cuerpo 
+ **************************/
+article{ 
+    position:relative;
+    /*background-color:lightblue;*/
+    min-height:400px;
+    overflow: hidden;
+}
+
+#divname{
+    
+    color:yellow;
+    background-color:#0B0B3B;
+    font-size:22px;
+    text-align:center;
+    min-height:35px;
+    font-family:helvetica;
+    /*sombras del div*/
+	-webkit-box-shadow: 2px 2px 5px #999; /*safari*/
+	-moz-box-shadow: 2px 2px 5px #999; /*mozilla*/
+	box-shadow: 2px 2px 5px #999; /*todos los demas*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"; /* IE 8 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999'); 
+ }
+
+#divname hr{
+         alignment-adjust:central; 
+         line-height:10px;
+         background-color:yellow;
+         color:yellow;
+}
+
+/*menu izquierdo*/
+aside{ 
+	color:white /*#993300*/;
+	text-shadow: 2px 2px 4px #999;
+	/*posicion*/
+	float: left;
+	width: 19%;
+	min-height:240px;
+   /* padding: 1%;*/
+	border:  none;
+	margin: 25px 5px 5px 5px;
+	margin-right: 25px;
+	/* color */
+/*	background: orange;/*rgba(33,33,33,0.5);*/
+	
+}
+section, aside{
+    margin: 1%; /*  10px ÷ 538px = .018587361 */
+     background-color:#D8D8D8;
+    /*sombras del div*/
+	-webkit-box-shadow: 2px 2px 5px #999; /*safari*/
+	-moz-box-shadow: 2px 2px 5px #999; /*mozilla*/
+	box-shadow: 2px 2px 5px #999; /*todos los demas*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"; /* IE 8 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999'); /* IE 5.5 - 7 */  
+}
+section {
+  float: left;
+  width:75%; 
+ 
+  height:auto;   /* 340px ÷ 538px = .63197026 */
+  min-height:240px;   
+}
+#aux{
+float:right;
+     bottom:1px;
+     right:1px;
+     color:white;
+     background-color:#0489B1;
+     width:77%
+}
+footer{
+    position:relative;
+	height:150px; /*altura del footer*/
+	margin-top:5%;
+	background-color:#0B0B3B;
+    text-align:right;
+    overflow: hidden;
+}
+
+
+/********************************
+MEDIA QUERY RESPONSIVE
+********************************/
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+    #wrapper{
+            width:94%;
+       }
+    header{
+    background-color:white;
+        	font-size:50px;
+    }
+    #logo{
+      width: 200px;
+      height: 210px;
+      z-index:8888;
+   }
+}
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px){
+/* Styles */
+   #wrapper{
+          width:94%;
+   }
+     header{
+      
+    	font-size:40px;
+    }
+     /*contiene el logo*/
+    #logo{
+        width: 200px;
+        height: 210px;
+    	z-index:8888;
+     }
+}
+
+@media only screen and (max-width: 640px){
+     header{
+        background-color:white;
+    	font-size:20px;
+        min-height:200px;
+    }
+     /*contiene el logo*/
+    #logo{
+        width: 150px;
+        height: 160px;
+    	z-index:8888;
+   }
+    section, aside {
+        float: none;
+        width: auto;
+        min-height:200px;
+   }
+    nav{
+        width:auto;
+        float:none;
+   }
+    article{
+         width:auto;
+         float:none;
+   }
+    
+ }
+
+@media only screen and (max-width:480px){
+    header{
+        background-color:white;
+    	font-size:16px;
+        min-height:200px;
+    }
+     /*contiene el logo*/
+    #logo{
+        width: 110px;
+        height: 120px;
+    	z-index:8888;
+   }
+    section, aside {
+        float: none;
+        width: auto;
+        min-height:200px;
+   }
+    nav{
+        width:auto;
+        float:none;
+   }
+    article{
+         width:auto;
+         float:none;
+   }
+    
+ }
+
+
+
+
+
+
+/* iPads (portrait) ----------- */
+@media screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+   #wrapper{
+            width:94% 
+   }
+   
+   
+}
+
+@media screen and(max-width: 400px){
+section, aside{
+float:none;
+width:auto; 
+display:none;
+}
+
+ }
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+ section, aside {
+    float: none;
+    width: auto;
+  }
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	aside {
+		display: none;
+	}
+}
+/* iPads (portrait and landscape) ----------- */
+@media screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+   section, aside {
+    float: none;
+    width: auto;
+  }
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	aside {
+		display: none;
+	}
+}
+/* Smartphones (portrait) ----------- */
+@media screen 
+and (max-width : 320px) {
+/* Styles */
+ section, aside {
+    float: none;
+    width: auto;
+  }
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	aside {
+		display: none;
+	}
+}
+/* Smartphones (landscape) ----------- */
+@media screen 
+and (max-width : 321px) {
+/* Styles */
+ section, aside {
+    float: none;
+    width: auto;
+  }
+   
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+
+  section, aside {
+    float: none;
+    width: auto;
+  }
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	aside {
+		display: none;
+	}
+}
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}

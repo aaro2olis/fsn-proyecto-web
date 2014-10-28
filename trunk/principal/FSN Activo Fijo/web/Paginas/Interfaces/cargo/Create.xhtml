@@ -12,12 +12,10 @@
             <h:form id="CargoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{cargoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCargoLabel_idcargo}" for="idcargo" />
-                        <p:inputText id="idcargo" value="#{cargoController.selected.idcargo}" title="#{bundle.CreateCargoTitle_idcargo}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_idcargo}"/>
                         <p:outputLabel value="#{bundle.CreateCargoLabel_nmbcargo}" for="nmbcargo" />
                         <p:inputText id="nmbcargo" value="#{cargoController.selected.nmbcargo}" title="#{bundle.CreateCargoTitle_nmbcargo}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_nmbcargo}"/>
                         <p:outputLabel value="#{bundle.CreateCargoLabel_dsccargo}" for="dsccargo" />
-                        <p:inputText id="dsccargo" value="#{cargoController.selected.dsccargo}" title="#{bundle.CreateCargoTitle_dsccargo}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_dsccargo}"/>
+                        <p:inputTextarea id="dsccargo" value="#{cargoController.selected.dsccargo}" title="#{bundle.CreateCargoTitle_dsccargo}" required="true" requiredMessage="#{bundle.CreateCargoRequiredMessage_dsccargo}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{cargoController.create}" value="#{bundle.Save}" update="display,:CargoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CargoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CargoCreateDialog.hide()"/>

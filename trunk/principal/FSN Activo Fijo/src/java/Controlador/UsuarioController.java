@@ -1,10 +1,9 @@
 package Controlador;
 
-import Modelo.Usuario;
+import BEAN.UsuarioFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.UsuarioFacade;
-
+import Modelo.Usuario;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +11,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.Application;
+import javax.faces.application.FacesMessage;
+import javax.faces.application.ViewHandler;
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIViewRoot;
+import javax.faces.component.html.HtmlInputText;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.event.ActionEvent;
+import javax.inject.Named;
+import org.primefaces.context.RequestContext;
 
 @Named("usuarioController")
 @SessionScoped
@@ -27,6 +33,7 @@ public class UsuarioController implements Serializable {
     private BEAN.UsuarioFacade ejbFacade;
     private List<Usuario> items = null;
     private Usuario selected;
+    private String message;
 
     public UsuarioController() {
     }
@@ -57,9 +64,12 @@ public class UsuarioController implements Serializable {
 
     public void create() {
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
+        FacesContext context = FacesContext.getCurrentInstance();
+        
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
+        
     }
 
     public void update() {
@@ -161,5 +171,25 @@ public class UsuarioController implements Serializable {
         }
 
     }
+ public void reset() {
+        RequestContext.getCurrentInstance().reset("form:UsuarioCreateForm");
+    }
+ 
+public String getMessage() {
+        return message;
+    }
+ 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+     
+    public void saveMessage() {
+        FacesContext context = FacesContext.getCurrentInstance();
+         
+        context.addMessage(null, new FacesMessage("Successful",  "Your message: " + message) );
+        context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
+    }
+    
+   
 
 }

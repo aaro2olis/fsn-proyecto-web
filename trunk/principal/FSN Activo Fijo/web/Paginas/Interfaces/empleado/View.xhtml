@@ -33,9 +33,9 @@
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewEmpleadoLabel_idcargo}"/>
-                        <h:outputText value="#{empleadoController.selected.idcargo}" title="#{bundle.ViewEmpleadoTitle_idcargo}"/>
+                        <h:outputText value="#{empleadoController.selected.idcargo.nmbcargo}" title="#{bundle.ViewEmpleadoTitle_idcargo}"/>
                         <h:outputText value="#{bundle.ViewEmpleadoLabel_idunidad}"/>
-                        <h:outputText value="#{empleadoController.selected.idunidad}" title="#{bundle.ViewEmpleadoTitle_idunidad}"/>
+                        <h:outputText value="#{empleadoController.selected.idunidad.nmbunidad}" title="#{bundle.ViewEmpleadoTitle_idunidad}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="EmpleadoViewDialog.hide()"/>
                 </h:panelGroup>

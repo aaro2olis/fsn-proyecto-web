@@ -17,7 +17,7 @@
                         <p:outputLabel value="#{bundle.EditCargoLabel_nmbcargo}" for="nmbcargo" />
                         <p:inputText id="nmbcargo" value="#{cargoController.selected.nmbcargo}" title="#{bundle.EditCargoTitle_nmbcargo}" required="true" requiredMessage="#{bundle.EditCargoRequiredMessage_nmbcargo}"/>
                         <p:outputLabel value="#{bundle.EditCargoLabel_dsccargo}" for="dsccargo" />
-                        <p:inputText id="dsccargo" value="#{cargoController.selected.dsccargo}" title="#{bundle.EditCargoTitle_dsccargo}" required="true" requiredMessage="#{bundle.EditCargoRequiredMessage_dsccargo}"/>
+                        <p:inputTextarea id="dsccargo" value="#{cargoController.selected.dsccargo}" title="#{bundle.EditCargoTitle_dsccargo}" required="true" requiredMessage="#{bundle.EditCargoRequiredMessage_dsccargo}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{cargoController.update}" value="#{bundle.Save}" update="display,:CargoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CargoEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CargoEditDialog.hide()"/>
