@@ -18,14 +18,17 @@
                         <p:inputText id="nmbunidad" value="#{unidadOrganizativaController.selected.nmbunidad}" title="#{bundle.CreateUnidadOrganizativaTitle_nmbunidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_nmbunidad}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_dscunidad}" for="dscunidad" />
                         <p:inputText id="dscunidad" value="#{unidadOrganizativaController.selected.dscunidad}" title="#{bundle.CreateUnidadOrganizativaTitle_dscunidad}" />
-                        <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_estadounidad}" for="estadounidad" />
-                        <p:inputText id="estadounidad" value="#{unidadOrganizativaController.selected.estadounidad}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_uniIdunidad}" for="uniIdunidad" />
                         <p:selectOneMenu id="uniIdunidad" value="#{unidadOrganizativaController.selected.uniIdunidad}" >
                             <f:selectItems value="#{unidadOrganizativaController.itemsAvailableSelectOne}"
                                            var="uniIdunidadItem"
                                            itemValue="#{uniIdunidadItem}"/>
                         </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_estadounidad}" for="estadounidad" />
+                        <p:inputText id="estadounidad" value="#{unidadOrganizativaController.selected.estadounidad}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}"/>
+                        <!--<p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_estadounidad}" for="estadounidad" />
+                         <p:inputText id="estadounidad" value="1" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}"/>-->
+                       
                     </p:panelGrid>
                     <p:commandButton actionListener="#{unidadOrganizativaController.create}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args,'UnidadOrganizativaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UnidadOrganizativaCreateDialog.hide()"/>
