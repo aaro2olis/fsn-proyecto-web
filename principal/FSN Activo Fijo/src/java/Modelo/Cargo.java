@@ -124,7 +124,7 @@ public class Cargo implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Cargo[ idcargo=" + idcargo + " ]";
+        return nmbcargo;
     }
     
 }

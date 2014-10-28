@@ -57,12 +57,7 @@
                             </f:facet>
                             <h:outputText value="#{item.correo}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmpleadoTitle_estadoempleado}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estadoempleado}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmpleadoTitle_fechaini}"/>
@@ -83,7 +78,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmpleadoTitle_idcargo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idcargo}"/>
+                            <h:outputText value="#{item.idcargo.nmbcargo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

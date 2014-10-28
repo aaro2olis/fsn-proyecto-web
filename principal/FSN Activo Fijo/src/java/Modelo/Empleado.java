@@ -26,6 +26,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.primefaces.context.RequestContext;
 
 /**
  *
@@ -269,5 +270,5 @@ public class Empleado implements Serializable {
     public String toString() {
         return nombres+" "+apepaterno +" "+apematerno;
     }
-    
+   
 }

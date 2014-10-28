@@ -64,7 +64,9 @@
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{usuarioController.destroy}" update=":growl,datalist" disabled="#{empty usuarioController.selected}"/>
                         </f:facet>
                     </p:dataTable>
+                    
                 </p:panel>
+                <h:commandLink actionListener="#{usuarioController.prepareCreate}" action="Create_1.xhtml" target="_blank">link</h:commandLink>
             </h:form>
 
             <ui:include src="Create.xhtml"/>

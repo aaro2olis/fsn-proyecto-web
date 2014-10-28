@@ -6,10 +6,27 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition>
+    <h:head>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <script type="text/javascript">
+            function resetter() {
+                document.getElementById("idempleado").innerHTML:"Selecciona";
+            }
+            function limpiarForm()
+            {
+                document.getElementById("UsuarioCreateForm").reset();
+            }
+        </script>
 
-        <p:dialog id="UsuarioCreateDlg" widgetVar="UsuarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUsuarioTitle}">
+    </h:head> 
+    <h:body>
+
+
+        <center>
             <h:form id="UsuarioCreateForm">
+                <p:growl id="growl" showDetail="true" sticky="true" />
+                <p:fieldset id="availableCarsField" legend="Nuevo Usuario">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_idusuario}" for="idusuario" />
@@ -20,7 +37,7 @@
                         <p:inputText id="estadousuario" value="#{usuarioController.selected.estadousuario}" title="#{bundle.CreateUsuarioTitle_estadousuario}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_estadousuario}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_idempleado}" for="idempleado" />
                         <p:selectOneMenu id="idempleado" value="#{usuarioController.selected.idempleado}" >
-                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
                                            var="idempleadoItem"
                                            itemValue="#{idempleadoItem}"/>
@@ -33,11 +50,14 @@
                                            itemValue="#{idrolItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{usuarioController.create}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioCreateDialog.hide()"/>
-                </h:panelGroup>
-            </h:form>
-        </p:dialog>
+                    <p:commandButton   actionListener="#{usuarioController.create}" value="#{bundle.Save}"/>
+                    <p:commandButton value="Limpiar Campos" update=":UsuarioCreateForm" immediate="true">
+                        <p:resetInput target=":UsuarioCreateForm" />
+                    </p:commandButton>
 
-    </ui:composition>
+                </h:panelGroup>
+                    </p:fieldset>
+            </h:form>
+        </center>      
+    </h:body>
 </html>
