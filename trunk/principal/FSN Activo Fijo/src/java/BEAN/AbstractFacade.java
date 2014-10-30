@@ -48,13 +48,13 @@ public abstract class AbstractFacade<T> {
     }
     
     
-public List<T> findAllbyone() {
+public List<T> findAllbyone(String estado) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
         Root<T> c = cq.from(entityClass);
         cq.select(c);
         
-        cq.where(cb.equal((c.get("estadousuario")),"1"));
+        cq.where(cb.equal((c.get(estado)),"1"));
         return getEntityManager().createQuery(cq).getResultList();
     }
 
