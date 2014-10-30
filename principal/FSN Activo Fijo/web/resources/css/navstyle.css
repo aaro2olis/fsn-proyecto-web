@@ -13,6 +13,7 @@ and (min-width:700px){
          
         }
         
+        
         #cssmenu ul {
           background-color:darkblue;
           height: 35px;
@@ -41,7 +42,7 @@ and (min-width:700px){
         }
         
         #cssmenu li a {
-          background: rgba(33,33,33,0) url('../images/images-menu/seperator.png') bottom right no-repeat;
+          background: rgba(33,33,33,0) url('../img/images-menu/seperator.png') bottom right no-repeat;
           display: block;
           font-weight: normal;
           line-height: 35px;
@@ -65,7 +66,7 @@ and (min-width:700px){
         }
         #cssmenu li > a:hover,
         #cssmenu ul li:hover > a {
-          background: #0781ad url("../images/images-menu/hover.png") bottom center no-repeat;
+          background: #0781ad url("../img/images-menu/hover.png") bottom center no-repeat;
           color: #FFFFFF;
           text-decoration: none;
         }
@@ -87,7 +88,7 @@ and (min-width:700px){
           display: block;
         }
         #cssmenu li li {
-          background: url("../images/images-menu/sub_sep.png") bottom left no-repeat;
+          background: url("../img/images-menu/sub_sep.png") bottom left no-repeat;
           display: block;
           float: none;
           margin: 0px;
@@ -108,7 +109,7 @@ and (min-width:700px){
         }
         #cssmenu li ul a:hover,
         #cssmenu li ul li:hover > a {
-          background: #0489B1 url("../images/images-menu/hover_sub.png") center left no-repeat;
+          background: #0489B1 url("../img/images-menu/hover_sub.png") center left no-repeat;
           border: 0px;
           color: #ffffff;
           text-decoration: none;
@@ -118,7 +119,7 @@ and (min-width:700px){
         }
         
         #cssmenu li a.icon-home {
-            background: url("../images/images-menu/home32.png") no-repeat;
+            background: url("../img/images-menu/home32.png") no-repeat;
             border: none;
             display: block;
             width: 128px;
