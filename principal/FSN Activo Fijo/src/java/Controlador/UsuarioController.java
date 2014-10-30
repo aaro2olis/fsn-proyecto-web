@@ -5,10 +5,14 @@ import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
 import Modelo.Usuario;
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.ResourceBundle;
+import static java.util.concurrent.ThreadLocalRandom.current;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
@@ -33,8 +37,11 @@ public class UsuarioController implements Serializable {
     private BEAN.UsuarioFacade ejbFacade;
     private List<Usuario> items = null;
     private Usuario selected;
+    private Usuario current;
     private String message;
-
+    private String idusuario;
+    private String password;
+  
     public UsuarioController() {
     }
 
@@ -45,6 +52,23 @@ public class UsuarioController implements Serializable {
     public void setSelected(Usuario selected) {
         this.selected = selected;
     }
+
+    public String getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(String idusuario) {
+        this.idusuario = idusuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     protected void setEmbeddableKeys() {
     }
@@ -119,7 +143,7 @@ public class UsuarioController implements Serializable {
         }
     }
 
-    public Usuario getUsuario(java.lang.String id) {
+    public Usuario getUsuario(java.lang.String id) { System.out.println("usuario"+getFacade().find(id));
         return getFacade().find(id);
     }
 
@@ -192,4 +216,23 @@ public String getMessage() {
     
    
 
+ 
+ public String validateLogin() {
+        System.out.println("llego"+this.idusuario);
+        Boolean existeUser = ejbFacade.buscaUsuario(idusuario,password);
+        if(existeUser.equals(true)){
+            return "home";
+        }
+        else{
+             FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                    "Invalid Login!",
+                    "Please Try Again!"));
+            return "login";
+        }
+      
+    }
+ 
+ 
 }
