@@ -8,6 +8,9 @@ package BEAN;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -41,6 +44,17 @@ public abstract class AbstractFacade<T> {
     public List<T> findAll() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
+        return getEntityManager().createQuery(cq).getResultList();
+    }
+    
+    
+public List<T> findAllbyone() {
+        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery();
+        Root<T> c = cq.from(entityClass);
+        cq.select(c);
+        
+        cq.where(cb.equal((c.get("estadousuario")),"1"));
         return getEntityManager().createQuery(cq).getResultList();
     }
 
