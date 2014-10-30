@@ -35,8 +35,8 @@ header{
     display: block;
     float: left;
     margin: 0px 6px 0px;
-    width: 190px;
-    height: 200px;
+    width: 170px;
+    height: 180px;
 	z-index:8888;
 	/*fondo*/
 	-webkit-background-size: 100% 100%; /*safari y chrome*/
@@ -54,7 +54,7 @@ header{
  /**************************
  contiene todo el cuerpo 
  **************************/
-article{ 
+section{ 
     position:relative;
     /*background-color:lightblue;*/
     min-height:400px;
@@ -70,24 +70,24 @@ article{
     min-height:35px;
     font-family:helvetica;
     /*sombras del div*/
-	-webkit-box-shadow: 2px 2px 5px #999; /*safari*/
-	-moz-box-shadow: 2px 2px 5px #999; /*mozilla*/
-	box-shadow: 2px 2px 5px #999; /*todos los demas*/
+    -webkit-box-shadow: 2px 2px 5px #999; /*safari*/
+    -moz-box-shadow: 2px 2px 5px #999; /*mozilla*/
+    box-shadow: 2px 2px 5px #999; /*todos los demas*/
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"; /* IE 8 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999'); 
  }
 
 #divname hr{
-         alignment-adjust:central; 
-         line-height:10px;
-         background-color:yellow;
-         color:yellow;
+    alignment-adjust:central; 
+    line-height:10px;
+    background-color:yellow;
+    color:yellow;
 }
 
 /*menu izquierdo*/
 aside{ 
 	color:white /*#993300*/;
-	text-shadow: 2px 2px 4px #999;
+	
 	/*posicion*/
 	float: left;
 	width: 19%;
@@ -100,7 +100,7 @@ aside{
 /*	background: orange;/*rgba(33,33,33,0.5);*/
 	
 }
-section, aside{
+article, aside{
     margin: 1%; /*  10px ÷ 538px = .018587361 */
      background-color:#D8D8D8;
     /*sombras del div*/
@@ -110,11 +110,10 @@ section, aside{
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"; /* IE 8 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999'); /* IE 5.5 - 7 */  
 }
-section {
+article {
   float: left;
   width:75%; 
- 
-  height:auto;   /* 340px ÷ 538px = .63197026 */
+  height:auto!important;   /* 340px ÷ 538px = .63197026 */
   min-height:240px;   
 }
 #aux{
@@ -146,12 +145,12 @@ and (min-width : 1824px) {
             width:94%;
        }
     header{
-    background-color:white;
+    background-color:green;
         	font-size:50px;
     }
     #logo{
-      width: 200px;
-      height: 210px;
+      width: 190px;
+      height: 200px;
       z-index:8888;
    }
 }
@@ -168,8 +167,8 @@ and (min-width : 1224px){
     }
      /*contiene el logo*/
     #logo{
-        width: 200px;
-        height: 210px;
+        width: 180px;
+        height: 190px;
     	z-index:8888;
      }
 }
@@ -231,10 +230,6 @@ and (min-width : 1224px){
  }
 
 
-
-
-
-
 /* iPads (portrait) ----------- */
 @media screen
 and (min-device-width : 768px)
@@ -244,8 +239,6 @@ and (orientation : portrait) {
    #wrapper{
             width:94% 
    }
-   
-   
 }
 
 @media screen and(max-width: 400px){
