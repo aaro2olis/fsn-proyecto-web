@@ -12,8 +12,6 @@
             <h:form id="UnidadOrganizativaCreateForm">
                 <h:panelGroup id="display" style="border: none!important;">
                     <p:panelGrid columns="2" rendered="#{unidadOrganizativaController.selected != null}" style="border: none!important;" >
-                        <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_idunidad}" for="idunidad" />
-                        <p:inputText id="idunidad" value="#{unidadOrganizativaController.selected.idunidad}" title="#{bundle.CreateUnidadOrganizativaTitle_idunidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_idunidad}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_nmbunidad}" for="nmbunidad" />
                         <p:inputText id="nmbunidad" value="#{unidadOrganizativaController.selected.nmbunidad}" title="#{bundle.CreateUnidadOrganizativaTitle_nmbunidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_nmbunidad}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_dscunidad}" for="dscunidad" />
@@ -24,15 +22,8 @@
                                            var="uniIdunidadItem"
                                            itemValue="#{uniIdunidadItem}"/>
                         </p:selectOneMenu>
-                        <!--<p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_estadounidad}" for="estadounidad" />-->
-                        <p:inputText style="visibility: hidden;" disabled="true" id="estadounidad" value="#{unidadOrganizativaController.selected.setEstadounidad()}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="false" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}" />
-                        <!--<f:attribute type="character"/>-->
-
-                        <!--<p:inputText id="estadounidad" value="#{unidadOrganizativaController.selected.estadounidad}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}"/>-->
-
-                        <!--<p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_estadounidad}" for="estadounidad" />-->
-                       
-                    </p:panelGrid>
+                        <p:inputText type="hidden" disabled="true" id="estadounidad" value="#{unidadOrganizativaController.selected.setEstadounidad()}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="false" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}" />
+                     </p:panelGrid>
                     <p:commandButton actionListener="#{unidadOrganizativaController.create}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args,'UnidadOrganizativaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UnidadOrganizativaCreateDialog.hide()"/>
                 </h:panelGroup>
