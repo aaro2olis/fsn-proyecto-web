@@ -73,10 +73,25 @@ public class UnidadOrganizativaController implements Serializable {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
-
+    //Creada por el mensaje de eliminado
+    public void borrada() {
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaDeleted"));
+        if (!JsfUtil.isValidationFailed()) {
+            selected = null; // Remove selection
+            items = null;    // Invalidate list of items to trigger re-query.
+        }
+    }
+        public void actualizada() {
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaUpdated"));
+        if (!JsfUtil.isValidationFailed()) {
+            selected = null; // Remove selection
+            items = null;    // Invalidate list of items to trigger re-query.
+        }
+    }
+    
     public List<UnidadOrganizativa> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().findAllbyone("estadounidad");
         }
         return items;
     }
@@ -110,6 +125,7 @@ public class UnidadOrganizativaController implements Serializable {
     }
 
     public UnidadOrganizativa getUnidadOrganizativa(java.lang.Integer id) {
+        
         return getFacade().find(id);
     }
 
@@ -118,7 +134,8 @@ public class UnidadOrganizativaController implements Serializable {
     }
 
     public List<UnidadOrganizativa> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        //Se modifico findAll() findAllbyone("estadounidad")
+        return getFacade().findAllbyone("estadounidad");
     }
 
     @FacesConverter(forClass = UnidadOrganizativa.class)

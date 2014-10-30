@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Modelo;
 
 import java.io.Serializable;
@@ -40,6 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "UnidadOrganizativa.findByDscunidad", query = "SELECT u FROM UnidadOrganizativa u WHERE u.dscunidad = :dscunidad"),
     @NamedQuery(name = "UnidadOrganizativa.findByEstadounidad", query = "SELECT u FROM UnidadOrganizativa u WHERE u.estadounidad = :estadounidad")})
 public class UnidadOrganizativa implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,7 +67,7 @@ public class UnidadOrganizativa implements Serializable {
     private UnidadOrganizativa uniIdunidad;
 
     public UnidadOrganizativa() {
-  
+
     }
 
     public UnidadOrganizativa(Integer idunidad) {
@@ -107,13 +107,21 @@ public class UnidadOrganizativa implements Serializable {
     public Character getEstadounidad() {
         return estadounidad;
     }
-    
- 
+
     public void setEstadounidad(Character estadounidad) {
         this.estadounidad = estadounidad;
     }
- public void setEstadounidad() {
+
+    public void setEstadounidad() {
         this.estadounidad = '1';
+    }
+
+    public void setEstadounidad(Integer eliminar) {
+        if (eliminar == 0) {
+            this.estadounidad = '0';
+        } else {
+            this.estadounidad = '1';
+        }
     }
 
     @XmlTransient
@@ -164,7 +172,7 @@ public class UnidadOrganizativa implements Serializable {
 
     @Override
     public String toString() {
-        return idunidad+".- "+nmbunidad;
+        return idunidad + ".- " + nmbunidad;
     }
-    
+
 }

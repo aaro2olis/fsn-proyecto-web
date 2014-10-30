@@ -24,8 +24,8 @@
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
 
-                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton "/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton "/>
 
                         <p:column>
                             <f:facet name="header">
@@ -34,7 +34,7 @@
                             <h:outputText value="#{item.idunidad}"/>
                         </p:column>
                         <p:column>
-                            <f:facet name="header">
+                            <f:facet name="header">-
                                 <h:outputText value="#{bundle.ListUnidadOrganizativaTitle_nmbunidad}"/>
                             </f:facet>
                             <h:outputText value="#{item.nmbunidad}"/>
@@ -45,23 +45,20 @@
                             </f:facet>
                             <h:outputText value="#{item.dscunidad}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUnidadOrganizativaTitle_estadounidad}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estadounidad}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUnidadOrganizativaTitle_uniIdunidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.uniIdunidad}"/>
+                            <h:outputText value="#{item.uniIdunidad.nmbunidad}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{unidadOrganizativaController.prepareCreate}" update=":UnidadOrganizativaCreateForm" oncomplete="PF('UnidadOrganizativaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":UnidadOrganizativaViewForm" oncomplete="PF('UnidadOrganizativaViewDialog').show()" disabled="#{empty unidadOrganizativaController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":UnidadOrganizativaEditForm" oncomplete="PF('UnidadOrganizativaEditDialog').show()" disabled="#{empty unidadOrganizativaController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{unidadOrganizativaController.destroy}" update=":growl,datalist" disabled="#{empty unidadOrganizativaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Borrar}" update=":UnidadOrganizativaBorrarForm" oncomplete="PF('UnidadOrganizativaBorrarDialog').show()" disabled="#{empty unidadOrganizativaController.selected}"/>
+                            <!--<p:commandButton id="borrarButton"  icon="ui-icon-trash" value="#{bundle.Borrar}" update=":UnidadOrganizativaBorrarForm" oncomplete="PF('UnidadOrganizativaBorrarDialog').show()" disabled="#{empty unidadOrganizativaController.selected}"/>-->
+
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
@@ -70,6 +67,7 @@
             <ui:include src="Create.xhtml"/>
             <ui:include src="Edit.xhtml"/>
             <ui:include src="View.xhtml"/>
+            <ui:include src="Eliminar.xhtml"/>
         </ui:define>
     </ui:composition>
 

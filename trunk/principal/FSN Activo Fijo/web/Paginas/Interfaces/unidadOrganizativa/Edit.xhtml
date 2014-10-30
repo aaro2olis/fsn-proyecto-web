@@ -18,8 +18,6 @@
                         <p:inputText id="nmbunidad" value="#{unidadOrganizativaController.selected.nmbunidad}" title="#{bundle.EditUnidadOrganizativaTitle_nmbunidad}" required="true" requiredMessage="#{bundle.EditUnidadOrganizativaRequiredMessage_nmbunidad}"/>
                         <p:outputLabel value="#{bundle.EditUnidadOrganizativaLabel_dscunidad}" for="dscunidad" />
                         <p:inputText id="dscunidad" value="#{unidadOrganizativaController.selected.dscunidad}" title="#{bundle.EditUnidadOrganizativaTitle_dscunidad}" />
-                        <p:outputLabel value="#{bundle.EditUnidadOrganizativaLabel_estadounidad}" for="estadounidad" />
-                        <p:inputText id="estadounidad" value="#{unidadOrganizativaController.selected.estadounidad}" title="#{bundle.EditUnidadOrganizativaTitle_estadounidad}" required="true" requiredMessage="#{bundle.EditUnidadOrganizativaRequiredMessage_estadounidad}"/>
                         <p:outputLabel value="#{bundle.EditUnidadOrganizativaLabel_uniIdunidad}" for="uniIdunidad" />
                         <p:selectOneMenu id="uniIdunidad" value="#{unidadOrganizativaController.selected.uniIdunidad}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
@@ -28,7 +26,8 @@
                                            itemValue="#{uniIdunidadItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{unidadOrganizativaController.update}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UnidadOrganizativaEditDialog');"/>
+                    <!-- Se modifica unidadOrganizativaController.update por unidadOrganizativaController.create para actualizar la tabla -->
+                    <p:commandButton actionListener="#{unidadOrganizativaController.actualizada}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UnidadOrganizativaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UnidadOrganizativaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
