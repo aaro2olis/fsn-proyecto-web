@@ -8,15 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="TipoactivoCreateDlg" widgetVar="TipoactivoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTipoactivoTitle}">
+        <p:dialog id="TipoactivoCreateDlg" widgetVar="TipoactivoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Ingresar Tipo de Activo">
             <h:form id="TipoactivoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoactivoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTipoactivoLabel_idtipoactivo}" for="idtipoactivo" />
-                        <p:inputText id="idtipoactivo" value="#{tipoactivoController.selected.idtipoactivo}" title="#{bundle.CreateTipoactivoTitle_idtipoactivo}" required="true" requiredMessage="#{bundle.CreateTipoactivoRequiredMessage_idtipoactivo}"/>
-                        <p:outputLabel value="#{bundle.CreateTipoactivoLabel_nmbactivo}" for="nmbactivo" />
+                        <p:outputLabel value="Nombre" for="nmbactivo" />
                         <p:inputText id="nmbactivo" value="#{tipoactivoController.selected.nmbactivo}" title="#{bundle.CreateTipoactivoTitle_nmbactivo}" />
-                        <p:outputLabel value="#{bundle.CreateTipoactivoLabel_vidautil}" for="vidautil" />
+                        <p:outputLabel value="Vida Util" for="vidautil" />
                         <p:inputText id="vidautil" value="#{tipoactivoController.selected.vidautil}" title="#{bundle.CreateTipoactivoTitle_vidautil}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoactivoController.create}" value="#{bundle.Save}" update="display,:TipoactivoListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipoactivoCreateDialog');"/>

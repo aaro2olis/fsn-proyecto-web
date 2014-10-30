@@ -356,7 +356,7 @@ public class Activo implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Activo[ idactivo=" + idactivo + " ]";
+        return  idactivo ;
     }
     
 }

@@ -8,15 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="DepartamentoCreateDlg" widgetVar="DepartamentoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDepartamentoTitle}">
+        <p:dialog id="DepartamentoCreateDlg" widgetVar="DepartamentoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Ingresar nuevo Departamento">
             <h:form id="DepartamentoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{departamentoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateDepartamentoLabel_iddpto}" for="iddpto" />
-                        <p:inputText id="iddpto" value="#{departamentoController.selected.iddpto}" title="#{bundle.CreateDepartamentoTitle_iddpto}" required="true" requiredMessage="#{bundle.CreateDepartamentoRequiredMessage_iddpto}"/>
-                        <p:outputLabel value="#{bundle.CreateDepartamentoLabel_nmbdpto}" for="nmbdpto" />
+                        <p:outputLabel value="Departamento" for="nmbdpto" />
                         <p:inputText id="nmbdpto" value="#{departamentoController.selected.nmbdpto}" title="#{bundle.CreateDepartamentoTitle_nmbdpto}" required="true" requiredMessage="#{bundle.CreateDepartamentoRequiredMessage_nmbdpto}"/>
-                        <p:outputLabel value="#{bundle.CreateDepartamentoLabel_obsdpto}" for="obsdpto" />
+                        <p:outputLabel value="Observacion" for="obsdpto" />
                         <p:inputText id="obsdpto" value="#{departamentoController.selected.obsdpto}" title="#{bundle.CreateDepartamentoTitle_obsdpto}" required="true" requiredMessage="#{bundle.CreateDepartamentoRequiredMessage_obsdpto}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{departamentoController.create}" value="#{bundle.Save}" update="display,:DepartamentoListForm:datalist,:growl" oncomplete="handleSubmit(args,'DepartamentoCreateDialog');"/>

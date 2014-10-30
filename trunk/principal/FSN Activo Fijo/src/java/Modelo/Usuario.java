@@ -8,6 +8,8 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -93,13 +95,8 @@ public class Usuario implements Serializable {
     }
 
     public void setPassword(String password) {
-
-       
-        this.password = password;
-
-        
-        
-
+     this.password = password;
+  
     }
 
     public Character getEstadousuario() {

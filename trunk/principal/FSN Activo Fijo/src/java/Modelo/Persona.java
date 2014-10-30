@@ -252,7 +252,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Persona[ idpersona=" + idpersona + " ]";
+        return nombrerazon;
     }
     
 }

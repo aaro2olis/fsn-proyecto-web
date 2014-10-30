@@ -8,15 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="TipoestadoCreateDlg" widgetVar="TipoestadoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTipoestadoTitle}">
+        <p:dialog id="TipoestadoCreateDlg" widgetVar="TipoestadoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Ingresar Tipo de Estado">
             <h:form id="TipoestadoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoestadoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTipoestadoLabel_idtipoestado}" for="idtipoestado" />
-                        <p:inputText id="idtipoestado" value="#{tipoestadoController.selected.idtipoestado}" title="#{bundle.CreateTipoestadoTitle_idtipoestado}" required="true" requiredMessage="#{bundle.CreateTipoestadoRequiredMessage_idtipoestado}"/>
-                        <p:outputLabel value="#{bundle.CreateTipoestadoLabel_nmbtipoestado}" for="nmbtipoestado" />
-                        <p:inputText id="nmbtipoestado" value="#{tipoestadoController.selected.nmbtipoestado}" title="#{bundle.CreateTipoestadoTitle_nmbtipoestado}" required="true" requiredMessage="#{bundle.CreateTipoestadoRequiredMessage_nmbtipoestado}"/>
-                        <p:outputLabel value="#{bundle.CreateTipoestadoLabel_dsctipoestado}" for="dsctipoestado" />
+                        <p:outputLabel value="Nombre" for="nmbtipoestado" />
+                        <p:inputText id="nmbtipoestado" value="Nombre" title="#{bundle.CreateTipoestadoTitle_nmbtipoestado}" required="true" requiredMessage="#{bundle.CreateTipoestadoRequiredMessage_nmbtipoestado}"/>
+                        <p:outputLabel value="Descripcion" for="dsctipoestado" />
                         <p:inputText id="dsctipoestado" value="#{tipoestadoController.selected.dsctipoestado}" title="#{bundle.CreateTipoestadoTitle_dsctipoestado}" required="true" requiredMessage="#{bundle.CreateTipoestadoRequiredMessage_dsctipoestado}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipoestadoController.create}" value="#{bundle.Save}" update="display,:TipoestadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipoestadoCreateDialog');"/>
