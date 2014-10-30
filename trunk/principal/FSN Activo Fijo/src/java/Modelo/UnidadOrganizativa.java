@@ -67,6 +67,7 @@ public class UnidadOrganizativa implements Serializable {
     private UnidadOrganizativa uniIdunidad;
 
     public UnidadOrganizativa() {
+  
     }
 
     public UnidadOrganizativa(Integer idunidad) {
@@ -111,10 +112,9 @@ public class UnidadOrganizativa implements Serializable {
     public void setEstadounidad(Character estadounidad) {
         this.estadounidad = estadounidad;
     }
-    //Creada para el caso por defecto inicial
-       public void setEstadounidad() {
-        this.estadounidad = 1;
-    } 
+ public void setEstadounidad() {
+        this.estadounidad = '1';
+    }
 
     @XmlTransient
     public Collection<Empleado> getEmpleadoCollection() {
