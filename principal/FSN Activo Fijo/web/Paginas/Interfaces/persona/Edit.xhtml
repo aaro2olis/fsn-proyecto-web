@@ -8,13 +8,11 @@
 
     <ui:composition>
 
-        <p:dialog id="PersonaEditDlg" widgetVar="PersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPersonaTitle}">
+        <p:dialog id="PersonaEditDlg" widgetVar="PersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Editar Persona">
             <h:form id="PersonaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditPersonaLabel_idpersona}" for="idpersona" />
-                        <p:inputText id="idpersona" value="#{personaController.selected.idpersona}" title="#{bundle.EditPersonaTitle_idpersona}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_idpersona}"/>
-                        <p:outputLabel value="#{bundle.EditPersonaLabel_nombrerazon}" for="nombrerazon" />
+                        <p:outputLabel value="Nombre razón" for="nombrerazon" />
                         <p:inputText id="nombrerazon" value="#{personaController.selected.nombrerazon}" title="#{bundle.EditPersonaTitle_nombrerazon}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_nombrerazon}"/>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_direccion}" for="direccion" />
                         <p:inputText id="direccion" value="#{personaController.selected.direccion}" title="#{bundle.EditPersonaTitle_direccion}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_direccion}"/>
@@ -26,21 +24,21 @@
                         <p:inputText id="nit" value="#{personaController.selected.nit}" title="#{bundle.EditPersonaTitle_nit}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_nit}"/>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_dui}" for="dui" />
                         <p:inputText id="dui" value="#{personaController.selected.dui}" title="#{bundle.EditPersonaTitle_dui}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_dui}"/>
-                        <p:outputLabel value="#{bundle.EditPersonaLabel_perIdpersona}" for="perIdpersona" />
+                        <p:outputLabel value="Jefe inmediato" for="perIdpersona" />
                         <p:selectOneMenu id="perIdpersona" value="#{personaController.selected.perIdpersona}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="perIdpersonaItem"
                                            itemValue="#{perIdpersonaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditPersonaLabel_idrolpersona}" for="idrolpersona" />
+                        <p:outputLabel value="Rol de persona" for="idrolpersona" />
                         <p:selectOneMenu id="idrolpersona" value="#{personaController.selected.idrolpersona}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{rolpersonaController.itemsAvailableSelectOne}"
                                            var="idrolpersonaItem"
                                            itemValue="#{idrolpersonaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditPersonaLabel_idtipopersona}" for="idtipopersona" />
+                        <p:outputLabel value="Tipo de persona" for="idtipopersona" />
                         <p:selectOneMenu id="idtipopersona" value="#{personaController.selected.idtipopersona}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_idtipopersona}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{tipopersonaController.itemsAvailableSelectOne}"

@@ -8,13 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="PersonaViewDlg" widgetVar="PersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPersonaTitle}">
+        <p:dialog id="PersonaViewDlg" widgetVar="PersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Registro">
             <h:form id="PersonaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
                         <h:outputText value="#{bundle.ViewPersonaLabel_idpersona}"/>
                         <h:outputText value="#{personaController.selected.idpersona}" title="#{bundle.ViewPersonaTitle_idpersona}"/>
-                        <h:outputText value="#{bundle.ViewPersonaLabel_nombrerazon}"/>
+                        <h:outputText value="Nombre razón"/>
                         <h:outputText value="#{personaController.selected.nombrerazon}" title="#{bundle.ViewPersonaTitle_nombrerazon}"/>
                         <h:outputText value="#{bundle.ViewPersonaLabel_direccion}"/>
                         <h:outputText value="#{personaController.selected.direccion}" title="#{bundle.ViewPersonaTitle_direccion}"/>
@@ -26,12 +26,12 @@
                         <h:outputText value="#{personaController.selected.nit}" title="#{bundle.ViewPersonaTitle_nit}"/>
                         <h:outputText value="#{bundle.ViewPersonaLabel_dui}"/>
                         <h:outputText value="#{personaController.selected.dui}" title="#{bundle.ViewPersonaTitle_dui}"/>
-                        <h:outputText value="#{bundle.ViewPersonaLabel_perIdpersona}"/>
-                        <h:outputText value="#{personaController.selected.perIdpersona}" title="#{bundle.ViewPersonaTitle_perIdpersona}"/>
-                        <h:outputText value="#{bundle.ViewPersonaLabel_idrolpersona}"/>
-                        <h:outputText value="#{personaController.selected.idrolpersona}" title="#{bundle.ViewPersonaTitle_idrolpersona}"/>
-                        <h:outputText value="#{bundle.ViewPersonaLabel_idtipopersona}"/>
-                        <h:outputText value="#{personaController.selected.idtipopersona}" title="#{bundle.ViewPersonaTitle_idtipopersona}"/>
+                        <h:outputText value="Jefe Inmediato"/>
+                        <h:outputText value="#{personaController.selected.perIdpersona.nombrerazon}" title="#{bundle.ViewPersonaTitle_perIdpersona}"/>
+                        <h:outputText value="Id rol persona"/>
+                        <h:outputText value="#{personaController.selected.idrolpersona.nmbrolpersona}" title="#{bundle.ViewPersonaTitle_idrolpersona}"/>
+                        <h:outputText value="Id tipo persona"/>
+                        <h:outputText value="#{personaController.selected.idtipopersona.nmbtipopersona}" title="#{bundle.ViewPersonaTitle_idtipopersona}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PersonaViewDialog.hide()"/>
                 </h:panelGroup>

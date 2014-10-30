@@ -29,13 +29,13 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPersonaTitle_idpersona}"/>
+                                <h:outputText value="Id Persona"/>
                             </f:facet>
                             <h:outputText value="#{item.idpersona}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPersonaTitle_nombrerazon}"/>
+                                <h:outputText value="Nombre razón"/>
                             </f:facet>
                             <h:outputText value="#{item.nombrerazon}"/>
                         </p:column>
@@ -71,21 +71,21 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPersonaTitle_perIdpersona}"/>
+                                <h:outputText value="Jefe Inmediato"/>
                             </f:facet>
-                            <h:outputText value="#{item.perIdpersona}"/>
+                            <h:outputText value="#{item.perIdpersona.nombrerazon}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPersonaTitle_idrolpersona}"/>
+                                <h:outputText value="Rol de persona"/>
                             </f:facet>
-                            <h:outputText value="#{item.idrolpersona}"/>
+                            <h:outputText value="#{item.idrolpersona.nmbrolpersona}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPersonaTitle_idtipopersona}"/>
+                                <h:outputText value="Tipo persona"/>
                             </f:facet>
-                            <h:outputText value="#{item.idtipopersona}"/>
+                            <h:outputText value="#{item.idtipopersona.nmbtipopersona}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{personaController.prepareCreate}" update=":PersonaCreateForm" oncomplete="PF('PersonaCreateDialog').show()"/>

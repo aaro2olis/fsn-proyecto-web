@@ -8,15 +8,15 @@
 
     <ui:composition>
 
-        <p:dialog id="RolpersonaViewDlg" widgetVar="RolpersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewRolpersonaTitle}">
+        <p:dialog id="RolpersonaViewDlg" widgetVar="RolpersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Registro">
             <h:form id="RolpersonaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rolpersonaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewRolpersonaLabel_idrolpersona}"/>
+                        <h:outputText value="Id rol persona"/>
                         <h:outputText value="#{rolpersonaController.selected.idrolpersona}" title="#{bundle.ViewRolpersonaTitle_idrolpersona}"/>
-                        <h:outputText value="#{bundle.ViewRolpersonaLabel_nmbrolpersona}"/>
+                        <h:outputText value="Rol de persona"/>
                         <h:outputText value="#{rolpersonaController.selected.nmbrolpersona}" title="#{bundle.ViewRolpersonaTitle_nmbrolpersona}"/>
-                        <h:outputText value="#{bundle.ViewRolpersonaLabel_dscrol}"/>
+                        <h:outputText value="Descripción del rol"/>
                         <h:outputText value="#{rolpersonaController.selected.dscrol}" title="#{bundle.ViewRolpersonaTitle_dscrol}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="RolpersonaViewDialog.hide()"/>

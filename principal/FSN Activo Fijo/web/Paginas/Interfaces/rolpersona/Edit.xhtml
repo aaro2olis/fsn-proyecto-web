@@ -8,15 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="RolpersonaEditDlg" widgetVar="RolpersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditRolpersonaTitle}">
+        <p:dialog id="RolpersonaEditDlg" widgetVar="RolpersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Editar Rol de Persona">
             <h:form id="RolpersonaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rolpersonaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditRolpersonaLabel_idrolpersona}" for="idrolpersona" />
-                        <p:inputText id="idrolpersona" value="#{rolpersonaController.selected.idrolpersona}" title="#{bundle.EditRolpersonaTitle_idrolpersona}" required="true" requiredMessage="#{bundle.EditRolpersonaRequiredMessage_idrolpersona}"/>
-                        <p:outputLabel value="#{bundle.EditRolpersonaLabel_nmbrolpersona}" for="nmbrolpersona" />
+                        <p:outputLabel value="Rol de Persona" for="nmbrolpersona" />
                         <p:inputText id="nmbrolpersona" value="#{rolpersonaController.selected.nmbrolpersona}" title="#{bundle.EditRolpersonaTitle_nmbrolpersona}" />
-                        <p:outputLabel value="#{bundle.EditRolpersonaLabel_dscrol}" for="dscrol" />
+                        <p:outputLabel value="Descripción" for="dscrol" />
                         <p:inputText id="dscrol" value="#{rolpersonaController.selected.dscrol}" title="#{bundle.EditRolpersonaTitle_dscrol}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{rolpersonaController.update}" value="#{bundle.Save}" update="display,:RolpersonaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'RolpersonaEditDialog');"/>

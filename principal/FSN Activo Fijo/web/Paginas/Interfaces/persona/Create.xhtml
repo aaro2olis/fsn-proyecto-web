@@ -8,11 +8,11 @@
 
     <ui:composition>
 
-        <p:dialog id="PersonaCreateDlg" widgetVar="PersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePersonaTitle}">
+        <p:dialog id="PersonaCreateDlg" widgetVar="PersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Crear nueva persona">
             <h:form id="PersonaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreatePersonaLabel_nombrerazon}" for="nombrerazon" />
+                        <p:outputLabel value="Nombre razón" for="nombrerazon" />
                         <p:inputText id="nombrerazon" value="#{personaController.selected.nombrerazon}" title="#{bundle.CreatePersonaTitle_nombrerazon}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_nombrerazon}"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_direccion}" for="direccion" />
                         <p:inputText id="direccion" value="#{personaController.selected.direccion}" title="#{bundle.CreatePersonaTitle_direccion}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_direccion}"/>
@@ -24,19 +24,19 @@
                         <p:inputMask id="nit" value="#{personaController.selected.nit}" title="#{bundle.CreatePersonaTitle_nit}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_nit}" mask="9999-999999-999-9"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_dui}" for="dui" />
                         <p:inputMask id="dui" value="#{personaController.selected.dui}" title="#{bundle.CreatePersonaTitle_dui}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_dui}" mask="99999999-9"/>
-                        <p:outputLabel value="#{bundle.CreatePersonaLabel_perIdpersona}" for="perIdpersona" />
+                        <p:outputLabel value="Jefe inmediato" for="perIdpersona" />
                         <p:selectOneMenu id="perIdpersona" value="#{personaController.selected.perIdpersona}" >
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="perIdpersonaItem"
                                            itemValue="#{perIdpersonaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreatePersonaLabel_idrolpersona}" for="idrolpersona" />
+                        <p:outputLabel value="Rol de persona" for="idrolpersona" />
                         <p:selectOneMenu id="idrolpersona" value="#{personaController.selected.idrolpersona}" >
                             <f:selectItems value="#{rolpersonaController.itemsAvailableSelectOne}"
                                            var="idrolpersonaItem"
                                            itemValue="#{idrolpersonaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreatePersonaLabel_idtipopersona}" for="idtipopersona" />
+                        <p:outputLabel value="Tipo de persona" for="idtipopersona" />
                         <p:selectOneMenu id="idtipopersona" value="#{personaController.selected.idtipopersona}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_idtipopersona}">
                             <f:selectItems value="#{tipopersonaController.itemsAvailableSelectOne}"
                                            var="idtipopersonaItem"

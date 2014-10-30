@@ -71,7 +71,7 @@ public class Persona implements Serializable {
     private String correo;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 15)
+    @Size(min = 1, max = 17)
     @Column(name = "nit")
     private String nit;
     @Basic(optional = false)

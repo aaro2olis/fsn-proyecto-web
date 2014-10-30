@@ -12,7 +12,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *

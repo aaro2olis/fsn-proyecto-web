@@ -8,13 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="TipopersonaCreateDlg" widgetVar="TipopersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTipopersonaTitle}">
+        <p:dialog id="TipopersonaCreateDlg" widgetVar="TipopersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Crear nuevo tipo de persona">
             <h:form id="TipopersonaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipopersonaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTipopersonaLabel_nmbtipopersona}" for="nmbtipopersona" />
+                        <p:outputLabel value="Tipo de persona" for="nmbtipopersona" />
                         <p:inputText id="nmbtipopersona" value="#{tipopersonaController.selected.nmbtipopersona}" title="#{bundle.CreateTipopersonaTitle_nmbtipopersona}" required="true" requiredMessage="#{bundle.CreateTipopersonaRequiredMessage_nmbtipopersona}"/>
-                        <p:outputLabel value="#{bundle.CreateTipopersonaLabel_dsctipopersona}" for="dsctipopersona" />
+                        <p:outputLabel value="Descripción" for="dsctipopersona" />
                         <p:inputText id="dsctipopersona" value="#{tipopersonaController.selected.dsctipopersona}" title="#{bundle.CreateTipopersonaTitle_dsctipopersona}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipopersonaController.create}" value="#{bundle.Save}" update="display,:TipopersonaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipopersonaCreateDialog');"/>
