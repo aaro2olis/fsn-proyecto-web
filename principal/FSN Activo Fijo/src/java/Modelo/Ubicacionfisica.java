@@ -188,7 +188,7 @@ public class Ubicacionfisica implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Ubicacionfisica[ idubicacion=" + idubicacion + " ]";
+        return nmbubicacion;
     }
     
 }

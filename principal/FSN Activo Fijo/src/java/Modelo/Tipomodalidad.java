@@ -120,7 +120,7 @@ public class Tipomodalidad implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Tipomodalidad[ idmodalidad=" + idmodalidad + " ]";
+        return nmbmodalidad;
     }
     
 }

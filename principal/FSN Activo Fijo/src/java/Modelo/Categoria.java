@@ -134,7 +134,7 @@ public class Categoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Categoria[ idcategoria=" + idcategoria + " ]";
+        return nmbcategoria;
     }
     
 }

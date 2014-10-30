@@ -124,7 +124,7 @@ public class Tipoestado implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Tipoestado[ idtipoestado=" + idtipoestado + " ]";
+        return nmbtipoestado;
     }
     
 }

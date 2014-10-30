@@ -8,15 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="TipomodalidadCreateDlg" widgetVar="TipomodalidadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTipomodalidadTitle}">
+        <p:dialog id="TipomodalidadCreateDlg" widgetVar="TipomodalidadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Ingresar nuevo tipo de Modalidad">
             <h:form id="TipomodalidadCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipomodalidadController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTipomodalidadLabel_idmodalidad}" for="idmodalidad" />
-                        <p:inputText id="idmodalidad" value="#{tipomodalidadController.selected.idmodalidad}" title="#{bundle.CreateTipomodalidadTitle_idmodalidad}" required="true" requiredMessage="#{bundle.CreateTipomodalidadRequiredMessage_idmodalidad}"/>
-                        <p:outputLabel value="#{bundle.CreateTipomodalidadLabel_nmbmodalidad}" for="nmbmodalidad" />
+                        <p:outputLabel value="Modalidad" for="nmbmodalidad" />
                         <p:inputText id="nmbmodalidad" value="#{tipomodalidadController.selected.nmbmodalidad}" title="#{bundle.CreateTipomodalidadTitle_nmbmodalidad}" required="true" requiredMessage="#{bundle.CreateTipomodalidadRequiredMessage_nmbmodalidad}"/>
-                        <p:outputLabel value="#{bundle.CreateTipomodalidadLabel_dscmodalidad}" for="dscmodalidad" />
+                        <p:outputLabel value="Descripcion" for="dscmodalidad" />
                         <p:inputText id="dscmodalidad" value="#{tipomodalidadController.selected.dscmodalidad}" title="#{bundle.CreateTipomodalidadTitle_dscmodalidad}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipomodalidadController.create}" value="#{bundle.Save}" update="display,:TipomodalidadListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipomodalidadCreateDialog');"/>
