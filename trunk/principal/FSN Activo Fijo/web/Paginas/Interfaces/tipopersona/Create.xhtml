@@ -12,8 +12,6 @@
             <h:form id="TipopersonaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipopersonaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTipopersonaLabel_idtipopersona}" for="idtipopersona" />
-                        <p:inputText id="idtipopersona" value="#{tipopersonaController.selected.idtipopersona}" title="#{bundle.CreateTipopersonaTitle_idtipopersona}" required="true" requiredMessage="#{bundle.CreateTipopersonaRequiredMessage_idtipopersona}"/>
                         <p:outputLabel value="#{bundle.CreateTipopersonaLabel_nmbtipopersona}" for="nmbtipopersona" />
                         <p:inputText id="nmbtipopersona" value="#{tipopersonaController.selected.nmbtipopersona}" title="#{bundle.CreateTipopersonaTitle_nmbtipopersona}" required="true" requiredMessage="#{bundle.CreateTipopersonaRequiredMessage_nmbtipopersona}"/>
                         <p:outputLabel value="#{bundle.CreateTipopersonaLabel_dsctipopersona}" for="dsctipopersona" />

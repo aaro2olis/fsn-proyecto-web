@@ -121,7 +121,7 @@ public class Tipopersona implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Tipopersona[ idtipopersona=" + idtipopersona + " ]";
+        return nmbtipopersona;
     }
     
 }
