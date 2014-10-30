@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{unidadOrganizativaController.selected != null}">
                         <p:outputLabel value="#{bundle.EditUnidadOrganizativaLabel_idunidad}" for="idunidad" />
-                        <p:inputText id="idunidad" value="#{unidadOrganizativaController.selected.idunidad}" title="#{bundle.EditUnidadOrganizativaTitle_idunidad}" required="true" requiredMessage="#{bundle.EditUnidadOrganizativaRequiredMessage_idunidad}"/>
+                        <p:inputText id="idunidad" value="#{unidadOrganizativaController.selected.idunidad}" title="#{bundle.EditUnidadOrganizativaTitle_idunidad}" required="true" requiredMessage="#{bundle.EditUnidadOrganizativaRequiredMessage_idunidad}" disabled="true"/>
                         <p:outputLabel value="#{bundle.EditUnidadOrganizativaLabel_nmbunidad}" for="nmbunidad" />
                         <p:inputText id="nmbunidad" value="#{unidadOrganizativaController.selected.nmbunidad}" title="#{bundle.EditUnidadOrganizativaTitle_nmbunidad}" required="true" requiredMessage="#{bundle.EditUnidadOrganizativaRequiredMessage_nmbunidad}"/>
                         <p:outputLabel value="#{bundle.EditUnidadOrganizativaLabel_dscunidad}" for="dscunidad" />
