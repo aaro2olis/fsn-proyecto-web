@@ -15,7 +15,7 @@
 
         <ui:define name="body">
             <h:form id="RolpersonaListForm">
-                <p:panel header="#{bundle.ListRolpersonaTitle}">
+                <p:panel header="Rol de Personas">
                     <p:dataTable id="datalist" value="#{rolpersonaController.items}" var="item"
                                  selectionMode="single" selection="#{rolpersonaController.selected}"
                                  paginator="true"
@@ -29,19 +29,19 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRolpersonaTitle_idrolpersona}"/>
+                                <h:outputText value="Id rol persona"/>
                             </f:facet>
                             <h:outputText value="#{item.idrolpersona}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRolpersonaTitle_nmbrolpersona}"/>
+                                <h:outputText value="Rol de persona"/>
                             </f:facet>
                             <h:outputText value="#{item.nmbrolpersona}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRolpersonaTitle_dscrol}"/>
+                                <h:outputText value="Descripción"/>
                             </f:facet>
                             <h:outputText value="#{item.dscrol}"/>
                         </p:column>

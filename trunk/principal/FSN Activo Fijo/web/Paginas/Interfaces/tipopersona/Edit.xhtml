@@ -8,15 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="TipopersonaEditDlg" widgetVar="TipopersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTipopersonaTitle}">
+        <p:dialog id="TipopersonaEditDlg" widgetVar="TipopersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Editar tipo de persona">
             <h:form id="TipopersonaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipopersonaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditTipopersonaLabel_idtipopersona}" for="idtipopersona" />
-                        <p:inputText id="idtipopersona" value="#{tipopersonaController.selected.idtipopersona}" title="#{bundle.EditTipopersonaTitle_idtipopersona}" required="true" requiredMessage="#{bundle.EditTipopersonaRequiredMessage_idtipopersona}"/>
-                        <p:outputLabel value="#{bundle.EditTipopersonaLabel_nmbtipopersona}" for="nmbtipopersona" />
+                        <p:outputLabel value="Tipo de persona" for="nmbtipopersona" />
                         <p:inputText id="nmbtipopersona" value="#{tipopersonaController.selected.nmbtipopersona}" title="#{bundle.EditTipopersonaTitle_nmbtipopersona}" required="true" requiredMessage="#{bundle.EditTipopersonaRequiredMessage_nmbtipopersona}"/>
-                        <p:outputLabel value="#{bundle.EditTipopersonaLabel_dsctipopersona}" for="dsctipopersona" />
+                        <p:outputLabel value="Descripción" for="dsctipopersona" />
                         <p:inputText id="dsctipopersona" value="#{tipopersonaController.selected.dsctipopersona}" title="#{bundle.EditTipopersonaTitle_dsctipopersona}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{tipopersonaController.update}" value="#{bundle.Save}" update="display,:TipopersonaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipopersonaEditDialog');"/>

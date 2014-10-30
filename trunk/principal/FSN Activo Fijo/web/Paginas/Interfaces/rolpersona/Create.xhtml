@@ -8,13 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="RolpersonaCreateDlg" widgetVar="RolpersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateRolpersonaTitle}">
+        <p:dialog id="RolpersonaCreateDlg" widgetVar="RolpersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Crear nuevo rol de persona">
             <h:form id="RolpersonaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rolpersonaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateRolpersonaLabel_nmbrolpersona}" for="nmbrolpersona" />
+                        <p:outputLabel value="Rol de Persona" for="nmbrolpersona" />
                         <p:inputText id="nmbrolpersona" value="#{rolpersonaController.selected.nmbrolpersona}" title="#{bundle.CreateRolpersonaTitle_nmbrolpersona}" />
-                        <p:outputLabel value="#{bundle.CreateRolpersonaLabel_dscrol}" for="dscrol" />
+                        <p:outputLabel value="Descripcion" for="dscrol" />
                         <p:inputText id="dscrol" value="#{rolpersonaController.selected.dscrol}" title="#{bundle.CreateRolpersonaTitle_dscrol}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{rolpersonaController.create}" value="#{bundle.Save}" update="display,:RolpersonaListForm:datalist,:growl" oncomplete="handleSubmit(args,'RolpersonaCreateDialog');"/>

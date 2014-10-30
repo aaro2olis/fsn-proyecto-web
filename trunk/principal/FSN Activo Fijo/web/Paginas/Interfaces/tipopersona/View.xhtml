@@ -8,15 +8,15 @@
 
     <ui:composition>
 
-        <p:dialog id="TipopersonaViewDlg" widgetVar="TipopersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTipopersonaTitle}">
+        <p:dialog id="TipopersonaViewDlg" widgetVar="TipopersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Registro">
             <h:form id="TipopersonaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipopersonaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewTipopersonaLabel_idtipopersona}"/>
+                        <h:outputText value="Id Tipo persona"/>
                         <h:outputText value="#{tipopersonaController.selected.idtipopersona}" title="#{bundle.ViewTipopersonaTitle_idtipopersona}"/>
-                        <h:outputText value="#{bundle.ViewTipopersonaLabel_nmbtipopersona}"/>
+                        <h:outputText value="Tipo de persona"/>
                         <h:outputText value="#{tipopersonaController.selected.nmbtipopersona}" title="#{bundle.ViewTipopersonaTitle_nmbtipopersona}"/>
-                        <h:outputText value="#{bundle.ViewTipopersonaLabel_dsctipopersona}"/>
+                        <h:outputText value="Descripción"/>
                         <h:outputText value="#{tipopersonaController.selected.dsctipopersona}" title="#{bundle.ViewTipopersonaTitle_dsctipopersona}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="TipopersonaViewDialog.hide()"/>
