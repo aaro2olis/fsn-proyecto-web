@@ -72,7 +72,7 @@
                                     int cont=0;
                                     switch(i){ 
                                         case 0:
-                                             for(int j=0; j<menuConsulta.length ; j++) {
+                                             for(int j=0; j<menuConsulta.length ; j++) {  
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
                                                 out.println("<LI class='last' onclick=cambia("+cont+"); return false;\"><a href='#'><span>"+menuConsulta[j]+"</span></a></LI>");
                                                 cont++;
