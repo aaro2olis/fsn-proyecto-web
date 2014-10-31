@@ -43,14 +43,13 @@
                         <!--cambia la direccion del iframe -->
                         <script type="text/javascript">
                             
-                            function cambia(x) {
+                            function cambia(x) {   
                               var direc = [
-                                  "Paginas/Interfaces/usuario/Create.xhtml",
-                                  "Paginas/Interfaces/actividad/Edit.xhtml",
                                   "Paginas/Interfaces/rol/List.xhtml",
+                                  "Paginas/Interfaces/usuario/List.xhtml",
+                                  "Paginas/Interfaces/actividad/View.xhtml",
                                   "Paginas/Interfaces/usuario/View.xhtml"];
-                              var url = direc[x];
-                               document.getElementById("miFrame").src= url;
+                                  document.getElementById("miFrame").src= direc[x];
                             }
                         </script>
                         <div id="cssmenu">
@@ -68,14 +67,14 @@
                                 out.println("<li onclick=cambia(1); return false;\"><a href='#' class='icon-home'  title ='inicio'  ><span>Inicio</span></a></li> "); 
                                 //IMPRIMIMOS EL VECTOR CON LAS OPCIONES
                                 for(int i=0 ; i< menuGeneral.length; i++){
-                                    out.println("<LI class=\"has-sub\"><a href=><span>"+menuGeneral[i]+"</span></a>");
+                                    out.println("<LI class=\"has-sub\"><a href='#'><span>"+menuGeneral[i]+"</span></a>");
                                     out.println("<ul>");
                                     int cont=0;
                                     switch(i){ 
                                         case 0:
                                              for(int j=0; j<menuConsulta.length ; j++) {
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                                out.println("<LI class='last' onclick=cambia("+cont+"); return false;\"><a href=><span>"+menuConsulta[j]+"</span></a></LI>");
+                                                out.println("<LI class='last' onclick=cambia("+cont+"); return false;\"><a href='#'><span>"+menuConsulta[j]+"</span></a></LI>");
                                                 cont++;
                                              }; 
                                             out.println("</ul></LI>");
@@ -83,31 +82,21 @@
                                         case 1:
                                              for(int k=0; k<menuGestion.length ; k++) {
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                                out.println("<LI class='last'><a href=><span>"+menuGestion[k]+"</span></a></LI>");
+                                                out.println("<LI class='last'><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");
                                             }; 
                                             out.println("</ul></LI>");
                                             break;
                                         case 2:
                                              for(int l=0; l<menuReporte.length ; l++) {
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                                out.println("<LI class='last'><a href=><span>"+menuReporte[l]+"</span></a></LI>");
+                                                out.println("<LI class='last'><a href='#'><span>"+menuReporte[l]+"</span></a></LI>");
                                             }; 
                                             out.println("</ul></LI>");
                                     }
                                         
                                 }
                                 out.println("</ul>");
-                                 /*   for(int j=0; j<menuConsulta.length ; i++) {
-                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                    out.println("<LI class='last'><a href=><span>"+nommenu[i]+"</span></a></LI>");
-                                }; 
-                                out.println("</ul></LI>");
-                                }
-                                /*for(i=0; i<nommenu.length ; i++) {
-                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                    out.println("<LI><a href="+menu1[i]+"><span>"+nommenu[i]+"</span></a></LI>");
-                                }; 
-                                out.println("</ul>");*/
+                                
                              %>
                         </div>
                     </nav>

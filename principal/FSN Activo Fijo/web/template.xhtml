@@ -16,41 +16,7 @@
         <p:growl id="growl" life="3000" />
 
         <p:layout fullPage="true">
-            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
-                <h:form id="menuForm">
-                    <p:menubar>
-                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="Actividad" outcome="/Paginas/Interfaces/actividad/List.xhtml" />
-                            <p:menuitem value="Activo" outcome="/Paginas/Interfaces/activo/List.xhtml" />
-                            <p:menuitem value="Cargo" outcome="/Paginas/Interfaces/cargo/List.xhtml" />
-                            <p:menuitem value="Categoria" outcome="/Paginas/Interfaces/categoria/List.xhtml" />
-                            <p:menuitem value="Departamento" outcome="/Paginas/Interfaces/departamento/List.xhtml" />
-                            <p:menuitem value="Desafectacion" outcome="/Paginas/Interfaces/desafectacion/List.xhtml" />
-                            <p:menuitem value="Detallecategoria" outcome="/Paginas/Interfaces/detallecategoria/List.xhtml" />
-                            <p:menuitem value="Empleado" outcome="/Paginas/Interfaces/empleado/List.xhtml" />
-                            <p:menuitem value="Especificacionactivo" outcome="/Paginas/Interfaces/especificacionactivo/List.xhtml" />
-                            <p:menuitem value="Inventario" outcome="/Paginas/Interfaces/inventario/List.xhtml" />
-                            <p:menuitem value="Mantenimiento" outcome="/Paginas/Interfaces/mantenimiento/List.xhtml" />
-                            <p:menuitem value="Municipio" outcome="/Paginas/Interfaces/municipio/List.xhtml" />
-                            <p:menuitem value="Persona" outcome="/Paginas/Interfaces/persona/List.xhtml" />
-                            <p:menuitem value="Plantillaactividad" outcome="/Paginas/Interfaces/plantillaactividad/List.xhtml" />
-                            <p:menuitem value="Rol" outcome="/Paginas/Interfaces/rol/List.xhtml" />
-                            <p:menuitem value="Rolpersona" outcome="/Paginas/Interfaces/rolpersona/List.xhtml" />
-                            <p:menuitem value="Tipoactivo" outcome="/Paginas/Interfaces/tipoactivo/List.xhtml" />
-                            <p:menuitem value="Tipodesafectacion" outcome="/Paginas/Interfaces/tipodesafectacion/List.xhtml" />
-                            <p:menuitem value="Tipoestado" outcome="/Paginas/Interfaces/tipoestado/List.xhtml" />
-                            <p:menuitem value="Tipomodalidad" outcome="/Paginas/Interfaces/tipomodalidad/List.xhtml" />
-                            <p:menuitem value="Tipopersona" outcome="/Paginas/Interfaces/tipopersona/List.xhtml" />
-                            <p:menuitem value="Transferencia" outcome="/Paginas/Interfaces/transferencia/List.xhtml" />
-                            <p:menuitem value="Ubicacionfisica" outcome="/Paginas/Interfaces/ubicacionfisica/List.xhtml" />
-                            <p:menuitem value="UnidadOrganizativa" outcome="/Paginas/Interfaces/unidadOrganizativa/List.xhtml" />
-                            <p:menuitem value="Usuario" outcome="/Paginas/Interfaces/usuario/List.xhtml" />
-                        </p:submenu>
-                    </p:menubar>
-                </h:form>
-            </p:layoutUnit>
-
+           
             <p:layoutUnit position="south" size="60">
                 <ui:insert name="footer"/>
             </p:layoutUnit>
