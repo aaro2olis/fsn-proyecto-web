@@ -5,6 +5,8 @@ import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
 import Modelo.Usuario;
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -61,6 +63,10 @@ public class UsuarioController implements Serializable {
         this.password = password;
     }
 
+  
+
+   
+
     protected void setEmbeddableKeys() {
     }
 
@@ -72,8 +78,7 @@ public class UsuarioController implements Serializable {
     }
 
     public Usuario prepareCreate() {
-        selected = new Usuario();
-        System.out.println("selected" + selected);
+        selected = new Usuario(); 
         initializeEmbeddableKey();
         return selected;
     }
@@ -210,16 +215,16 @@ public class UsuarioController implements Serializable {
     }
 
     public String validateLogin() {
-        Boolean existeUser = ejbFacade.buscaUsuario(idusuario, password);
+        Boolean existeUser = ejbFacade.buscaUsuario(idusuario, password); System.out.println("existeUser"+existeUser);
         if (existeUser.equals(true)) {
-            return "/index";
+            return "/index.jsp";
         } else {
             FacesContext.getCurrentInstance().addMessage(
                     null,
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
                             "Invalid Login!",
                             "Please Try Again!"));
-            return "/login";
+            return "/login.xhtml";
         }
 
     }
@@ -232,5 +237,5 @@ public class UsuarioController implements Serializable {
 
         return "/index";
     }
-
+     
 }
