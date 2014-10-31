@@ -24,7 +24,7 @@
                         <p:inputText id="nit" value="#{personaController.selected.nit}" title="#{bundle.EditPersonaTitle_nit}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_nit}"/>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_dui}" for="dui" />
                         <p:inputText id="dui" value="#{personaController.selected.dui}" title="#{bundle.EditPersonaTitle_dui}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_dui}"/>
-                        <p:outputLabel value="Jefe inmediato" for="perIdpersona" />
+                        <p:outputLabel value="Representa a" for="perIdpersona" />
                         <p:selectOneMenu id="perIdpersona" value="#{personaController.selected.perIdpersona}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
