@@ -7,6 +7,7 @@
 package BEAN;
 
 import Modelo.Usuario;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,16 +36,25 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
      * @param password clave del usuario
      * @return true o false 
      */
-    public boolean buscaUsuario(String idusuario, String password){
+    public Usuario buscaUsuario(String idusuario, String password) {
+        System.out.println("llego");
+        String encriptado = Base64.encode(password.getBytes());
+       
         TypedQuery<Usuario> query = em.createQuery("SELECT c FROM Usuario c WHERE c.idusuario = :id AND c.password = :pass", Usuario.class);
         query.setParameter("id", idusuario);
-        query.setParameter("pass", password);
+        query.setParameter("pass", encriptado);
         Usuario user = query.getSingleResult();
-        Boolean bandera;
-        if(user!= null){
-            bandera = false;
-        }
-        bandera= true;
-      return bandera;  
+        System.out.println("user"+user);
+//        Boolean bandera;
+//        if (user == null) {
+//          System.out.println("user no existe");
+//        }
+//        bandera = true;
+        return query.getSingleResult();
     }
+
+   
+    
+   
+    
 }
