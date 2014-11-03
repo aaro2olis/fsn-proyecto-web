@@ -42,7 +42,10 @@
                     <nav>
                         <!--cambia la direccion del iframe -->
                         <script type="text/javascript">
-                            
+                            var uri = window.location.href;
+                            var parametros = uri.split("?");
+                            var idrol= parametros[1];
+                            alert(idrol);
                             function cambia(x) {   
                               var direc = [
                                   "Paginas/Interfaces/rol/List.xhtml",
@@ -58,13 +61,11 @@
                                 String menuGestion[] = {"Activo", "Prestamo", "Ubicacion", "Departamento"};
                                 String menuReporte[] = {"Activos", "Prestamos"};
                                 String direccionConsulta[] = { };
-                                
-                         
-                            
-                             %>
+                            %>
                                 
                              <% out.println("<ul>");
                                 out.println("<li onclick=cambia(1); return false;\"><a href='#' class='icon-home'  title ='inicio'  ><span>Inicio</span></a></li> "); 
+                                
                                 //IMPRIMIMOS EL VECTOR CON LAS OPCIONES
                                 for(int i=0 ; i< menuGeneral.length; i++){
                                     out.println("<LI class=\"has-sub\"><a href='#'><span>"+menuGeneral[i]+"</span></a>");
