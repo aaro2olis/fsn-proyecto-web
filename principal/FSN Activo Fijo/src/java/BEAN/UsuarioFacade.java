@@ -8,6 +8,7 @@ package BEAN;
 
 import Modelo.Usuario;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
