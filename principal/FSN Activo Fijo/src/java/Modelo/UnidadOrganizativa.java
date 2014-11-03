@@ -109,20 +109,22 @@ public class UnidadOrganizativa implements Serializable {
     }
 
     public void setEstadounidad(Character estadounidad) {
+        Character C = new Character('0');
+        if(estadounidad=='0')
+        {
+        this.estadounidad = C;
+        }
+        else
+        {
         this.estadounidad = estadounidad;
+        }
     }
 
     public void setEstadounidad() {
-        this.estadounidad = '1';
+        Character C = new Character('1');
+        this.estadounidad = C;
     }
 
-    public void setEstadounidad(Integer eliminar) {
-        if (eliminar == 0) {
-            this.estadounidad = '0';
-        } else {
-            this.estadounidad = '1';
-        }
-    }
 
     @XmlTransient
     public Collection<Empleado> getEmpleadoCollection() {
@@ -172,7 +174,7 @@ public class UnidadOrganizativa implements Serializable {
 
     @Override
     public String toString() {
-        return idunidad + ".- " + nmbunidad;
+        return nmbunidad;
     }
 
 }

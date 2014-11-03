@@ -54,7 +54,7 @@ public List<T> findAllbyone(String estado) {
         Root<T> c = cq.from(entityClass);
         cq.select(c);
         
-        cq.where(cb.equal((c.get(estado)),'1'));
+        cq.where(cb.notEqual((c.get(estado)),'0'));
         return getEntityManager().createQuery(cq).getResultList();
     }
 

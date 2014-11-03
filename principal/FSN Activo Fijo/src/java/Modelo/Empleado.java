@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Modelo;
 
 import java.io.Serializable;
@@ -46,6 +45,7 @@ import org.primefaces.context.RequestContext;
     @NamedQuery(name = "Empleado.findByFechaini", query = "SELECT e FROM Empleado e WHERE e.fechaini = :fechaini"),
     @NamedQuery(name = "Empleado.findByFechafin", query = "SELECT e FROM Empleado e WHERE e.fechafin = :fechafin")})
 public class Empleado implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -156,8 +156,41 @@ public class Empleado implements Serializable {
         return estadoempleado;
     }
 
+    public String nombreEstadoDeempleado() {
+        String nombreEstadoEmpleado;
+        nombreEstadoEmpleado = "";
+        switch (estadoempleado) {
+            case '0':
+                nombreEstadoEmpleado = "Eliminado";
+                break;
+            case '2':
+                nombreEstadoEmpleado = "Retirado";
+                break;
+            case '1':
+                nombreEstadoEmpleado = "Activo";
+                break;
+            default:
+                nombreEstadoEmpleado = "Error";
+                break;
+        }
+        return nombreEstadoEmpleado;
+    }
+
     public void setEstadoempleado(Character estadoempleado) {
-        this.estadoempleado = estadoempleado;
+        if (estadoempleado == '1') {
+            this.estadoempleado = '1';
+        } else {
+            if (estadoempleado == '2') {
+                this.estadoempleado = estadoempleado;
+            } else {
+                this.estadoempleado = '0';
+            }
+        }
+
+    }
+
+    public void setEstadoempleado() {
+        this.estadoempleado = '1';
     }
 
     public Date getFechaini() {
@@ -173,7 +206,17 @@ public class Empleado implements Serializable {
     }
 
     public void setFechafin(Date fechafin) {
+        Character estado;
+        estado='2';
         this.fechafin = fechafin;
+        if((fechafin==null))
+        {
+        setEstadoempleado();
+        }
+        else
+        {
+        setEstadoempleado(estado);
+        }
     }
 
     public Cargo getIdcargo() {
@@ -268,7 +311,6 @@ public class Empleado implements Serializable {
 
     @Override
     public String toString() {
-        return nombres+" "+apepaterno +" "+apematerno;
+        return nombres + " " + apepaterno + " " + apematerno;
     }
-   
 }

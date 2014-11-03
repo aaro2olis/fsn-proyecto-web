@@ -21,9 +21,11 @@
                         <p:outputLabel value="#{bundle.EditEmpleadoLabel_apematerno}" for="apematerno" />
                         <p:inputText id="apematerno" value="#{empleadoController.selected.apematerno}" title="#{bundle.EditEmpleadoTitle_apematerno}" />
                         <p:outputLabel value="#{bundle.EditEmpleadoLabel_correo}" for="correo" />
-                        <p:inputText id="correo" value="#{empleadoController.selected.correo}" title="#{bundle.EditEmpleadoTitle_correo}" />
+                        <p:inputText id="correo" value="#{empleadoController.selected.correo}" title="#{bundle.EditEmpleadoTitle_correo}" >
+                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"  />
+                        </p:inputText>                       
                         <p:outputLabel value="#{bundle.EditEmpleadoLabel_estadoempleado}" for="estadoempleado" />
-                        <p:inputText id="estadoempleado" value="#{empleadoController.selected.estadoempleado}" title="#{bundle.EditEmpleadoTitle_estadoempleado}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_estadoempleado}"/>
+                        <p:outputLabel id="estadoempleado" value="#{empleadoController.selected.nombreEstadoDeempleado()}" title="#{bundle.EditEmpleadoTitle_estadoempleado}"/>
                         <p:outputLabel value="#{bundle.EditEmpleadoLabel_fechaini}" for="fechaini" />
                         <p:calendar id="fechaini" pattern="MM/dd/yyyy" value="#{empleadoController.selected.fechaini}" title="#{bundle.EditEmpleadoTitle_fechaini}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_fechaini}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditEmpleadoLabel_fechafin}" for="fechafin" />

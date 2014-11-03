@@ -21,28 +21,29 @@
                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_apematerno}" for="apematerno" />
                         <p:inputText id="apematerno" value="#{empleadoController.selected.apematerno}" title="#{bundle.CreateEmpleadoTitle_apematerno}" />
                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_correo}" for="correo" />
-                        <p:inputText id="correo" value="#{empleadoController.selected.correo}" title="#{bundle.CreateEmpleadoTitle_correo}" />
-                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_estadoempleado}" for="estadoempleado"/>
-                        <p:inputText id="estadoempleado" value="#{empleadoController.selected.estadoempleado}"  title="#{bundle.CreateEmpleadoTitle_estadoempleado}" required="true" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_estadoempleado}"/>
+                        <p:inputText id="correo" validatorMessage="Formato de correo no válido" value="#{empleadoController.selected.correo}" title="#{bundle.CreateEmpleadoTitle_correo}"  >
+                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"  />
+                        </p:inputText>                        
                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_fechaini}" for="fechaini" />
                         <p:calendar id="fechaini" pattern="MM/dd/yyyy" value="#{empleadoController.selected.fechaini}" title="#{bundle.EditEmpleadoTitle_fechaini}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_fechaini}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_fechafin}" for="fechafin" />
                         <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{empleadoController.selected.fechafin}" title="#{bundle.EditEmpleadoTitle_fechafin}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_idcargo}" for="idcargo" />
                         <p:selectOneMenu id="idcargo" value="#{empleadoController.selected.idcargo}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_idcargo}">
-                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{cargoController.itemsAvailableSelectOne}"
                                            var="idcargoItem"
                                            itemValue="#{idcargoItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_idunidad}" for="idunidad" />
                         <p:selectOneMenu id="idunidad" value="#{empleadoController.selected.idunidad}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_idunidad}">
-                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{unidadOrganizativaController.itemsAvailableSelectOne}"
                                            var="idunidadItem"
                                            itemValue="#{idunidadItem}"/>
                         </p:selectOneMenu>
-                        
+                        <p:inputText type ="hidden" disabled="true" id="estadoempleado" value="#{empleadoController.selected.setEstadoempleado()}"  title="#{bundle.CreateEmpleadoTitle_estadoempleado}" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_estadoempleado}"/>
+
                     </p:panelGrid>
                     <p:commandButton actionListener="#{empleadoController.create}" value="#{bundle.Save}" update="display,:EmpleadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmpleadoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EmpleadoCreateDialog.hide()"/>
