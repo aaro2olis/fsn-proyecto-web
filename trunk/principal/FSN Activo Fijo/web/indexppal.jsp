@@ -50,55 +50,56 @@
                             function cambia(x) {  
                                // alert(x);
                               var direc = [
+                                  "inicio.html",                                        //0
                                   //Consultas
-                                  "Paginas/Interfaces/activo/List2.xhtml",
-                                  "Paginas/Interfaces/cargo/List2.xhtml",
-                                  "Paginas/Interfaces/categoria/List2.xhtml",
-                                  //"Paginas/Interfaces/desafectacion/List2.xhtml",
-                                  "Paginas/Interfaces/detallecategoria/List2.xhtml",
-                                  "Paginas/Interfaces/empleado/List2.xhtml",
+                                  "Paginas/Interfaces/activo/List2.xhtml",              //1
+                                  "Paginas/Interfaces/cargo/List2.xhtml",               //2
+                                  "Paginas/Interfaces/categoria/List2.xhtml",           //3
+                                  //"Paginas/Interfaces/desafectacion/List2.xhtml",     
+                                  "Paginas/Interfaces/detallecategoria/List2.xhtml",    //4
+                                  "Paginas/Interfaces/empleado/List2.xhtml",            //5
                                   //"Paginas/Interfaces/especificacionactivo/List2.xhtml",
                                   //"Paginas/Interfaces/inventario/List2.xhtml",
-                                  "Paginas/Interfaces/mantenimiento/List2.xhtml",
-                                  "Paginas/Interfaces/persona/List2.xhtml",
-                                  "Paginas/Interfaces/rol/List2.xhtml",
-                                  "Paginas/Interfaces/rolpersona/List2.xhtml",
-                                  "Paginas/Interfaces/tipoactivo/List2.xhtml",
+                                  "Paginas/Interfaces/mantenimiento/List2.xhtml",       //6
+                                  "Paginas/Interfaces/persona/List2.xhtml",             //7
+                                  "Paginas/Interfaces/rol/List2.xhtml",                 //8
+                                  "Paginas/Interfaces/rolpersona/List2.xhtml",          //9
+                                  "Paginas/Interfaces/tipoactivo/List2.xhtml",          //10
                                   //"Paginas/Interfaces/tipodesafectacion/List2.xhtml",
-                                  "Paginas/Interfaces/tipoestado/List2.xhtml",
-                                  "Paginas/Interfaces/tipomodalidad/List2.xhtml",
-                                  "Paginas/Interfaces/tipopersona/List2.xhtml",
-                                  "Paginas/Interfaces/ubicacionfisica/List2.xhtml",
-                                  "Paginas/Interfaces/unidadOrganizativa/List2.xhtml",
-                                  "Paginas/Interfaces/usuario/List2.xhtml",
+                                  "Paginas/Interfaces/tipoestado/List2.xhtml",          //11
+                                  "Paginas/Interfaces/tipomodalidad/List2.xhtml",       //12
+                                  "Paginas/Interfaces/tipopersona/List2.xhtml",         //13
+                                  "Paginas/Interfaces/ubicacionfisica/List2.xhtml",     //14
+                                  "Paginas/Interfaces/unidadOrganizativa/List2.xhtml",  //15
+                                  "Paginas/Interfaces/usuario/List2.xhtml",             //16
                                   
                                   //gestion
-                                  "Paginas/Interfaces/activo/List.xhtml",
-                                  "Paginas/Interfaces/cargo/List.xhtml",
-                                  "Paginas/Interfaces/categoria/List.xhtml",
-                                  //"Paginas/Interfaces/desafectacion/List.xhtml",
-                                  "Paginas/Interfaces/detallecategoria/List.xhtml",
-                                  "Paginas/Interfaces/empleado/List.xhtml",
-                                  "Paginas/Interfaces/especificacionactivo/List.xhtml",
-                                  "Paginas/Interfaces/inventario/List.xhtml",
-                                  "Paginas/Interfaces/mantenimiento/List.xhtml",
-                                  "Paginas/Interfaces/persona/List.xhtml",
-                                  "Paginas/Interfaces/rol/List.xhtml",
-                                  "Paginas/Interfaces/rolpersona/List.xhtml",
-                                  "Paginas/Interfaces/tipoactivo/List.xhtml",
+                                  "Paginas/Interfaces/activo/List.xhtml",               //17
+                                  "Paginas/Interfaces/cargo/List.xhtml",                //18
+                                  "Paginas/Interfaces/categoria/List.xhtml",            //19
+                                  //"Paginas/Interfaces/desafectacion/List.xhtml",  
+                                  "Paginas/Interfaces/detallecategoria/List.xhtml",     //20
+                                  "Paginas/Interfaces/empleado/List.xhtml",             //21
+                                  "Paginas/Interfaces/especificacionactivo/List.xhtml", //22
+                                  //"Paginas/Interfaces/inventario/List.xhtml",           
+                                  //"Paginas/Interfaces/mantenimiento/List.xhtml",
+                                  "Paginas/Interfaces/persona/List.xhtml",              //23
+                                  "Paginas/Interfaces/rol/List.xhtml",                  //24
+                                  "Paginas/Interfaces/rolpersona/List.xhtml",           //25
+                                  "Paginas/Interfaces/tipoactivo/List.xhtml",           //26
                                   //"Paginas/Interfaces/tipodesafectacion/List.xhtml",
-                                  "Paginas/Interfaces/tipoestado/List.xhtml",
-                                  "Paginas/Interfaces/tipomodalidad/List.xhtml",
-                                  "Paginas/Interfaces/tipopersona/List.xhtml",
-                                  "Paginas/Interfaces/ubicacionfisica/List.xhtml",
-                                  "Paginas/Interfaces/unidadOrganizativa/List.xhtml",
-                                  "Paginas/Interfaces/usuario/List.xhtml"
+                                  "Paginas/Interfaces/tipoestado/List.xhtml",           //27
+                                  "Paginas/Interfaces/tipomodalidad/List.xhtml",        //28
+                                  "Paginas/Interfaces/tipopersona/List.xhtml",          //29
+                                  "Paginas/Interfaces/ubicacionfisica/List.xhtml",      //30
+                                  "Paginas/Interfaces/unidadOrganizativa/List.xhtml",   //31
+                                  "Paginas/Interfaces/usuario/List.xhtml"               //32
                               ];
-                                  document.getElementById("miFrame").src= direc[x];
+                                  document.getElementById("miFrame").src= direc[x]; 
                             }
                         </script>
                         <div id="cssmenu">
-                            <%! String menuGeneral[] = { "Consulta", "Gestion", "Reportes","Cerrar Sesion"};
+                            <%! String menuGeneral[] = { "Consulta", "Gestion", "Reportes","Sesión"};
                                 String menuConsulta[] = {"Activo","Cargo","Categoria", "Detalle de categoria",
                                                         "Empleado", "Especificacion Activo", "Persona", "Rol de usuario","Rol persona", "Tipo Activo",
                                                          "Tipo Estado", "Tipo Modalidad", "Tipo Persona", "Ubicacion fisica",
@@ -114,13 +115,13 @@
                             <% int varol = Integer.parseInt(request.getParameter("varidrol"));
                                 
                                 out.println("<ul>");
-                                out.println("<li onclick=cambia("+varol+"); return false;\"><a href='#' class='icon-home'  title ='inicio'  ><span>Inicio</span></a></li> "); 
+                                out.println("<li onclick=cambia(0); return false;\"><a href='#' class='icon-home'  title ='inicio'  ><span>Inicio</span></a></li> "); 
                                 
                                 //IMPRIMIMOS EL VECTOR CON LAS OPCIONES
                                 for(int i=0 ; i< menuGeneral.length; i++){
                                     out.println("<LI class=\"has-sub\"><a href='#'><span>"+menuGeneral[i]+"</span></a>");
                                     out.println("<ul>");
-                                    int cont=0;
+                                    int cont=1;
                                     switch(i){ 
                                         case 0:
                                              for(int j=0; j<menuConsulta.length ; j++) {  
@@ -131,7 +132,7 @@
                                             out.println("</ul></LI>");
                                             break;
                                         case 1:
-                                             cont=menuConsulta.length;
+                                             cont=menuConsulta.length +1 ;
                                              for(int k=0; k<menuGestion.length ; k++) {
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
                                                 out.println("<LI class='last' onclick=cambia("+cont+"); return false;\"><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");
@@ -145,6 +146,10 @@
                                                 out.println("<LI class='last'><a href='#'><span>"+menuReporte[l]+"</span></a></LI>");
                                             }; 
                                             out.println("</ul></LI>");
+                                            break;
+                                        case 3:
+                                            out.println("<LI class='last' ><a href='login.xhtml'><span>Cerrar sesi&oacute;n</span></a></LI>");
+                                            break;    
                                     }
                                         
                                 }
@@ -162,7 +167,7 @@
                         <hr />
                     </div>
 			
-                       <iframe id="miFrame" src="Paginas/Interfaces/usuario/List.xhtml"  seamless="seamless"  frameborder="0" scrolling="no" onLoad="resizeIframe(this.id);"></iframe>
+                       <iframe id="miFrame" src="inicio.html"  seamless="seamless"  frameborder="0" scrolling="no" onLoad="resizeIframe(this.id);"></iframe>
     		</article>
             </section>
             <footer>
