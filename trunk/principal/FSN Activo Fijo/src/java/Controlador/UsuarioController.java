@@ -222,7 +222,7 @@ public class UsuarioController implements Serializable {
         System.out.println("id rol " +rol);
        System.out.println("id rol " +rol.getIdrol());
         if (!rol.equals(" ")) {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("indexppal.jsp?"+rol.getIdrol());
+            FacesContext.getCurrentInstance().getExternalContext().redirect("indexppal.jsp?varidrol="+rol.getIdrol());
          
         } 
 //        if(existeUser.equals(false)){

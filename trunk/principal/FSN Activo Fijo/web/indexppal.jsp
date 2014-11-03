@@ -45,26 +45,76 @@
                             var uri = window.location.href;
                             var parametros = uri.split("?");
                             var idrol= parametros[1];
-                            alert(idrol);
-                            function cambia(x) {   
+                            //alert(idrol);
+                          
+                            function cambia(x) {  
+                               // alert(x);
                               var direc = [
+                                  //Consultas
+                                  "Paginas/Interfaces/activo/List2.xhtml",
+                                  "Paginas/Interfaces/cargo/List2.xhtml",
+                                  "Paginas/Interfaces/categoria/List2.xhtml",
+                                  //"Paginas/Interfaces/desafectacion/List2.xhtml",
+                                  "Paginas/Interfaces/detallecategoria/List2.xhtml",
+                                  "Paginas/Interfaces/empleado/List2.xhtml",
+                                  //"Paginas/Interfaces/especificacionactivo/List2.xhtml",
+                                  //"Paginas/Interfaces/inventario/List2.xhtml",
+                                  "Paginas/Interfaces/mantenimiento/List2.xhtml",
+                                  "Paginas/Interfaces/persona/List2.xhtml",
+                                  "Paginas/Interfaces/rol/List2.xhtml",
+                                  "Paginas/Interfaces/rolpersona/List2.xhtml",
+                                  "Paginas/Interfaces/tipoactivo/List2.xhtml",
+                                  //"Paginas/Interfaces/tipodesafectacion/List2.xhtml",
+                                  "Paginas/Interfaces/tipoestado/List2.xhtml",
+                                  "Paginas/Interfaces/tipomodalidad/List2.xhtml",
+                                  "Paginas/Interfaces/tipopersona/List2.xhtml",
+                                  "Paginas/Interfaces/ubicacionfisica/List2.xhtml",
+                                  "Paginas/Interfaces/unidadOrganizativa/List2.xhtml",
+                                  "Paginas/Interfaces/usuario/List2.xhtml",
+                                  
+                                  //gestion
+                                  "Paginas/Interfaces/activo/List.xhtml",
+                                  "Paginas/Interfaces/cargo/List.xhtml",
+                                  "Paginas/Interfaces/categoria/List.xhtml",
+                                  //"Paginas/Interfaces/desafectacion/List.xhtml",
+                                  "Paginas/Interfaces/detallecategoria/List.xhtml",
+                                  "Paginas/Interfaces/empleado/List.xhtml",
+                                  "Paginas/Interfaces/especificacionactivo/List.xhtml",
+                                  "Paginas/Interfaces/inventario/List.xhtml",
+                                  "Paginas/Interfaces/mantenimiento/List.xhtml",
+                                  "Paginas/Interfaces/persona/List.xhtml",
                                   "Paginas/Interfaces/rol/List.xhtml",
-                                  "Paginas/Interfaces/usuario/List.xhtml",
-                                  "Paginas/Interfaces/actividad/View.xhtml",
-                                  "Paginas/Interfaces/usuario/View.xhtml"];
+                                  "Paginas/Interfaces/rolpersona/List.xhtml",
+                                  "Paginas/Interfaces/tipoactivo/List.xhtml",
+                                  //"Paginas/Interfaces/tipodesafectacion/List.xhtml",
+                                  "Paginas/Interfaces/tipoestado/List.xhtml",
+                                  "Paginas/Interfaces/tipomodalidad/List.xhtml",
+                                  "Paginas/Interfaces/tipopersona/List.xhtml",
+                                  "Paginas/Interfaces/ubicacionfisica/List.xhtml",
+                                  "Paginas/Interfaces/unidadOrganizativa/List.xhtml",
+                                  "Paginas/Interfaces/usuario/List.xhtml"
+                              ];
                                   document.getElementById("miFrame").src= direc[x];
                             }
                         </script>
                         <div id="cssmenu">
-                            <%! String menuGeneral[] = { "Consulta", "Gestion", "Reportes","Usuario"};
-                                String menuConsulta[] = {"Activos", "Prestamos","Usuarios","Departamentos"}; 
-                                String menuGestion[] = {"Activo", "Prestamo", "Ubicacion", "Departamento"};
+                            <%! String menuGeneral[] = { "Consulta", "Gestion", "Reportes","Cerrar Sesion"};
+                                String menuConsulta[] = {"Activo","Cargo","Categoria", "Detalle de categoria",
+                                                        "Empleado", "Especificacion Activo", "Persona", "Rol de usuario","Rol persona", "Tipo Activo",
+                                                         "Tipo Estado", "Tipo Modalidad", "Tipo Persona", "Ubicacion fisica",
+                                                        "Unidad Organizativa", "Usuarios"}; 
+                                String menuGestion[] = {"Activo","Cargo","Categoria", "Detalle de categoria",
+                                                        "Empleado", "Especificacion Activo", "Persona", "Rol de usuario","Rol persona", "Tipo Activo",
+                                                         "Tipo Estado", "Tipo Modalidad", "Tipo Persona", "Ubicacion fisica",
+                                                        "Unidad Organizativa", "Usuarios"};
                                 String menuReporte[] = {"Activos", "Prestamos"};
-                                String direccionConsulta[] = { };
+                                
                             %>
                                 
-                             <% out.println("<ul>");
-                                out.println("<li onclick=cambia(1); return false;\"><a href='#' class='icon-home'  title ='inicio'  ><span>Inicio</span></a></li> "); 
+                            <% int varol = Integer.parseInt(request.getParameter("varidrol"));
+                                
+                                out.println("<ul>");
+                                out.println("<li onclick=cambia("+varol+"); return false;\"><a href='#' class='icon-home'  title ='inicio'  ><span>Inicio</span></a></li> "); 
                                 
                                 //IMPRIMIMOS EL VECTOR CON LAS OPCIONES
                                 for(int i=0 ; i< menuGeneral.length; i++){
@@ -81,9 +131,11 @@
                                             out.println("</ul></LI>");
                                             break;
                                         case 1:
+                                             cont=menuConsulta.length;
                                              for(int k=0; k<menuGestion.length ; k++) {
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                                out.println("<LI class='last'><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");
+                                                out.println("<LI class='last' onclick=cambia("+cont+"); return false;\"><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");
+                                                cont++;
                                             }; 
                                             out.println("</ul></LI>");
                                             break;
