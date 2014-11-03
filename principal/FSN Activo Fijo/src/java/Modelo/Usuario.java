@@ -7,7 +7,6 @@
 
 package Modelo;
 
-import com.sun.xml.wss.impl.misc.Base64;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -95,8 +94,7 @@ public class Usuario implements Serializable {
     }
 
     public void setPassword(String password) {
-     String encriptado = Base64.encode(password.getBytes()); 
-     this.password = encriptado;
+     this.password = password;
   
     }
 

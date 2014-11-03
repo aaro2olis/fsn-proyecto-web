@@ -52,9 +52,4 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
 //        bandera = true;
         return query.getSingleResult();
     }
-
-   
-    
-   
-    
 }

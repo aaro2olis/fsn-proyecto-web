@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoestadoController.selected != null}">
                         <p:outputLabel value="Nombre" for="nmbtipoestado" />
-                        <p:inputText id="nmbtipoestado" value="Nombre" title="#{bundle.CreateTipoestadoTitle_nmbtipoestado}" required="true" requiredMessage="#{bundle.CreateTipoestadoRequiredMessage_nmbtipoestado}"/>
+                        <p:inputText id="nmbtipoestado" value="#{tipoestadoController.selected.nmbtipoestado}" title="#{bundle.CreateTipoestadoTitle_nmbtipoestado}" required="true" requiredMessage="#{bundle.CreateTipoestadoRequiredMessage_nmbtipoestado}"/>
                         <p:outputLabel value="Descripcion" for="dsctipoestado" />
                         <p:inputText id="dsctipoestado" value="#{tipoestadoController.selected.dsctipoestado}" title="#{bundle.CreateTipoestadoTitle_dsctipoestado}" required="true" requiredMessage="#{bundle.CreateTipoestadoRequiredMessage_dsctipoestado}"/>
                     </p:panelGrid>
