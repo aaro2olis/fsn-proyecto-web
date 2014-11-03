@@ -135,7 +135,7 @@ public class Departamento implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Departamento[ iddpto=" + iddpto + " ]";
+        return nmbdpto;
     }
     
 }

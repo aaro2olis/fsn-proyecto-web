@@ -11,6 +11,8 @@
             <h:form id="ActivoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{activoController.selected != null}">
+                        <p:outputLabel value="ID Activo" for="idactivo" />
+                        <p:inputText id="idactivo" value="#{activoController.selected.idactivo}" title="#{bundle.CreateActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idactivo}"/>
                         <p:outputLabel value="Nombre" for="nmbactivo" />
                         <p:inputText id="nmbactivo" value="#{activoController.selected.nmbactivo}" title="#{bundle.CreateActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_nmbactivo}"/>
                         <p:outputLabel value="Descripcion" for="dscactivo" />
@@ -61,18 +63,21 @@
                         </p:selectOneMenu>
                         <p:outputLabel value="Estado" for="idtipoestado" />
                         <p:selectOneMenu id="idtipoestado" value="#{activoController.selected.idtipoestado}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idtipoestado}">
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{tipoestadoController.itemsAvailableSelectOne}"
                                            var="idtipoestadoItem"
                                            itemValue="#{idtipoestadoItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="Modalidad" for="idmodalidad" />
                         <p:selectOneMenu id="idmodalidad" value="#{activoController.selected.idmodalidad}" >
+                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{tipomodalidadController.itemsAvailableSelectOne}"
                                            var="idmodalidadItem"
                                            itemValue="#{idmodalidadItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="Ubicacion" for="idubicacion" />
                         <p:selectOneMenu id="idubicacion" value="#{activoController.selected.idubicacion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idubicacion}">
+                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{ubicacionfisicaController.itemsAvailableSelectOne}"
                                            var="idubicacionItem"
                                            itemValue="#{idubicacionItem}"/>

@@ -122,7 +122,7 @@ public class Municipio implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Municipio[ idmunicipio=" + idmunicipio + " ]";
+        return nmbmunicipio;
     }
     
 }
