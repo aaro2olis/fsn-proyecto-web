@@ -91,8 +91,7 @@ public class Usuario implements Serializable {
     }
 
     public String getPassword() {
-        byte[] desencriptado = Base64.decode(password);
-        return desencriptado.toString();
+        return password;
     }
 
     public void setPassword(String password) {
