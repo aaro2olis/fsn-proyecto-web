@@ -8,11 +8,11 @@
 
     <ui:composition>
 
-        <p:dialog id="EmpleadoBorrarDlg" widgetVar="EmpleadoBorrarDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.BorrarEmpleadoTitle}">
+        <p:dialog id="EmpleadoBorrarDlg" widgetVar="EmpleadoBorrarDialog" modal="true" resizable="false" appendTo="@(body)" header="Confirmar Borrar Empleado">
             <h:form id="EmpleadoBorrarForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="1" rendered="#{empleadoController.selected != null}">
-                        <p:outputLabel value="#{bundle.BorrarEmpleadoTitle_confirmacion}"/>
+                        <p:outputLabel value="Seguro Desea Eliminar"/>
                         <p:inputText type="hidden" disabled="true" id="estadoempleado" value="#{empleadoController.selected.setEstadoempleado('0')}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{empleadoController.borrar}" value="#{bundle.Borrar}" update="display,:EmpleadoListForm:datalist,:growl" onclick="EmpleadoBorrarDlg.hide()" oncomplete="handleSubmit(args, 'EmpleadoBorrarDialog');"/>

@@ -37,19 +37,19 @@
                         <h:outputText value="#{bundle.ViewActivoLabel_nuevo}"/>
                         <h:outputText value="#{activoController.selected.nuevo}" title="#{bundle.ViewActivoTitle_nuevo}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idcategoria}"/>
-                        <h:outputText value="#{activoController.selected.idcategoria}" title="#{bundle.ViewActivoTitle_idcategoria}"/>
+                        <h:outputText value="#{activoController.selected.idcategoria.nmbcategoria}" title="#{bundle.ViewActivoTitle_idcategoria}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idempleado}"/>
-                        <h:outputText value="#{activoController.selected.idempleado}" title="#{bundle.ViewActivoTitle_idempleado}"/>
+                        <h:outputText value="#{activoController.selected.idempleado.nombres}" title="#{bundle.ViewActivoTitle_idempleado}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idpersona}"/>
-                        <h:outputText value="#{activoController.selected.idpersona}" title="#{bundle.ViewActivoTitle_idpersona}"/>
+                        <h:outputText value="#{activoController.selected.idpersona.nombrerazon}" title="#{bundle.ViewActivoTitle_idpersona}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idtipoactivo}"/>
-                        <h:outputText value="#{activoController.selected.idtipoactivo}" title="#{bundle.ViewActivoTitle_idtipoactivo}"/>
+                        <h:outputText value="#{activoController.selected.idtipoactivo.nmbactivo}" title="#{bundle.ViewActivoTitle_idtipoactivo}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idtipoestado}"/>
-                        <h:outputText value="#{activoController.selected.idtipoestado}" title="#{bundle.ViewActivoTitle_idtipoestado}"/>
+                        <h:outputText value="#{activoController.selected.idtipoestado.nmbtipoestado}" title="#{bundle.ViewActivoTitle_idtipoestado}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idmodalidad}"/>
-                        <h:outputText value="#{activoController.selected.idmodalidad}" title="#{bundle.ViewActivoTitle_idmodalidad}"/>
+                        <h:outputText value="#{activoController.selected.idmodalidad.nmbmodalidad}" title="#{bundle.ViewActivoTitle_idmodalidad}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idubicacion}"/>
-                        <h:outputText value="#{activoController.selected.idubicacion}" title="#{bundle.ViewActivoTitle_idubicacion}"/>
+                        <h:outputText value="#{activoController.selected.idubicacion.nmbubicacion}" title="#{bundle.ViewActivoTitle_idubicacion}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ActivoViewDialog.hide()"/>
                 </h:panelGroup>

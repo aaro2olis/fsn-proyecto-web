@@ -99,43 +99,43 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idcategoria}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idcategoria}"/>
+                            <h:outputText value="#{item.idcategoria.nmbcategoria}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idempleado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idempleado}"/>
+                            <h:outputText value="#{item.idempleado.nombres}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idpersona}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idpersona}"/>
+                            <h:outputText value="#{item.idpersona.nombrerazon}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idtipoactivo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idtipoactivo}"/>
+                            <h:outputText value="#{item.idtipoactivo.nmbactivo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idtipoestado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idtipoestado}"/>
+                            <h:outputText value="#{item.idtipoestado.nmbtipoestado}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idmodalidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idmodalidad}"/>
+                            <h:outputText value="#{item.idmodalidad.nmbmodalidad}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idubicacion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idubicacion}"/>
+                            <h:outputText value="#{item.idubicacion.nmbubicacion}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{activoController.prepareCreate}" update=":ActivoCreateForm" oncomplete="PF('ActivoCreateDialog').show()"/>
