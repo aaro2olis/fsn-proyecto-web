@@ -27,7 +27,7 @@
                         <p:calendar id="fechaAdquisicion" pattern="MM/dd/yyyy" value="#{activoController.selected.fechaAdquisicion}" title="#{bundle.EditActivoTitle_fechaAdquisicion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_fechaAdquisicion}" showOn="button"/>
                         <p:outputLabel value="Estado" for="estadoactivo" />
                         <p:inputText id="estadoactivo" value="#{activoController.selected.estadoactivo}" title="#{bundle.CreateActivoTitle_estadoactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_estadoactivo}"/>
-                        <p:outputLabel value="Costo de Adquicision" for="costoadquicision" />
+                        <p:outputLabel value="Costo de Adquicision($)" for="costoadquicision" />
                         <p:inputText id="costoadquicision" value="#{activoController.selected.costoadquicision}" title="#{bundle.CreateActivoTitle_costoadquicision}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_costoadquicision}"/>
                         <p:outputLabel value="Valor Residual" for="valorresidual" />
                         <p:inputText id="valorresidual" value="#{activoController.selected.valorresidual}" title="#{bundle.CreateActivoTitle_valorresidual}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_valorresidual}"/>
@@ -40,7 +40,7 @@
                                            var="idcategoriaItem"
                                            itemValue="#{idcategoriaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="Empleado" for="idempleado" />
+                        <p:outputLabel value="Responsable Actual" for="idempleado" />
                         <p:selectOneMenu id="idempleado" value="#{activoController.selected.idempleado}" >
                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/> 
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
@@ -61,7 +61,7 @@
                                            var="idtipoactivoItem"
                                            itemValue="#{idtipoactivoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="Estado" for="idtipoestado" />
+                        <p:outputLabel value="Estado Movimientos" for="idtipoestado" />
                         <p:selectOneMenu id="idtipoestado" value="#{activoController.selected.idtipoestado}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idtipoestado}">
                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{tipoestadoController.itemsAvailableSelectOne}"

@@ -24,20 +24,23 @@
                         <p:inputMask id="nit" value="#{personaController.selected.nit}" title="#{bundle.CreatePersonaTitle_nit}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_nit}" mask="9999-999999-999-9"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_dui}" for="dui" />
                         <p:inputMask id="dui" value="#{personaController.selected.dui}" title="#{bundle.CreatePersonaTitle_dui}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_dui}" mask="99999999-9"/>
-                        <p:outputLabel value="Jefe inmediato" for="perIdpersona" />
+                        <p:outputLabel value="Representa a:" for="perIdpersona" />
                         <p:selectOneMenu id="perIdpersona" value="#{personaController.selected.perIdpersona}" >
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="perIdpersonaItem"
                                            itemValue="#{perIdpersonaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="Rol de persona" for="idrolpersona" />
                         <p:selectOneMenu id="idrolpersona" value="#{personaController.selected.idrolpersona}" >
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{rolpersonaController.itemsAvailableSelectOne}"
                                            var="idrolpersonaItem"
                                            itemValue="#{idrolpersonaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="Tipo de persona" for="idtipopersona" />
                         <p:selectOneMenu id="idtipopersona" value="#{personaController.selected.idtipopersona}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_idtipopersona}">
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{tipopersonaController.itemsAvailableSelectOne}"
                                            var="idtipopersonaItem"
                                            itemValue="#{idtipopersonaItem}"/>

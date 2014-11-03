@@ -18,6 +18,7 @@
                         <p:inputText id="dscunidad" value="#{unidadOrganizativaController.selected.dscunidad}" title="#{bundle.CreateUnidadOrganizativaTitle_dscunidad}" />
                         <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_uniIdunidad}" for="uniIdunidad" />
                         <p:selectOneMenu id="uniIdunidad" value="#{unidadOrganizativaController.selected.uniIdunidad}" >
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{unidadOrganizativaController.itemsAvailableSelectOne}"
                                            var="uniIdunidadItem"
                                            itemValue="#{uniIdunidadItem}"/>
