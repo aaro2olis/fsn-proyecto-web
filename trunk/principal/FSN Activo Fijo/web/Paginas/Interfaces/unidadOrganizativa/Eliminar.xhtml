@@ -13,10 +13,11 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="1" rendered="#{unidadOrganizativaController.selected != null}">
                         <p:outputLabel value="#{bundle.BorrarUnidadOrganizativaTitle_confirmacion}"/>
-                        <p:inputText type="hidden" disabled="true" id="estadounidad" value="#{unidadOrganizativaController.selected.setEstadounidad(0)}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}"/>
+                        <p:inputText type="hidden" disabled="true" id="estadounidad" value="#{unidadOrganizativaController.selected.setEstadounidad('0')}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}"/>
                     </p:panelGrid>
                     <!-- Se modifica unidadOrganizativaController.update por unidadOrganizativaController.create para actualizar la tabla -->
-                    <p:commandButton actionListener="#{unidadOrganizativaController.borrada}" value="#{bundle.Borrar}" update="display,:UnidadOrganizativaListForm:datalist,:growl" onclick="UnidadOrganizativaBorrarDlg.hide()" oncomplete="handleSubmit(args, 'UnidadOrganizativaBorrarDialog');"/>
+                    <p:commandButton actionListener="#{empleadoController.borrar}" value="#{bundle.Borrar}" update="display,:EmpleadoListForm:datalist,:growl" onclick="EmpleadoBorrarDlg.hide()" oncomplete="handleSubmit(args, 'EmpleadoBorrarDialog');"/>
+
                     <p:commandButton value="#{bundle.Cancel}" onclick="UnidadOrganizativaBorrarDlg.hide()"/>
                 </h:panelGroup>
             </h:form>

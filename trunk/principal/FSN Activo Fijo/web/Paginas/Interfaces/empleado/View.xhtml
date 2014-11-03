@@ -23,7 +23,7 @@
                         <h:outputText value="#{bundle.ViewEmpleadoLabel_correo}"/>
                         <h:outputText value="#{empleadoController.selected.correo}" title="#{bundle.ViewEmpleadoTitle_correo}"/>
                         <h:outputText value="#{bundle.ViewEmpleadoLabel_estadoempleado}"/>
-                        <h:outputText value="#{empleadoController.selected.estadoempleado}" title="#{bundle.ViewEmpleadoTitle_estadoempleado}"/>
+                        <h:outputText value="#{empleadoController.selected.nombreEstadoDeempleado()}" title="#{bundle.ViewEmpleadoTitle_estadoempleado}"/>
                         <h:outputText value="#{bundle.ViewEmpleadoLabel_fechaini}"/>
                         <h:outputText value="#{empleadoController.selected.fechaini}" title="#{bundle.ViewEmpleadoTitle_fechaini}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />

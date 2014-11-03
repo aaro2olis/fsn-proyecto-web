@@ -1,23 +1,23 @@
 package Controlador;
 
-import Modelo.Empleado;
+import BEAN.EmpleadoFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.EmpleadoFacade;
-
+import Modelo.Empleado;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
 
 @Named("empleadoController")
 @SessionScoped
@@ -66,6 +66,13 @@ public class EmpleadoController implements Serializable {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("EmpleadoUpdated"));
     }
 
+       public void borrar() {
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("EmpleadoDeleted"));
+        if (!JsfUtil.isValidationFailed()) {
+            items = null;    // Invalidate list of items to trigger re-query.
+        }
+    }
+       
     public void destroy() {
         persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("EmpleadoDeleted"));
         if (!JsfUtil.isValidationFailed()) {
@@ -76,7 +83,7 @@ public class EmpleadoController implements Serializable {
 
     public List<Empleado> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().findAllbyone("estadoempleado");
         }
         return items;
     }
