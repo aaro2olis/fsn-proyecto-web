@@ -3,7 +3,9 @@ package Controlador;
 import BEAN.UsuarioFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
+import Modelo.Rol;
 import Modelo.Usuario;
+import java.io.IOException;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -214,18 +216,19 @@ public class UsuarioController implements Serializable {
         context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     }
 
-    public String validateLogin() {
-        Boolean existeUser = ejbFacade.buscaUsuario(idusuario, password); System.out.println("existeUser"+existeUser);
-        if (existeUser.equals(true)) {
-            return "/index.jsp";
-        } else {
-            FacesContext.getCurrentInstance().addMessage(
-                    null,
-                    new FacesMessage(FacesMessage.SEVERITY_WARN,
-                            "Invalid Login!",
-                            "Please Try Again!"));
-            return "/login.xhtml";
-        }
+    public void validateLogin() throws IOException {
+        Usuario usuario =  ejbFacade.buscaUsuario(idusuario, password); 
+        Rol rol = usuario.getIdrol();
+        System.out.println("id rol " +rol);
+       System.out.println("id rol " +rol.getIdrol());
+        if (!rol.equals(" ")) {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("indexppal.jsp?"+rol.getIdrol());
+         
+        } 
+//        if(existeUser.equals(false)){
+//           FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+//           
+//        }
 
     }
 
