@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PlantillaactividadCreateDlg" widgetVar="PlantillaactividadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePlantillaactividadTitle}">
+            <h:form id="PlantillaactividadCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{plantillaactividadController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_idplantilla}" for="idplantilla" />
+                        <p:inputText id="idplantilla" value="#{plantillaactividadController.selected.idplantilla}" title="#{bundle.CreatePlantillaactividadTitle_idplantilla}" required="true" requiredMessage="#{bundle.CreatePlantillaactividadRequiredMessage_idplantilla}"/>
+                        <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_dscplantilla}" for="dscplantilla" />
+                        <p:inputText id="dscplantilla" value="#{plantillaactividadController.selected.dscplantilla}" title="#{bundle.CreatePlantillaactividadTitle_dscplantilla}" required="true" requiredMessage="#{bundle.CreatePlantillaactividadRequiredMessage_dscplantilla}"/>
+                        <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_estadoplantilla}" for="estadoplantilla" />
+                        <p:inputText id="estadoplantilla" value="#{plantillaactividadController.selected.estadoplantilla}" title="#{bundle.CreatePlantillaactividadTitle_estadoplantilla}" required="true" requiredMessage="#{bundle.CreatePlantillaactividadRequiredMessage_estadoplantilla}"/>
+                        <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_idrol}" for="idrol" />
+                        <p:selectOneMenu id="idrol" value="#{plantillaactividadController.selected.idrol}" required="true" requiredMessage="#{bundle.EditPlantillaactividadRequiredMessage_idrol}">
+                            <f:selectItems value="#{rolController.itemsAvailableSelectOne}"
+                                           var="idrolItem"
+                                           itemValue="#{idrolItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{plantillaactividadController.create}" value="#{bundle.Save}" update="display,:PlantillaactividadListForm:datalist,:growl" oncomplete="handleSubmit(args,'PlantillaactividadCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PlantillaactividadCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

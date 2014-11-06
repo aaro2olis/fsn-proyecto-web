@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UnidadOrganizativaCreateDlg" widgetVar="UnidadOrganizativaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUnidadOrganizativaTitle}">
+            <h:form id="UnidadOrganizativaCreateForm">
+                <h:panelGroup id="display" style="border: none!important;">
+                    <p:panelGrid columns="2" rendered="#{unidadOrganizativaController.selected != null}" style="border: none!important;" >
+                        <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_nmbunidad}" for="nmbunidad" />
+                        <p:inputText id="nmbunidad" value="#{unidadOrganizativaController.selected.nmbunidad}" title="#{bundle.CreateUnidadOrganizativaTitle_nmbunidad}" required="true" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_nmbunidad}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_dscunidad}" for="dscunidad" />
+                        <p:inputText id="dscunidad" value="#{unidadOrganizativaController.selected.dscunidad}" title="#{bundle.CreateUnidadOrganizativaTitle_dscunidad}" />
+                        <p:outputLabel value="#{bundle.CreateUnidadOrganizativaLabel_uniIdunidad}" for="uniIdunidad" />
+                        <p:selectOneMenu id="uniIdunidad" value="#{unidadOrganizativaController.selected.uniIdunidad}" >
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
+                            <f:selectItems value="#{unidadOrganizativaController.itemsAvailableSelectOne}"
+                                           var="uniIdunidadItem"
+                                           itemValue="#{uniIdunidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:inputText type="hidden" disabled="true" id="estadounidad" value="#{unidadOrganizativaController.selected.setEstadounidad()}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="false" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}" />
+                     </p:panelGrid>
+                    <p:commandButton actionListener="#{unidadOrganizativaController.create}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args,'UnidadOrganizativaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UnidadOrganizativaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

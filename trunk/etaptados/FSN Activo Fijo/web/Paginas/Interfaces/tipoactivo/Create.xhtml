@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TipoactivoCreateDlg" widgetVar="TipoactivoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Ingresar Tipo de Activo">
+            <h:form id="TipoactivoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipoactivoController.selected != null}">
+                        <p:outputLabel value="Nombre" for="nmbactivo" />
+                        <p:inputText id="nmbactivo" value="#{tipoactivoController.selected.nmbactivo}" title="#{bundle.CreateTipoactivoTitle_nmbactivo}" />
+                        <p:outputLabel value="Vida Util" for="vidautil" />
+                        <p:inputText id="vidautil" value="#{tipoactivoController.selected.vidautil}" title="#{bundle.CreateTipoactivoTitle_vidautil}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipoactivoController.create}" value="#{bundle.Save}" update="display,:TipoactivoListForm:datalist,:growl" oncomplete="handleSubmit(args,'TipoactivoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TipoactivoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

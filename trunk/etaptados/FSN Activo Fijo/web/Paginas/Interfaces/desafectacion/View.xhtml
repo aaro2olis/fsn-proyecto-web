@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DesafectacionViewDlg" widgetVar="DesafectacionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDesafectacionTitle}">
+            <h:form id="DesafectacionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{desafectacionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_iddesafectacion}"/>
+                        <h:outputText value="#{desafectacionController.selected.iddesafectacion}" title="#{bundle.ViewDesafectacionTitle_iddesafectacion}"/>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_ingresodesafectacion}"/>
+                        <h:outputText value="#{desafectacionController.selected.ingresodesafectacion}" title="#{bundle.ViewDesafectacionTitle_ingresodesafectacion}"/>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_fechacrea}"/>
+                        <h:outputText value="#{desafectacionController.selected.fechacrea}" title="#{bundle.ViewDesafectacionTitle_fechacrea}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_fechaauto}"/>
+                        <h:outputText value="#{desafectacionController.selected.fechaauto}" title="#{bundle.ViewDesafectacionTitle_fechaauto}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_numactajd}"/>
+                        <h:outputText value="#{desafectacionController.selected.numactajd}" title="#{bundle.ViewDesafectacionTitle_numactajd}"/>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_fechaacta}"/>
+                        <h:outputText value="#{desafectacionController.selected.fechaacta}" title="#{bundle.ViewDesafectacionTitle_fechaacta}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_numreporterobo}"/>
+                        <h:outputText value="#{desafectacionController.selected.numreporterobo}" title="#{bundle.ViewDesafectacionTitle_numreporterobo}"/>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_fechadesafectacion}"/>
+                        <h:outputText value="#{desafectacionController.selected.fechadesafectacion}" title="#{bundle.ViewDesafectacionTitle_fechadesafectacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_idempleado}"/>
+                        <h:outputText value="#{desafectacionController.selected.idempleado}" title="#{bundle.ViewDesafectacionTitle_idempleado}"/>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_empIdempleado}"/>
+                        <h:outputText value="#{desafectacionController.selected.empIdempleado}" title="#{bundle.ViewDesafectacionTitle_empIdempleado}"/>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_idpersona}"/>
+                        <h:outputText value="#{desafectacionController.selected.idpersona}" title="#{bundle.ViewDesafectacionTitle_idpersona}"/>
+                        <h:outputText value="#{bundle.ViewDesafectacionLabel_idtipodesafectacion}"/>
+                        <h:outputText value="#{desafectacionController.selected.idtipodesafectacion}" title="#{bundle.ViewDesafectacionTitle_idtipodesafectacion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DesafectacionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

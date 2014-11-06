@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DesafectacionCreateDlg" widgetVar="DesafectacionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDesafectacionTitle}">
+            <h:form id="DesafectacionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{desafectacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_iddesafectacion}" for="iddesafectacion" />
+                        <p:inputText id="iddesafectacion" value="#{desafectacionController.selected.iddesafectacion}" title="#{bundle.CreateDesafectacionTitle_iddesafectacion}" required="true" requiredMessage="#{bundle.CreateDesafectacionRequiredMessage_iddesafectacion}"/>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_ingresodesafectacion}" for="ingresodesafectacion" />
+                        <p:inputText id="ingresodesafectacion" value="#{desafectacionController.selected.ingresodesafectacion}" title="#{bundle.CreateDesafectacionTitle_ingresodesafectacion}" />
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_fechacrea}" for="fechacrea" />
+                        <p:calendar id="fechacrea" pattern="MM/dd/yyyy" value="#{desafectacionController.selected.fechacrea}" title="#{bundle.EditDesafectacionTitle_fechacrea}" required="true" requiredMessage="#{bundle.EditDesafectacionRequiredMessage_fechacrea}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_fechaauto}" for="fechaauto" />
+                        <p:calendar id="fechaauto" pattern="MM/dd/yyyy" value="#{desafectacionController.selected.fechaauto}" title="#{bundle.EditDesafectacionTitle_fechaauto}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_numactajd}" for="numactajd" />
+                        <p:inputText id="numactajd" value="#{desafectacionController.selected.numactajd}" title="#{bundle.CreateDesafectacionTitle_numactajd}" />
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_fechaacta}" for="fechaacta" />
+                        <p:calendar id="fechaacta" pattern="MM/dd/yyyy" value="#{desafectacionController.selected.fechaacta}" title="#{bundle.EditDesafectacionTitle_fechaacta}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_numreporterobo}" for="numreporterobo" />
+                        <p:inputText id="numreporterobo" value="#{desafectacionController.selected.numreporterobo}" title="#{bundle.CreateDesafectacionTitle_numreporterobo}" />
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_fechadesafectacion}" for="fechadesafectacion" />
+                        <p:calendar id="fechadesafectacion" pattern="MM/dd/yyyy" value="#{desafectacionController.selected.fechadesafectacion}" title="#{bundle.EditDesafectacionTitle_fechadesafectacion}" required="true" requiredMessage="#{bundle.EditDesafectacionRequiredMessage_fechadesafectacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_idempleado}" for="idempleado" />
+                        <p:selectOneMenu id="idempleado" value="#{desafectacionController.selected.idempleado}" >
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="idempleadoItem"
+                                           itemValue="#{idempleadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_empIdempleado}" for="empIdempleado" />
+                        <p:selectOneMenu id="empIdempleado" value="#{desafectacionController.selected.empIdempleado}" >
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="empIdempleadoItem"
+                                           itemValue="#{empIdempleadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_idpersona}" for="idpersona" />
+                        <p:selectOneMenu id="idpersona" value="#{desafectacionController.selected.idpersona}" >
+                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
+                                           var="idpersonaItem"
+                                           itemValue="#{idpersonaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_idtipodesafectacion}" for="idtipodesafectacion" />
+                        <p:selectOneMenu id="idtipodesafectacion" value="#{desafectacionController.selected.idtipodesafectacion}" >
+                            <f:selectItems value="#{tipodesafectacionController.itemsAvailableSelectOne}"
+                                           var="idtipodesafectacionItem"
+                                           itemValue="#{idtipodesafectacionItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{desafectacionController.create}" value="#{bundle.Save}" update="display,:DesafectacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'DesafectacionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DesafectacionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
