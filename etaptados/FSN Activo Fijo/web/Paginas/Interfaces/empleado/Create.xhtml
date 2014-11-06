@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmpleadoCreateDlg" widgetVar="EmpleadoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEmpleadoTitle}">
+            <h:form id="EmpleadoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{empleadoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_idempleado}" for="idempleado" />
+                        <p:inputText id="idempleado" value="#{empleadoController.selected.idempleado}" title="#{bundle.CreateEmpleadoTitle_idempleado}" required="true" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_idempleado}"/>
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{empleadoController.selected.nombres}" title="#{bundle.CreateEmpleadoTitle_nombres}" required="true" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_nombres}"/>
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_apepaterno}" for="apepaterno" />
+                        <p:inputText id="apepaterno" value="#{empleadoController.selected.apepaterno}" title="#{bundle.CreateEmpleadoTitle_apepaterno}" />
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_apematerno}" for="apematerno" />
+                        <p:inputText id="apematerno" value="#{empleadoController.selected.apematerno}" title="#{bundle.CreateEmpleadoTitle_apematerno}" />
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_correo}" for="correo" />
+                        <p:inputText id="correo" validatorMessage="Formato de correo no válido" value="#{empleadoController.selected.correo}" title="#{bundle.CreateEmpleadoTitle_correo}"  >
+                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"  />
+                        </p:inputText>                        
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_fechaini}" for="fechaini" />
+                        <p:calendar id="fechaini" pattern="MM/dd/yyyy" value="#{empleadoController.selected.fechaini}" title="#{bundle.EditEmpleadoTitle_fechaini}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_fechaini}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_fechafin}" for="fechafin" />
+                        <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{empleadoController.selected.fechafin}" title="#{bundle.EditEmpleadoTitle_fechafin}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_idcargo}" for="idcargo" />
+                        <p:selectOneMenu id="idcargo" value="#{empleadoController.selected.idcargo}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_idcargo}">
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
+                            <f:selectItems value="#{cargoController.itemsAvailableSelectOne}"
+                                           var="idcargoItem"
+                                           itemValue="#{idcargoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_idunidad}" for="idunidad" />
+                        <p:selectOneMenu id="idunidad" value="#{empleadoController.selected.idunidad}" required="true" requiredMessage="#{bundle.EditEmpleadoRequiredMessage_idunidad}">
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
+                            <f:selectItems value="#{unidadOrganizativaController.itemsAvailableSelectOne}"
+                                           var="idunidadItem"
+                                           itemValue="#{idunidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:inputText type ="hidden" disabled="true" id="estadoempleado" value="#{empleadoController.selected.setEstadoempleado()}"  title="#{bundle.CreateEmpleadoTitle_estadoempleado}" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_estadoempleado}"/>
+
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{empleadoController.create}" value="#{bundle.Save}" update="display,:EmpleadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmpleadoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EmpleadoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

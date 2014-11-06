@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UbicacionfisicaViewDlg" widgetVar="UbicacionfisicaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUbicacionfisicaTitle}">
+            <h:form id="UbicacionfisicaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ubicacionfisicaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_idubicacion}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.idubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_idubicacion}"/>
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_nmbubicacion}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.nmbubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_nmbubicacion}"/>
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_dirubicacion}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.dirubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_dirubicacion}"/>
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_telefono}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.telefono}" title="#{bundle.ViewUbicacionfisicaTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_obsubicacion}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.obsubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_obsubicacion}"/>
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_estadoubicacion}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.estadoubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_estadoubicacion}"/>
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_iddpto}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.iddpto}" title="#{bundle.ViewUbicacionfisicaTitle_iddpto}"/>
+                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_idmunicipio}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.idmunicipio}" title="#{bundle.ViewUbicacionfisicaTitle_idmunicipio}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UbicacionfisicaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InventarioEditDlg" widgetVar="InventarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditInventarioTitle}">
+            <h:form id="InventarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inventarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_idinventario}" for="idinventario" />
+                        <p:inputText id="idinventario" value="#{inventarioController.selected.idinventario}" title="#{bundle.EditInventarioTitle_idinventario}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_idinventario}"/>
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_fecharealizacion}" for="fecharealizacion" />
+                        <p:calendar id="fecharealizacion" pattern="MM/dd/yyyy" value="#{inventarioController.selected.fecharealizacion}" title="#{bundle.EditInventarioTitle_fecharealizacion}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_fecharealizacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_horarealizacion}" for="horarealizacion" />
+                        <p:calendar id="horarealizacion" pattern="HH:mm:ss" value="#{inventarioController.selected.horarealizacion}" title="#{bundle.EditInventarioTitle_horarealizacion}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_horarealizacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_estadobienactual}" for="estadobienactual" />
+                        <p:inputText id="estadobienactual" value="#{inventarioController.selected.estadobienactual}" title="#{bundle.EditInventarioTitle_estadobienactual}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_estadobienactual}"/>
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_observacion}" for="observacion" />
+                        <p:inputText id="observacion" value="#{inventarioController.selected.observacion}" title="#{bundle.EditInventarioTitle_observacion}" />
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_poseevineta}" for="poseevineta" />
+                        <p:inputText id="poseevineta" value="#{inventarioController.selected.poseevineta}" title="#{bundle.EditInventarioTitle_poseevineta}" />
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_existe}" for="existe" />
+                        <p:inputText id="existe" value="#{inventarioController.selected.existe}" title="#{bundle.EditInventarioTitle_existe}" />
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_bajocustodia}" for="bajocustodia" />
+                        <p:inputText id="bajocustodia" value="#{inventarioController.selected.bajocustodia}" title="#{bundle.EditInventarioTitle_bajocustodia}" />
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_ubicacionfisica}" for="ubicacionfisica" />
+                        <p:inputText id="ubicacionfisica" value="#{inventarioController.selected.ubicacionfisica}" title="#{bundle.EditInventarioTitle_ubicacionfisica}" />
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_justificaciondiferencias}" for="justificaciondiferencias" />
+                        <p:inputText id="justificaciondiferencias" value="#{inventarioController.selected.justificaciondiferencias}" title="#{bundle.EditInventarioTitle_justificaciondiferencias}" />
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_fechajustificacion}" for="fechajustificacion" />
+                        <p:calendar id="fechajustificacion" pattern="MM/dd/yyyy" value="#{inventarioController.selected.fechajustificacion}" title="#{bundle.EditInventarioTitle_fechajustificacion}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_idactivo}" for="idactivo" />
+                        <p:selectOneMenu id="idactivo" value="#{inventarioController.selected.idactivo}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_idactivo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{activoController.itemsAvailableSelectOne}"
+                                           var="idactivoItem"
+                                           itemValue="#{idactivoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_empIdempleado}" for="empIdempleado" />
+                        <p:selectOneMenu id="empIdempleado" value="#{inventarioController.selected.empIdempleado}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="empIdempleadoItem"
+                                           itemValue="#{empIdempleadoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditInventarioLabel_idempleado}" for="idempleado" />
+                        <p:selectOneMenu id="idempleado" value="#{inventarioController.selected.idempleado}" required="true" requiredMessage="#{bundle.EditInventarioRequiredMessage_idempleado}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="idempleadoItem"
+                                           itemValue="#{idempleadoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{inventarioController.update}" value="#{bundle.Save}" update="display,:InventarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'InventarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InventarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Federacion Salvadoreña de Natacion</title>
+                <h:outputStylesheet library="css" name="default.css"/>
+            </f:facet>
+        </h:head>
+        <h:body style="text-align:center">
+          <h:graphicImage  library="img" name="fsn_logo_sombra.png" style="width: 230px ; height: auto" />
+   
+          <h2>Inicio de sesión</h2>
+                <hr />
+                <h:form id="UsuarioLoginForm" style="margin-left: 400px; margin-right: auto;">
+                    
+                    <h:panelGrid columns="2">
+                        <p:outputLabel value="#{bundle.Username}" for="idusuario"/>
+                        <p:inputText id="idusuario" value="#{usuarioController.idusuario}" size="40" />
+                        <p:outputLabel value="#{bundle.Contraseña}" for="password"/>
+                        <p:password  size="40" id="password" value="#{usuarioController.password}"/>
+                        <h:panelGroup></h:panelGroup>
+                        <p:commandButton value="Ingresar" ajax="true" actionListener="#{usuarioController.validateLogin()}" action="/indexppal.jsp"/>
+                    </h:panelGrid>
+                </h:form>
+          
+          
+          
+        </h:body>
+ </f:view>
+</html>
+
