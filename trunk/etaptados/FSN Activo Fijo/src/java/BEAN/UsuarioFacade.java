@@ -40,7 +40,6 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
     public Usuario buscaUsuario(String idusuario, String password) {
         System.out.println("llego");
         String encriptado = Base64.encode(password.getBytes());
-       
         TypedQuery<Usuario> query = em.createQuery("SELECT c FROM Usuario c WHERE c.idusuario = :id AND c.password = :pass", Usuario.class);
         query.setParameter("id", idusuario);
         query.setParameter("pass", encriptado);

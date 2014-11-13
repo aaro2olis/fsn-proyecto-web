@@ -74,7 +74,8 @@ public class UnidadOrganizativaController implements Serializable {
         }
     }
     //Creada por el mensaje de eliminado
-    public void borrada() {
+    public void borrar() {
+        
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
