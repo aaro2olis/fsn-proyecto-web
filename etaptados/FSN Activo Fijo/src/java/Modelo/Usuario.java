@@ -95,7 +95,7 @@ public class Usuario implements Serializable {
     }
 
     public void setPassword(String password) {
-     String encriptado = Base64.encode(password.getBytes()); 
+    String encriptado = Base64.encode(password.getBytes()); 
      this.password = encriptado;
   
     }

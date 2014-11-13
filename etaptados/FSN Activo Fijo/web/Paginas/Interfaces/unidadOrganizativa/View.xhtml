@@ -12,8 +12,6 @@
             <h:form id="UnidadOrganizativaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{unidadOrganizativaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_idunidad}"/>
-                        <h:outputText value="#{unidadOrganizativaController.selected.idunidad}" title="#{bundle.ViewUnidadOrganizativaTitle_idunidad}"/>
                         <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_nmbunidad}"/>
                         <h:outputText value="#{unidadOrganizativaController.selected.nmbunidad}" title="#{bundle.ViewUnidadOrganizativaTitle_nmbunidad}"/>
                         <h:outputText value="#{bundle.ViewUnidadOrganizativaLabel_dscunidad}"/>
