@@ -26,13 +26,6 @@
 
                         <p:ajax event="rowSelect"   update="viewButton"/>
                         <p:ajax event="rowUnselect" update="viewButton"/>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUbicacionfisicaTitle_idubicacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idubicacion}"/>
-                        </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUbicacionfisicaTitle_nmbubicacion}"/>
@@ -59,23 +52,17 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUbicacionfisicaTitle_estadoubicacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estadoubicacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUbicacionfisicaTitle_iddpto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.iddpto}"/>
+                            <h:outputText value="#{item.iddpto.nmbdpto}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUbicacionfisicaTitle_idmunicipio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idmunicipio}"/>
+                            <h:outputText value="#{item.idmunicipio.nmbmunicipio}"/>
                         </p:column>
-                        <f:facet name="footer">
+                       <f:facet name="footer">
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":UbicacionfisicaViewForm" oncomplete="PF('UbicacionfisicaViewDialog').show()" disabled="#{empty ubicacionfisicaController.selected}"/>
                         </f:facet>
                     </p:dataTable>
