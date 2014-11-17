@@ -74,9 +74,19 @@ public class UbicacionfisicaController implements Serializable {
         }
     }
 
+    public void borrar() {
+
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaDeleted"));
+        if (!JsfUtil.isValidationFailed()) {
+            selected = null; // Remove selection
+            items = null;    // Invalidate list of items to trigger re-query.
+        }
+    }
+
     public List<Ubicacionfisica> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items = getFacade().findAllbyone("estadoubicacion");
         }
         return items;
     }
@@ -118,7 +128,8 @@ public class UbicacionfisicaController implements Serializable {
     }
 
     public List<Ubicacionfisica> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        //return getFacade().findAll(); BELR
+        return getFacade().findAllbyone("estadoubicacion");
     }
 
     @FacesConverter(forClass = Ubicacionfisica.class)

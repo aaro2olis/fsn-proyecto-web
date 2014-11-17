@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ubicacionfisicaController.selected != null}">
                         <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_idubicacion}" for="idubicacion" />
-                        <p:inputText id="idubicacion" value="#{ubicacionfisicaController.selected.idubicacion}" title="#{bundle.EditUbicacionfisicaTitle_idubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_idubicacion}"/>
+                        <p:inputText disabled="true" id="idubicacion" value="#{ubicacionfisicaController.selected.idubicacion}" title="#{bundle.EditUbicacionfisicaTitle_idubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_idubicacion}"/>
                         <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_nmbubicacion}" for="nmbubicacion" />
                         <p:inputText id="nmbubicacion" value="#{ubicacionfisicaController.selected.nmbubicacion}" title="#{bundle.EditUbicacionfisicaTitle_nmbubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_nmbubicacion}"/>
                         <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_dirubicacion}" for="dirubicacion" />
@@ -22,8 +22,6 @@
                         <p:inputText id="telefono" value="#{ubicacionfisicaController.selected.telefono}" title="#{bundle.EditUbicacionfisicaTitle_telefono}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_telefono}"/>
                         <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_obsubicacion}" for="obsubicacion" />
                         <p:inputText id="obsubicacion" value="#{ubicacionfisicaController.selected.obsubicacion}" title="#{bundle.EditUbicacionfisicaTitle_obsubicacion}" />
-                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_estadoubicacion}" for="estadoubicacion" />
-                        <p:inputText id="estadoubicacion" value="#{ubicacionfisicaController.selected.estadoubicacion}" title="#{bundle.EditUbicacionfisicaTitle_estadoubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_estadoubicacion}"/>
                         <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_iddpto}" for="iddpto" />
                         <p:selectOneMenu id="iddpto" value="#{ubicacionfisicaController.selected.iddpto}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_iddpto}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

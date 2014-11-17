@@ -29,12 +29,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUbicacionfisicaTitle_idubicacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idubicacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUbicacionfisicaTitle_nmbubicacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.nmbubicacion}"/>
@@ -59,27 +53,21 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUbicacionfisicaTitle_estadoubicacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estadoubicacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUbicacionfisicaTitle_iddpto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.iddpto}"/>
+                            <h:outputText value="#{item.iddpto.nmbdpto}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUbicacionfisicaTitle_idmunicipio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idmunicipio}"/>
+                            <h:outputText value="#{item.idmunicipio.nmbmunicipio}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{ubicacionfisicaController.prepareCreate}" update=":UbicacionfisicaCreateForm" oncomplete="PF('UbicacionfisicaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":UbicacionfisicaViewForm" oncomplete="PF('UbicacionfisicaViewDialog').show()" disabled="#{empty ubicacionfisicaController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":UbicacionfisicaEditForm" oncomplete="PF('UbicacionfisicaEditDialog').show()" disabled="#{empty ubicacionfisicaController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{ubicacionfisicaController.destroy}" update=":growl,datalist" disabled="#{empty ubicacionfisicaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Borrar}" update=":UbicacionfisicaBorrarForm" oncomplete="PF('UbicacionfisicaBorrarDialog').show()" disabled="#{empty ubicacionfisicaController.selected}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
@@ -88,6 +76,7 @@
             <ui:include src="Create.xhtml"/>
             <ui:include src="Edit.xhtml"/>
             <ui:include src="View.xhtml"/>
+            <ui:include src="Eliminar.xhtml"/>            
         </ui:define>
     </ui:composition>
 

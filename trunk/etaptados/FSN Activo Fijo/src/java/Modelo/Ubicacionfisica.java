@@ -62,7 +62,7 @@ public class Ubicacionfisica implements Serializable {
     @Size(min = 1, max = 9)
     @Column(name = "telefono")
     private String telefono;
-    @Size(max = 200)
+    @Size(min = 0,max = 200)
     @Column(name = "obsubicacion")
     private String obsubicacion;
     @Basic(optional = false)
@@ -138,8 +138,22 @@ public class Ubicacionfisica implements Serializable {
     }
 
     public void setEstadoubicacion(Character estadoubicacion) {
+        Character C = new Character('0');
+        if(estadoubicacion=='0')
+        {
+        this.estadoubicacion = C;
+        }
+        else
+        {
         this.estadoubicacion = estadoubicacion;
+        }
     }
+
+    public void setEstadoubicacion() {
+        Character C = new Character('1');
+        this.estadoubicacion = C;
+    }
+    
 
     public Departamento getIddpto() {
         return iddpto;

@@ -12,8 +12,6 @@
             <h:form id="UbicacionfisicaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ubicacionfisicaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_idubicacion}"/>
-                        <h:outputText value="#{ubicacionfisicaController.selected.idubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_idubicacion}"/>
                         <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_nmbubicacion}"/>
                         <h:outputText value="#{ubicacionfisicaController.selected.nmbubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_nmbubicacion}"/>
                         <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_dirubicacion}"/>
@@ -22,12 +20,10 @@
                         <h:outputText value="#{ubicacionfisicaController.selected.telefono}" title="#{bundle.ViewUbicacionfisicaTitle_telefono}"/>
                         <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_obsubicacion}"/>
                         <h:outputText value="#{ubicacionfisicaController.selected.obsubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_obsubicacion}"/>
-                        <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_estadoubicacion}"/>
-                        <h:outputText value="#{ubicacionfisicaController.selected.estadoubicacion}" title="#{bundle.ViewUbicacionfisicaTitle_estadoubicacion}"/>
                         <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_iddpto}"/>
-                        <h:outputText value="#{ubicacionfisicaController.selected.iddpto}" title="#{bundle.ViewUbicacionfisicaTitle_iddpto}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.iddpto.nmbdpto}" title="#{bundle.ViewUbicacionfisicaTitle_iddpto}"/>
                         <h:outputText value="#{bundle.ViewUbicacionfisicaLabel_idmunicipio}"/>
-                        <h:outputText value="#{ubicacionfisicaController.selected.idmunicipio}" title="#{bundle.ViewUbicacionfisicaTitle_idmunicipio}"/>
+                        <h:outputText value="#{ubicacionfisicaController.selected.idmunicipio.nmbmunicipio}" title="#{bundle.ViewUbicacionfisicaTitle_idmunicipio}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="UbicacionfisicaViewDialog.hide()"/>
                 </h:panelGroup>

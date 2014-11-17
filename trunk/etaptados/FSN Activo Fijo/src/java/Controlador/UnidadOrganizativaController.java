@@ -136,7 +136,7 @@ public class UnidadOrganizativaController implements Serializable {
 
     public List<UnidadOrganizativa> getItemsAvailableSelectOne() {
         //Se modifico findAll() findAllbyone("estadounidad")
-        return getFacade().findAllbyone("estadounidad");
+        return getFacade().findAllbyone("estadoubicacion");
     }
 
     @FacesConverter(forClass = UnidadOrganizativa.class)
