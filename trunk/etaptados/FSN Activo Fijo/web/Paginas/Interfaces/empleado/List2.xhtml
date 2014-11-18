@@ -27,7 +27,7 @@
                         <p:ajax event="rowSelect"   update="viewButton"/>
                         <p:ajax event="rowUnselect" update="viewButton"/>
 
-                        <p:column>
+                       <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmpleadoTitle_idempleado}"/>
                             </f:facet>
@@ -57,7 +57,7 @@
                             </f:facet>
                             <h:outputText value="#{item.correo}"/>
                         </p:column>
-                        
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmpleadoTitle_fechaini}"/>
@@ -84,8 +84,14 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmpleadoTitle_idunidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idunidad}"/>
+                            <h:outputText value="#{item.idunidad.nmbunidad}"/>
                         </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ViewEmpleadoLabel_estadoempleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreEstadoDeempleado()}"/>
+                        </p:column>  
                         <f:facet name="footer">
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EmpleadoViewForm" oncomplete="PF('EmpleadoViewDialog').show()" disabled="#{empty empleadoController.selected}"/>
                         </f:facet>
