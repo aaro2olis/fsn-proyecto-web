@@ -27,7 +27,7 @@
                         <p:ajax event="rowSelect"   update=" viewButton"/>
                         <p:ajax event="rowUnselect" update=" viewButton"/>
 
-                        <p:column>
+                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMunicipioTitle_idmunicipio}"/>
                             </f:facet>
@@ -43,9 +43,9 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMunicipioTitle_iddpto}"/>
                             </f:facet>
-                            <h:outputText value="#{item.iddpto}"/>
+                            <h:outputText value="#{item.iddpto.nmbdpto}"/>
                         </p:column>
-                        <f:facet name="footer">
+                         <f:facet name="footer">
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MunicipioViewForm" oncomplete="PF('MunicipioViewDialog').show()" disabled="#{empty municipioController.selected}"/>
                         </f:facet>
                     </p:dataTable>

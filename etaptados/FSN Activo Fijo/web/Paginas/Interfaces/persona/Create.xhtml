@@ -12,18 +12,18 @@
             <h:form id="PersonaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
-                        <p:outputLabel value="Nombre razón" for="nombrerazon" />
+                        <p:outputLabel value="#{bundle.CreatePersonaLabel_nombrerazon}" for="nombrerazon" />
                         <p:inputText id="nombrerazon" value="#{personaController.selected.nombrerazon}" title="#{bundle.CreatePersonaTitle_nombrerazon}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_nombrerazon}"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_direccion}" for="direccion" />
                         <p:inputText id="direccion" value="#{personaController.selected.direccion}" title="#{bundle.CreatePersonaTitle_direccion}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_direccion}"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_telefono}" for="telefono" />
-                        <p:inputMask id="telefono" value="#{personaController.selected.telefono}" title="#{bundle.CreatePersonaTitle_telefono}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_telefono}" mask="9999-9999"/>
+                        <p:inputText id="telefono" value="#{personaController.selected.telefono}" title="#{bundle.CreatePersonaTitle_telefono}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_telefono}" />
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_correo}" for="correo" />
                         <p:inputText id="correo" value="#{personaController.selected.correo}" title="#{bundle.CreatePersonaTitle_correo}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_correo}"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_nit}" for="nit" />
-                        <p:inputMask id="nit" value="#{personaController.selected.nit}" title="#{bundle.CreatePersonaTitle_nit}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_nit}" mask="9999-999999-999-9"/>
+                        <p:inputText id="nit" value="#{personaController.selected.nit}" title="#{bundle.CreatePersonaTitle_nit}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_nit}" />
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_dui}" for="dui" />
-                        <p:inputMask id="dui" value="#{personaController.selected.dui}" title="#{bundle.CreatePersonaTitle_dui}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_dui}" mask="99999999-9"/>
+                        <p:inputText id="dui" value="#{personaController.selected.dui}" title="#{bundle.CreatePersonaTitle_dui}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_dui}"/>
                         <p:outputLabel value="Representa a:" for="perIdpersona" />
                         <p:selectOneMenu id="perIdpersona" value="#{personaController.selected.perIdpersona}" >
                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>

@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipomodalidadController.selected != null}">
                         <p:outputLabel value="#{bundle.EditTipomodalidadLabel_idmodalidad}" for="idmodalidad" />
-                        <p:inputText id="idmodalidad" value="#{tipomodalidadController.selected.idmodalidad}" title="#{bundle.EditTipomodalidadTitle_idmodalidad}" required="true" requiredMessage="#{bundle.EditTipomodalidadRequiredMessage_idmodalidad}"/>
+                        <p:inputText disabled="true" id="idmodalidad" value="#{tipomodalidadController.selected.idmodalidad}" title="#{bundle.EditTipomodalidadTitle_idmodalidad}" required="true" requiredMessage="#{bundle.EditTipomodalidadRequiredMessage_idmodalidad}"/>
                         <p:outputLabel value="#{bundle.EditTipomodalidadLabel_nmbmodalidad}" for="nmbmodalidad" />
                         <p:inputText id="nmbmodalidad" value="#{tipomodalidadController.selected.nmbmodalidad}" title="#{bundle.EditTipomodalidadTitle_nmbmodalidad}" required="true" requiredMessage="#{bundle.EditTipomodalidadRequiredMessage_nmbmodalidad}"/>
                         <p:outputLabel value="#{bundle.EditTipomodalidadLabel_dscmodalidad}" for="dscmodalidad" />

@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{municipioController.selected != null}">
                         <p:outputLabel value="#{bundle.EditMunicipioLabel_idmunicipio}" for="idmunicipio" />
-                        <p:inputText id="idmunicipio" value="#{municipioController.selected.idmunicipio}" title="#{bundle.EditMunicipioTitle_idmunicipio}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_idmunicipio}"/>
+                        <p:inputText disabled="true" id="idmunicipio" value="#{municipioController.selected.idmunicipio}" title="#{bundle.EditMunicipioTitle_idmunicipio}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_idmunicipio}"/>
                         <p:outputLabel value="#{bundle.EditMunicipioLabel_nmbmunicipio}" for="nmbmunicipio" />
                         <p:inputText id="nmbmunicipio" value="#{municipioController.selected.nmbmunicipio}" title="#{bundle.EditMunicipioTitle_nmbmunicipio}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_nmbmunicipio}"/>
                         <p:outputLabel value="#{bundle.EditMunicipioLabel_iddpto}" for="iddpto" />

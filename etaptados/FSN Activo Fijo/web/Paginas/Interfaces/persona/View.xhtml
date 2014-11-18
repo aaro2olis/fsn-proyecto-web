@@ -12,8 +12,6 @@
             <h:form id="PersonaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewPersonaLabel_idpersona}"/>
-                        <h:outputText value="#{personaController.selected.idpersona}" title="#{bundle.ViewPersonaTitle_idpersona}"/>
                         <h:outputText value="Nombre razón:"/>
                         <h:outputText value="#{personaController.selected.nombrerazon}" title="#{bundle.ViewPersonaTitle_nombrerazon}"/>
                         <h:outputText value="#{bundle.ViewPersonaLabel_direccion}"/>

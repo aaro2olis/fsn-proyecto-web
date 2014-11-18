@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{categoriaController.selected != null}">
                         <p:outputLabel value="#{bundle.EditCategoriaLabel_idcategoria}" for="idcategoria" />
-                        <p:inputText id="idcategoria" value="#{categoriaController.selected.idcategoria}" title="#{bundle.EditCategoriaTitle_idcategoria}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_idcategoria}"/>
+                        <p:inputText disabled="true" id="idcategoria" value="#{categoriaController.selected.idcategoria}" title="#{bundle.EditCategoriaTitle_idcategoria}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_idcategoria}"/>
                         <p:outputLabel value="#{bundle.EditCategoriaLabel_nmbcategoria}" for="nmbcategoria" />
                         <p:inputText id="nmbcategoria" value="#{categoriaController.selected.nmbcategoria}" title="#{bundle.EditCategoriaTitle_nmbcategoria}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_nmbcategoria}"/>
                         <p:outputLabel value="#{bundle.EditCategoriaLabel_dsccategoria}" for="dsccategoria" />
