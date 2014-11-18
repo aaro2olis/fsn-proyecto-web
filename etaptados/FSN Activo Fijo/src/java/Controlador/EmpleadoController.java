@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
@@ -125,7 +124,8 @@ public class EmpleadoController implements Serializable {
     }
 
     public List<Empleado> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        //return getFacade().findAll();
+        return getFacade().findAllbyone("estadoempleado");       
     }
 
     @FacesConverter(forClass = Empleado.class)
