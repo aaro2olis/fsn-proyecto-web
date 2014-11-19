@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Modelo;
 
 import java.io.Serializable;
@@ -49,6 +48,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Activo.findByValorresidual", query = "SELECT a FROM Activo a WHERE a.valorresidual = :valorresidual"),
     @NamedQuery(name = "Activo.findByNuevo", query = "SELECT a FROM Activo a WHERE a.nuevo = :nuevo")})
 public class Activo implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -218,6 +218,20 @@ public class Activo implements Serializable {
         this.estadoactivo = estadoactivo;
     }
 
+    public void setEstadounidad(String estadoactivo) {
+        Integer C = new Integer(0);
+        if (estadoactivo.equals("0")) {
+            this.estadoactivo = C;
+        } else {
+            this.estadoactivo = Integer.parseInt(estadoactivo);
+        }
+    }
+
+    public void setEstadoactivo() {
+        //Al momento de crearse 0 para eliminados
+        this.estadoactivo = 1;
+    }
+
     public BigDecimal getCostoadquicision() {
         return costoadquicision;
     }
@@ -240,6 +254,50 @@ public class Activo implements Serializable {
 
     public void setNuevo(Character nuevo) {
         this.nuevo = nuevo;
+    }
+
+    public void setNuevo(String nuevo) {
+        if (nuevo.equals("Nuevo")) {
+            this.nuevo = '1';
+        } else {
+            if (nuevo.equals("Usado")) {
+                this.nuevo = '2';
+            } else {
+                if (nuevo.equals("Dañado")) {
+                    this.nuevo = '3';
+                } else {
+                    if (nuevo.equals("Inservible")) {
+                        this.nuevo = '4';
+                    } else {
+                        this.nuevo = '0';
+                    }
+                }
+            }
+        }
+    }
+    public String setCompraActivo() {
+        String nombreEstadoCompraActivo;
+        switch (nuevo) {
+            case '1':
+                nombreEstadoCompraActivo = "Nuevo";
+                break;
+            case '2':
+                nombreEstadoCompraActivo = "Usado";
+                break;
+            case '3':
+                nombreEstadoCompraActivo = "Dañado";
+                break;
+            case '4':
+                nombreEstadoCompraActivo = "Inservible";
+                break;
+            case '0':
+                nombreEstadoCompraActivo = "Eliminado";
+                break;
+            default:
+                nombreEstadoCompraActivo = "Error";
+                break;
+        }
+        return nombreEstadoCompraActivo;
     }
 
     @XmlTransient
@@ -315,6 +373,7 @@ public class Activo implements Serializable {
     }
 
     public void setIdtipoestado(Tipoestado idtipoestado) {
+        //Estado del activo robado, en oficinas, en prestamo, alquilado, en mantenimiento,etc
         this.idtipoestado = idtipoestado;
     }
 
@@ -356,7 +415,7 @@ public class Activo implements Serializable {
 
     @Override
     public String toString() {
-        return  idactivo ;
+        return idactivo;
     }
-    
+
 }
