@@ -12,8 +12,6 @@
             <h:form id="TipoactivoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoactivoController.selected != null}">
-                        <h:outputText value="#{bundle.ViewTipoactivoLabel_idtipoactivo}"/>
-                        <h:outputText value="#{tipoactivoController.selected.idtipoactivo}" title="#{bundle.ViewTipoactivoTitle_idtipoactivo}"/>
                         <h:outputText value="#{bundle.ViewTipoactivoLabel_nmbactivo}"/>
                         <h:outputText value="#{tipoactivoController.selected.nmbactivo}" title="#{bundle.ViewTipoactivoTitle_nmbactivo}"/>
                         <h:outputText value="#{bundle.ViewTipoactivoLabel_vidautil}"/>

@@ -11,27 +11,26 @@
             <h:form id="ActivoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{activoController.selected != null}">
-                        <p:outputLabel value="ID Activo" for="idactivo" />
+                        <p:outputLabel value="#{bundle.CreateActivoTitle_idactivo}" for="idactivo" />
                         <p:inputText id="idactivo" value="#{activoController.selected.idactivo}" title="#{bundle.CreateActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idactivo}"/>
                         <p:outputLabel value="Nombre" for="nmbactivo" />
                         <p:inputText id="nmbactivo" value="#{activoController.selected.nmbactivo}" title="#{bundle.CreateActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_nmbactivo}"/>
                         <p:outputLabel value="Descripcion" for="dscactivo" />
                         <p:inputText id="dscactivo" value="#{activoController.selected.dscactivo}" title="#{bundle.CreateActivoTitle_dscactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_dscactivo}"/>
-                        <p:outputLabel value="Observacion" for="obsactivo" />
+                        <p:outputLabel value="Observacion sobre el activo" for="obsactivo" />
                         <p:inputText id="obsactivo" value="#{activoController.selected.obsactivo}" title="#{bundle.CreateActivoTitle_obsactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_obsactivo}"/>
                         <p:outputLabel value="Marca" for="marcaactivo" />
                         <p:inputText id="marcaactivo" value="#{activoController.selected.marcaactivo}" title="#{bundle.CreateActivoTitle_marcaactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_marcaactivo}"/>
                         <p:outputLabel value="Modelo" for="modeloactivo" />
                         <p:inputText id="modeloactivo" value="#{activoController.selected.modeloactivo}" title="#{bundle.CreateActivoTitle_modeloactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_modeloactivo}"/>
-                        <p:outputLabel value="Fecha de Adquicision" for="fechaAdquisicion" />
+                        <p:outputLabel value="Fecha de Adquisicion" for="fechaAdquisicion" />
                         <p:calendar id="fechaAdquisicion" pattern="MM/dd/yyyy" value="#{activoController.selected.fechaAdquisicion}" title="#{bundle.EditActivoTitle_fechaAdquisicion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_fechaAdquisicion}" showOn="button"/>
-                        <p:outputLabel value="Estado" for="estadoactivo" />
-                        <p:inputText id="estadoactivo" value="#{activoController.selected.estadoactivo}" title="#{bundle.CreateActivoTitle_estadoactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_estadoactivo}"/>
-                        <p:outputLabel value="Costo de Adquicision($)" for="costoadquicision" />
+                        <p:outputLabel value="Costo de Adquisicion($)" for="costoadquicision" />
                         <p:inputText id="costoadquicision" value="#{activoController.selected.costoadquicision}" title="#{bundle.CreateActivoTitle_costoadquicision}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_costoadquicision}"/>
                         <p:outputLabel value="Valor Residual" for="valorresidual" />
                         <p:inputText id="valorresidual" value="#{activoController.selected.valorresidual}" title="#{bundle.CreateActivoTitle_valorresidual}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_valorresidual}"/>
-                        <p:outputLabel value="Nuevo" for="nuevo" />
+                        
+                        <p:outputLabel value="#{bundle.CreateActivoTitle_nuevo}" for="nuevo" />
                         <p:inputText id="nuevo" value="#{activoController.selected.nuevo}" title="#{bundle.CreateActivoTitle_nuevo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_nuevo}"/>
                         <p:outputLabel value="Categoria" for="idcategoria" />
                         <p:selectOneMenu id="idcategoria" value="#{activoController.selected.idcategoria}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idcategoria}">
@@ -40,35 +39,28 @@
                                            var="idcategoriaItem"
                                            itemValue="#{idcategoriaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="Responsable Actual" for="idempleado" />
+                        <p:outputLabel value="Asignado a :" for="idempleado" />
                         <p:selectOneMenu id="idempleado" value="#{activoController.selected.idempleado}" >
                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/> 
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
                                            var="idempleadoItem"
                                            itemValue="#{idempleadoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="Persona" for="idpersona" />
+                        <p:outputLabel value="Propietario" for="idpersona" />
                         <p:selectOneMenu id="idpersona" value="#{activoController.selected.idpersona}" >
                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="idpersonaItem"
                                            itemValue="#{idpersonaItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="Tipo de Activo" for="idtipoactivo" />
+                        <p:outputLabel value="#{bundle.CreateActivoTitle_idtipoactivo}"  for="idtipoactivo" />
                         <p:selectOneMenu id="idtipoactivo" value="#{activoController.selected.idtipoactivo}" >
                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/> 
                            <f:selectItems value="#{tipoactivoController.itemsAvailableSelectOne}"
                                            var="idtipoactivoItem"
                                            itemValue="#{idtipoactivoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="Estado Movimientos" for="idtipoestado" />
-                        <p:selectOneMenu id="idtipoestado" value="#{activoController.selected.idtipoestado}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idtipoestado}">
-                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
-                            <f:selectItems value="#{tipoestadoController.itemsAvailableSelectOne}"
-                                           var="idtipoestadoItem"
-                                           itemValue="#{idtipoestadoItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="Modalidad" for="idmodalidad" />
+                        <p:outputLabel value="#{bundle.CreateActivoLabel_idmodalidad}" for="idmodalidad" />
                         <p:selectOneMenu id="idmodalidad" value="#{activoController.selected.idmodalidad}" >
                              <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{tipomodalidadController.itemsAvailableSelectOne}"
@@ -82,6 +74,8 @@
                                            var="idubicacionItem"
                                            itemValue="#{idubicacionItem}"/>
                         </p:selectOneMenu>
+                        <p:inputText type="hidden" disabled="true" id="estadoactivo" value="#{activoController.selected.setEstadoactivo()}" />
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{activoController.create}" value="#{bundle.Save}" update="display,:ActivoListForm:datalist,:growl" oncomplete="handleSubmit(args,'ActivoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ActivoCreateDialog.hide()"/>
