@@ -210,15 +210,15 @@ public class Activo implements Serializable {
         this.fechaAdquisicion = fechaAdquisicion;
     }
 
-    public int getEstadoactivo() {
+    public int getEstadoActivo() {
         return estadoactivo;
     }
 
-    public void setEstadoactivo(int estadoactivo) {
+    public void setEstadoActivo(int estadoactivo) {
         this.estadoactivo = estadoactivo;
     }
 
-    public void setEstadounidad(String estadoactivo) {
+    public void setEstadoActivo(String estadoactivo) {
         Integer C = new Integer(0);
         if (estadoactivo.equals("0")) {
             this.estadoactivo = C;
@@ -227,7 +227,14 @@ public class Activo implements Serializable {
         }
     }
 
-    public void setEstadoactivo() {
+    public void setEstadoActivo(Character estadoactivo) {
+        Character C = new Character('0');
+        if (estadoactivo == '0') {
+            this.estadoactivo = 0;
+        }
+    }
+
+    public void setEstadoActivo() {
         //Al momento de crearse 0 para eliminados
         this.estadoactivo = 1;
     }
@@ -252,49 +259,55 @@ public class Activo implements Serializable {
         return nuevo;
     }
 
+    public String getNuevoNombre() {
+        //return nuevo;
+        return getCompraActivo(nuevo);
+    }
+
     public void setNuevo(Character nuevo) {
         this.nuevo = nuevo;
     }
 
     public void setNuevo(String nuevo) {
-        if (nuevo.equals("Nuevo")) {
-            this.nuevo = '1';
-        } else {
-            if (nuevo.equals("Usado")) {
-                this.nuevo = '2';
-            } else {
-                if (nuevo.equals("Dañado")) {
-                    this.nuevo = '3';
-                } else {
-                    if (nuevo.equals("Inservible")) {
-                        this.nuevo = '4';
-                    } else {
-                        this.nuevo = '0';
-                    }
-                }
-            }
-        }
-    }
-    public String setCompraActivo() {
-        String nombreEstadoCompraActivo;
         switch (nuevo) {
-            case '1':
-                nombreEstadoCompraActivo = "Nuevo";
+            case "1":
+                this.nuevo = '1';
                 break;
-            case '2':
-                nombreEstadoCompraActivo = "Usado";
+            case "2":
+                this.nuevo = '2';
                 break;
-            case '3':
-                nombreEstadoCompraActivo = "Dañado";
+            case "3":
+                this.nuevo = '3';
                 break;
-            case '4':
-                nombreEstadoCompraActivo = "Inservible";
+            case "4":
+                this.nuevo = '4';
                 break;
-            case '0':
-                nombreEstadoCompraActivo = "Eliminado";
+            case "5":
+                this.nuevo = '5';
                 break;
             default:
-                nombreEstadoCompraActivo = "Error";
+                this.nuevo = '6';
+                break;
+        }
+    }
+
+    public String getCompraActivo(Character nuevo) {
+        String nombreEstadoCompraActivo = null;
+        switch (nuevo) {
+            case '0':
+                nombreEstadoCompraActivo = "Nuevo";
+                break;
+            case '1':
+                nombreEstadoCompraActivo = "Usado 1 año";
+                break;
+            case '2':
+                nombreEstadoCompraActivo = "Usado 2 años";
+                break;
+            case '3':
+                nombreEstadoCompraActivo = "Usado 3 años";
+                break;
+            case '4':
+                nombreEstadoCompraActivo = "Usado 4 años";
                 break;
         }
         return nombreEstadoCompraActivo;

@@ -73,9 +73,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActivoTitle_estadoactivo}"/>
+                                <h:outputText value="#{bundle.ListActivoTitle_idtipoestado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estadoactivo}"/>
+                            <h:outputText value="#{item.idtipoestado.nmbtipoestado}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -93,7 +93,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_nuevo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nuevo}"/>
+                            <h:outputText value="#{item.nuevoNombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -121,12 +121,6 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListActivoTitle_idtipoestado}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idtipoestado.nmbtipoestado}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListActivoTitle_idmodalidad}"/>
                             </f:facet>
                             <h:outputText value="#{item.idmodalidad.nmbmodalidad}"/>
@@ -141,7 +135,8 @@
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{activoController.prepareCreate}" update=":ActivoCreateForm" oncomplete="PF('ActivoCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ActivoViewForm" oncomplete="PF('ActivoViewDialog').show()" disabled="#{empty activoController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ActivoEditForm" oncomplete="PF('ActivoEditDialog').show()" disabled="#{empty activoController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{activoController.destroy}" update=":growl,datalist" disabled="#{empty activoController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Borrar}" update=":ActivoBorrarForm" oncomplete="PF('ActivoBorrarDialog').show()" disabled="#{empty activoController.selected}"/>
+
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
@@ -150,6 +145,7 @@
             <ui:include src="Create.xhtml"/>
             <ui:include src="Edit.xhtml"/>
             <ui:include src="View.xhtml"/>
+            <ui:include src="Eliminar.xhtml"/>            
         </ui:define>
     </ui:composition>
 

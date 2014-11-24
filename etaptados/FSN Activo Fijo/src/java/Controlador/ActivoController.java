@@ -74,9 +74,19 @@ public class ActivoController implements Serializable {
         }
     }
 
+    //Creada por el mensaje de eliminado
+    public void borrar() {
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ActivoDeleted"));
+        if (!JsfUtil.isValidationFailed()) {
+            selected = null; // Remove selection
+            items = null;    // Invalidate list of items to trigger re-query.
+        }
+    }
+
     public List<Activo> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+             items = getFacade().findAll();
+            //items = getFacade().findAllbyone("estadoactivo"); activar una vez corregido
         }
         return items;
     }
@@ -161,5 +171,4 @@ public class ActivoController implements Serializable {
         }
 
     }
-
 }
