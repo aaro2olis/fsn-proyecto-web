@@ -11,7 +11,7 @@
         <p:dialog id="ActivoViewDlg" widgetVar="ActivoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewActivoTitle}">
             <h:form id="ActivoViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{activoController.selected != null}">
+                    <p:panelGrid columns="4" rendered="#{activoController.selected != null}">
                         <h:outputText value="#{bundle.ViewActivoLabel_idactivo}"/>
                         <h:outputText value="#{activoController.selected.idactivo}" title="#{bundle.ViewActivoTitle_idactivo}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_nmbactivo}"/>
@@ -28,14 +28,12 @@
                         <h:outputText value="#{activoController.selected.fechaAdquisicion}" title="#{bundle.ViewActivoTitle_fechaAdquisicion}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewActivoLabel_estadoactivo}"/>
-                        <h:outputText value="#{activoController.selected.estadoactivo}" title="#{bundle.ViewActivoTitle_estadoactivo}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_costoadquicision}"/>
                         <h:outputText value="#{activoController.selected.costoadquicision}" title="#{bundle.ViewActivoTitle_costoadquicision}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_valorresidual}"/>
                         <h:outputText value="#{activoController.selected.valorresidual}" title="#{bundle.ViewActivoTitle_valorresidual}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_nuevo}"/>
-                        <h:outputText value="#{activoController.selected.nuevo}" title="#{bundle.ViewActivoTitle_nuevo}"/>
+                        <h:outputText value="#{activoController.selected.nuevoNombre}" title="#{bundle.ViewActivoTitle_nuevo}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idcategoria}"/>
                         <h:outputText value="#{activoController.selected.idcategoria.nmbcategoria}" title="#{bundle.ViewActivoTitle_idcategoria}"/>
                         <h:outputText value="#{bundle.ViewActivoLabel_idempleado}"/>

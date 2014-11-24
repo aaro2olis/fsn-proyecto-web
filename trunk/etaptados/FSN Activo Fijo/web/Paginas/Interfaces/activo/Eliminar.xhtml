@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ActivoBorrarDlg" widgetVar="ActivoBorrarDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.BorrarActivoTitle}">
+            <h:form id="ActivoBorrarForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="1" rendered="#{activoController.selected != null}">
+                        <p:outputLabel value="#{bundle.BorrarActivoTitle_confirmacion}"/>
+                        <p:inputText type="hidden" disabled="true" id="estadoactivo" value="#{activoController.selected.setEstadoActivo('0')}" title="#{bundle.EditActivoLabel_estadoactivo}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{activoController.borrar()}" value="#{bundle.Borrar}" update="display,:ActivoListForm:datalist,:growl" onclick="ActivoBorrarDlg.hide()" oncomplete="handleSubmit(args, 'ActivoBorrarDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ActivoBorrarDlg.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
+

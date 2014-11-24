@@ -11,9 +11,9 @@
         <p:dialog id="ActivoEditDlg" widgetVar="ActivoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditActivoTitle}">
             <h:form id="ActivoEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{activoController.selected != null}">
+                    <p:panelGrid columns="4" rendered="#{activoController.selected != null}">
                         <p:outputLabel value="#{bundle.EditActivoLabel_idactivo}" for="idactivo" />
-                        <p:inputText id="idactivo" value="#{activoController.selected.idactivo}" title="#{bundle.EditActivoTitle_idactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idactivo}"/>
+                        <p:inputText id="idactivo" disabled="true" value="#{activoController.selected.idactivo}" title="#{bundle.EditActivoTitle_idactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idactivo}"/>
                         <p:outputLabel value="#{bundle.EditActivoLabel_nmbactivo}" for="nmbactivo" />
                         <p:inputText id="nmbactivo" value="#{activoController.selected.nmbactivo}" title="#{bundle.EditActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_nmbactivo}"/>
                         <p:outputLabel value="#{bundle.EditActivoLabel_dscactivo}" for="dscactivo" />
@@ -26,14 +26,18 @@
                         <p:inputText id="modeloactivo" value="#{activoController.selected.modeloactivo}" title="#{bundle.EditActivoTitle_modeloactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_modeloactivo}"/>
                         <p:outputLabel value="#{bundle.EditActivoLabel_fechaAdquisicion}" for="fechaAdquisicion" />
                         <p:calendar id="fechaAdquisicion" pattern="MM/dd/yyyy" value="#{activoController.selected.fechaAdquisicion}" title="#{bundle.EditActivoTitle_fechaAdquisicion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_fechaAdquisicion}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditActivoLabel_estadoactivo}" for="estadoactivo" />
-                        <p:inputText id="estadoactivo" value="#{activoController.selected.estadoactivo}" title="#{bundle.EditActivoTitle_estadoactivo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_estadoactivo}"/>
                         <p:outputLabel value="#{bundle.EditActivoLabel_costoadquicision}" for="costoadquicision" />
                         <p:inputText id="costoadquicision" value="#{activoController.selected.costoadquicision}" title="#{bundle.EditActivoTitle_costoadquicision}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_costoadquicision}"/>
                         <p:outputLabel value="#{bundle.EditActivoLabel_valorresidual}" for="valorresidual" />
                         <p:inputText id="valorresidual" value="#{activoController.selected.valorresidual}" title="#{bundle.EditActivoTitle_valorresidual}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_valorresidual}"/>
                         <p:outputLabel value="#{bundle.EditActivoLabel_nuevo}" for="nuevo" />
-                        <p:inputText id="nuevo" value="#{activoController.selected.nuevo}" title="#{bundle.EditActivoTitle_nuevo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_nuevo}"/>
+                        <h:selectOneMenu id="nuevo" value="#{activoController.selected.nuevo}" title="#{bundle.EditActivoTitle_nuevo}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_nuevo}">
+                            <f:selectItem itemValue="0" itemLabel="Nuevo"/>
+                            <f:selectItem itemValue="1" itemLabel="Usado 1 año"/>
+                            <f:selectItem itemValue="2" itemLabel="Usado 2 años"/>
+                            <f:selectItem itemValue="3" itemLabel="Usado 3 años"/> 
+                            <f:selectItem itemValue="4" itemLabel="Usado 4 o mas años"/> 
+                        </h:selectOneMenu>              
                         <p:outputLabel value="#{bundle.EditActivoLabel_idcategoria}" for="idcategoria" />
                         <p:selectOneMenu id="idcategoria" value="#{activoController.selected.idcategoria}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idcategoria}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

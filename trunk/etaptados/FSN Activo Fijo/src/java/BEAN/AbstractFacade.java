@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package BEAN;
 
 import java.util.List;
@@ -17,6 +16,7 @@ import javax.persistence.criteria.Root;
  * @author FSN-Desarrollo
  */
 public abstract class AbstractFacade<T> {
+
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
@@ -46,15 +46,13 @@ public abstract class AbstractFacade<T> {
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
     }
-    
-    
-public List<T> findAllbyone(String estado) {
+
+    public List<T> findAllbyone(String estado) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
         Root<T> c = cq.from(entityClass);
         cq.select(c);
-        
-        cq.where(cb.notEqual((c.get(estado)),'0'));
+        cq.where(cb.notEqual((c.get(estado)), '0'));
         return getEntityManager().createQuery(cq).getResultList();
     }
 
@@ -74,5 +72,5 @@ public List<T> findAllbyone(String estado) {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }
