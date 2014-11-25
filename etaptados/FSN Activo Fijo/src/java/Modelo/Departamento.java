@@ -49,7 +49,6 @@ public class Departamento implements Serializable {
     @Column(name = "nmbdpto")
     private String nmbdpto;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "obsdpto")
     private String obsdpto;

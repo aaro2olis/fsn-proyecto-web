@@ -49,7 +49,6 @@ public class Tipoestado implements Serializable {
     @Column(name = "nmbtipoestado")
     private String nmbtipoestado;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "dsctipoestado")
     private String dsctipoestado;
