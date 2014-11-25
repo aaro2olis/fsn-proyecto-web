@@ -67,7 +67,6 @@ public class Activo implements Serializable {
     @Column(name = "dscactivo")
     private String dscactivo;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "obsactivo")
     private String obsactivo;
@@ -89,7 +88,7 @@ public class Activo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "estadoactivo")
-    private int estadoactivo;
+    private Character estadoactivo;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @NotNull
@@ -140,7 +139,7 @@ public class Activo implements Serializable {
         this.idactivo = idactivo;
     }
 
-    public Activo(String idactivo, String nmbactivo, String dscactivo, String obsactivo, String marcaactivo, String modeloactivo, Date fechaAdquisicion, int estadoactivo, BigDecimal costoadquicision, BigDecimal valorresidual, Character nuevo) {
+    public Activo(String idactivo, String nmbactivo, String dscactivo, String obsactivo, String marcaactivo, String modeloactivo, Date fechaAdquisicion, Character estadoactivo, BigDecimal costoadquicision, BigDecimal valorresidual, Character nuevo) {
         this.idactivo = idactivo;
         this.nmbactivo = nmbactivo;
         this.dscactivo = dscactivo;
@@ -214,11 +213,11 @@ public class Activo implements Serializable {
         return estadoactivo;
     }
 
-    public void setEstadoActivo(int estadoactivo) {
+    public void setEstadoActivo(Character estadoactivo) {
         this.estadoactivo = estadoactivo;
     }
 
-    public void setEstadoActivo(String estadoactivo) {
+   /* public void setEstadoActivo(Character estadoactivo) {
         Integer C = new Integer(0);
         if (estadoactivo.equals("0")) {
             this.estadoactivo = C;
@@ -232,7 +231,7 @@ public class Activo implements Serializable {
         if (estadoactivo == '0') {
             this.estadoactivo = 0;
         }
-    }
+    }*/
 
     public void setEstadoActivo() {
         //Al momento de crearse 0 para eliminados

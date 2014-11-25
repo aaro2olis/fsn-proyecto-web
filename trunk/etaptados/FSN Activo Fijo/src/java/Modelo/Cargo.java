@@ -49,7 +49,6 @@ public class Cargo implements Serializable {
     @Column(name = "nmbcargo")
     private String nmbcargo;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "dsccargo")
     private String dsccargo;

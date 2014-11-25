@@ -54,7 +54,6 @@ public class Mantenimiento implements Serializable {
     @Column(name = "idmantenimiento")
     private Integer idmantenimiento;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "dscmantenimiento")
     private String dscmantenimiento;

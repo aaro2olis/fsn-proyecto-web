@@ -46,7 +46,6 @@ public class Plantillaactividad implements Serializable {
     @Column(name = "idplantilla")
     private Integer idplantilla;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "dscplantilla")
     private String dscplantilla;

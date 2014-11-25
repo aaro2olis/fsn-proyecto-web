@@ -44,7 +44,6 @@ public class Detallecategoria implements Serializable {
     @Column(name = "iddetallecategoria")
     private Integer iddetallecategoria;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "dscdetalle")
     private String dscdetalle;

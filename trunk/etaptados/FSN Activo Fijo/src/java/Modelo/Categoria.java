@@ -48,7 +48,6 @@ public class Categoria implements Serializable {
     @Column(name = "nmbcategoria")
     private String nmbcategoria;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "dsccategoria")
     private String dsccategoria;
