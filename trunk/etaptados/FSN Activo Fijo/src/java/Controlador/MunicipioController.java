@@ -1,10 +1,9 @@
 package Controlador;
 
-import Modelo.Municipio;
+import BEAN.MunicipioFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.MunicipioFacade;
-
+import Modelo.Municipio;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +11,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
 
 @Named("municipioController")
 @SessionScoped
@@ -49,6 +48,10 @@ public class MunicipioController implements Serializable {
         return ejbFacade;
     }
 
+    private MunicipioFacade getFacadeMunicipio() {
+        return ejbFacade;
+    }
+
     public Municipio prepareCreate() {
         selected = new Municipio();
         initializeEmbeddableKey();
@@ -76,7 +79,8 @@ public class MunicipioController implements Serializable {
 
     public List<Municipio> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+              items= getFacadeMunicipio().findAllOrderByDepto();
         }
         return items;
     }
@@ -115,6 +119,19 @@ public class MunicipioController implements Serializable {
 
     public List<Municipio> getItemsAvailableSelectMany() {
         return getFacade().findAll();
+    }
+
+    //*public List<Municipio> getItemsByIdDepto() {
+    //    if (items == null) {
+    //        items = getFacade().findAllCriterioInteger("iddpto", 6);;
+    //    }
+    //    return items;
+    //}
+    public List<Municipio> getItemsByIdDepto() {
+        if (items == null) {
+            items = getFacadeMunicipio().getItemsByIdDepto();
+        }
+        return items;
     }
 
     public List<Municipio> getItemsAvailableSelectOne() {
