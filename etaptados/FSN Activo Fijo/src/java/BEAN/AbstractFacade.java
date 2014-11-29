@@ -51,6 +51,12 @@ public abstract class AbstractFacade<T> {
         return getEntityManager().createNamedQuery(namedQueryName).getResultList();
     }
 
+    public List<T> findAllbyone(String namedQueryName, String estado) {
+        return getEntityManager().createNamedQuery(namedQueryName)
+                .setParameter(estado, '0')
+                .getResultList();
+    }
+
     public List<T> findAllbyone(String estado) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
