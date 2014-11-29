@@ -27,12 +27,6 @@
                         <p:ajax event="rowSelect"   update=" viewButton"/>
                         <p:ajax event="rowUnselect" update=" viewButton"/>
 
-                         <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMunicipioTitle_idmunicipio}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idmunicipio}"/>
-                        </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMunicipioTitle_nmbmunicipio}"/>
@@ -45,6 +39,12 @@
                             </f:facet>
                             <h:outputText value="#{item.iddpto.nmbdpto}"/>
                         </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentoTitle_obsdpto}"/>
+                            </f:facet>
+                             <h:outputText  value="#{item.iddpto.obsdpto}"/>
+                        </p:column>  
                          <f:facet name="footer">
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MunicipioViewForm" oncomplete="PF('MunicipioViewDialog').show()" disabled="#{empty municipioController.selected}"/>
                         </f:facet>
@@ -54,5 +54,4 @@
             <ui:include src="View.xhtml"/>
         </ui:define>
     </ui:composition>
-
 </html>

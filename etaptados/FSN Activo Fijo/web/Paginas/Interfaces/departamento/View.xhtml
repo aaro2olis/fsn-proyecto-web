@@ -12,8 +12,6 @@
             <h:form id="DepartamentoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{departamentoController.selected != null}">
-                        <h:outputText value="#{bundle.ViewDepartamentoLabel_iddpto}"/>
-                        <h:outputText value="#{departamentoController.selected.iddpto}" title="#{bundle.ViewDepartamentoTitle_iddpto}"/>
                         <h:outputText value="#{bundle.ViewDepartamentoLabel_nmbdpto}"/>
                         <h:outputText value="#{departamentoController.selected.nmbdpto}" title="#{bundle.ViewDepartamentoTitle_nmbdpto}"/>
                         <h:outputText value="#{bundle.ViewDepartamentoLabel_obsdpto}"/>

@@ -1,10 +1,9 @@
 package Controlador;
 
-import Modelo.Departamento;
+import BEAN.DepartamentoFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.DepartamentoFacade;
-
+import Modelo.Departamento;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +11,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
 
 @Named("departamentoController")
 @SessionScoped
@@ -55,16 +55,46 @@ public class DepartamentoController implements Serializable {
         return selected;
     }
 
+    /*public void create() {
+     persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("DepartamentoCreated"));
+     if (!JsfUtil.isValidationFailed()) {
+     items = null;    // Invalidate list of items to trigger re-query.
+     }
+     }*/
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("DepartamentoCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
+        String nmbdpto;
+        nmbdpto = selected.getNmbdpto().toUpperCase();
+        boolean evaluacion;
+        evaluacion = ejbFacade.findDuplicados(nmbdpto);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("DepartamentoCreatedError")));
+        } else {
+            persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("DepartamentoCreated"));
+            if (!JsfUtil.isValidationFailed()) {
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("DepartamentoUpdated"));
+        String nmbdpto;
+        nmbdpto = selected.getNmbdpto().toUpperCase();
+        Integer iddpto = selected.getIddpto();
+        boolean evaluacion;
+        evaluacion = ejbFacade.findDuplicados(nmbdpto,iddpto);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("DepartamentoUpdatedError")));
+            items = null;
+        } else {
+            persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("DepartamentoUpdated"));
+        }
     }
+
+    /*public void update() {
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("DepartamentoUpdated"));
+    }*/
 
     public void destroy() {
         persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("DepartamentoDeleted"));
@@ -76,7 +106,7 @@ public class DepartamentoController implements Serializable {
 
     public List<Departamento> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().findAll("Departamento.findAll");
         }
         return items;
     }

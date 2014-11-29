@@ -12,9 +12,7 @@
             <h:form id="DepartamentoEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{departamentoController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditDepartamentoLabel_iddpto}" for="iddpto" />
-                        <p:inputText disabled="true" id="iddpto" value="#{departamentoController.selected.iddpto}" title="#{bundle.EditDepartamentoTitle_iddpto}" required="true" requiredMessage="#{bundle.EditDepartamentoRequiredMessage_iddpto}"/>
-                        <p:outputLabel value="#{bundle.EditDepartamentoLabel_nmbdpto}" for="nmbdpto" />
+                         <p:outputLabel value="#{bundle.EditDepartamentoLabel_nmbdpto}" for="nmbdpto" />
                         <p:inputText id="nmbdpto" value="#{departamentoController.selected.nmbdpto}" title="#{bundle.EditDepartamentoTitle_nmbdpto}" required="true" requiredMessage="#{bundle.EditDepartamentoRequiredMessage_nmbdpto}"/>
                         <p:outputLabel value="#{bundle.EditDepartamentoLabel_obsdpto}" for="obsdpto" />
                         <p:inputText id="obsdpto" value="#{departamentoController.selected.obsdpto}" title="#{bundle.EditDepartamentoTitle_obsdpto}" required="true" requiredMessage="#{bundle.EditDepartamentoRequiredMessage_obsdpto}"/>

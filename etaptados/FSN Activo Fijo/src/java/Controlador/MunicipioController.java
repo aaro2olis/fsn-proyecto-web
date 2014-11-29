@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -58,16 +59,38 @@ public class MunicipioController implements Serializable {
         return selected;
     }
 
+// Modificada para rechazar los nombres iguales en el mismo departamento
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("MunicipioCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
+        String nmbmunicipio = selected.getNmbmunicipio().toUpperCase();
+        Integer iddpto = selected.getIddpto().getIddpto();
+        boolean evaluacion = ejbFacade.findDuplicados(nmbmunicipio, iddpto);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("MunicipioCreatedError")));
+        } else {
+            persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("MunicipioCreated"));
+            if (!JsfUtil.isValidationFailed()) {
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("MunicipioUpdated"));
+        String nmbmunicipio = selected.getNmbmunicipio().toUpperCase();
+        Integer iddpto = selected.getIddpto().getIddpto();
+        Integer idmunicipio = selected.getIdmunicipio();
+        boolean evaluacion = ejbFacade.findDuplicados(nmbmunicipio, iddpto,idmunicipio );
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("MunicipioUpdateError")));
+            items = null;
+        } else {
+            persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("MunicipioUpdated"));
+        }
     }
+    /*public void update() {
+     persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("MunicipioUpdated"));
+     }*/
 
     public void destroy() {
         persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("MunicipioDeleted"));
@@ -79,8 +102,7 @@ public class MunicipioController implements Serializable {
 
     public List<Municipio> getItems() {
         if (items == null) {
-            //items = getFacade().findAll();
-              items= getFacadeMunicipio().findAllOrderByDepto();
+            items = getFacade().findAll("Municipio.findAll");
         }
         return items;
     }
@@ -119,19 +141,6 @@ public class MunicipioController implements Serializable {
 
     public List<Municipio> getItemsAvailableSelectMany() {
         return getFacade().findAll();
-    }
-
-    //*public List<Municipio> getItemsByIdDepto() {
-    //    if (items == null) {
-    //        items = getFacade().findAllCriterioInteger("iddpto", 6);;
-    //    }
-    //    return items;
-    //}
-    public List<Municipio> getItemsByIdDepto() {
-        if (items == null) {
-            items = getFacadeMunicipio().getItemsByIdDepto();
-        }
-        return items;
     }
 
     public List<Municipio> getItemsAvailableSelectOne() {

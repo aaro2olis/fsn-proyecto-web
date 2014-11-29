@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Modelo;
 
 import java.io.Serializable;
@@ -34,12 +33,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "municipio")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Municipio.findAll", query = "SELECT m FROM Municipio m ORDER BY m.iddpto"),
+    @NamedQuery(name = "Municipio.findAll", query = "SELECT m FROM Municipio m ORDER BY m.iddpto, m.nmbmunicipio"),
     @NamedQuery(name = "Municipio.findByIdmunicipio", query = "SELECT m FROM Municipio m WHERE m.idmunicipio = :idmunicipio"),
     @NamedQuery(name = "Municipio.findByNmbmunicipio", query = "SELECT m FROM Municipio m WHERE m.nmbmunicipio = :nmbmunicipio"),
+    @NamedQuery(name = "Municipio.findByNmbmunicipioYDepto", query = "SELECT m FROM Municipio m WHERE m.nmbmunicipio = :nmbmunicipio and m.iddpto = :iddpto"),
     @NamedQuery(name = "Municipio.findAllCriterioIntegerIddepto", query = "SELECT m FROM Municipio m WHERE m.iddpto = :iddpto")})
 
 public class Municipio implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -126,5 +127,5 @@ public class Municipio implements Serializable {
     public String toString() {
         return nmbmunicipio;
     }
-    
+
 }

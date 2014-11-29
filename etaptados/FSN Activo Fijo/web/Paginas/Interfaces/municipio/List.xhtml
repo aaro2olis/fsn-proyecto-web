@@ -29,12 +29,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMunicipioTitle_idmunicipio}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idmunicipio}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMunicipioTitle_nmbmunicipio}"/>
                             </f:facet>
                             <h:outputText value="#{item.nmbmunicipio}"/>
@@ -45,6 +39,12 @@
                             </f:facet>
                             <h:outputText value="#{item.iddpto.nmbdpto}"/>
                         </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDepartamentoTitle_obsdpto}"/>
+                            </f:facet>
+                             <h:outputText  value="#{item.iddpto.obsdpto}"/>
+                        </p:column>                       
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{municipioController.prepareCreate}" update=":MunicipioCreateForm" oncomplete="PF('MunicipioCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MunicipioViewForm" oncomplete="PF('MunicipioViewDialog').show()" disabled="#{empty municipioController.selected}"/>
