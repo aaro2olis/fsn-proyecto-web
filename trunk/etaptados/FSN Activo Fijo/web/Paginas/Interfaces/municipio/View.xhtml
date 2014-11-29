@@ -12,8 +12,6 @@
             <h:form id="MunicipioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{municipioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewMunicipioLabel_idmunicipio}"/>
-                        <h:outputText value="#{municipioController.selected.idmunicipio}" title="#{bundle.ViewMunicipioTitle_idmunicipio}"/>
                         <h:outputText value="#{bundle.ViewMunicipioLabel_nmbmunicipio}"/>
                         <h:outputText value="#{municipioController.selected.nmbmunicipio}" title="#{bundle.ViewMunicipioTitle_nmbmunicipio}"/>
                         <h:outputText value="#{bundle.ViewMunicipioLabel_iddpto}"/>

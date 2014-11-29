@@ -47,6 +47,10 @@ public abstract class AbstractFacade<T> {
         return getEntityManager().createQuery(cq).getResultList();
     }
 
+    public List<T> findAll(String namedQueryName) {
+        return getEntityManager().createNamedQuery(namedQueryName).getResultList();
+    }
+
     public List<T> findAllbyone(String estado) {
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
@@ -72,5 +76,4 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-
 }

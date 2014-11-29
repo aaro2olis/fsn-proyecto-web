@@ -5,7 +5,6 @@
  */
 package BEAN;
 
-import Modelo.Mantenimiento;
 import Modelo.Municipio;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -32,17 +31,43 @@ public class MunicipioFacade extends AbstractFacade<Municipio> {
         super(Municipio.class);
     }
 
-    public List<Municipio> getItemsByIdDepto() {
-        if (items == null) {
-            items = (List<Municipio>) getEntityManager().createNamedQuery("Municipio.findAllCriterioIntegerIddepto", Municipio.class).getResultList();
-        }
-        return items;
-    }
-     public List<Municipio> findAllOrderByDepto() {
+    public boolean findDuplicados(String nmbmunicipio, Integer iddpto) {
+        String nmbMunicipio;
+        Integer itemsIddepto;
+        boolean existe = false;
         if (items == null) {
             items = (List<Municipio>) getEntityManager().createNamedQuery("Municipio.findAll", Municipio.class).getResultList();
         }
-        return items;
-    }   
+        for (int j = 0; j < items.size(); j++) {
+            nmbMunicipio = items.get(j).getNmbmunicipio().toUpperCase();
+            itemsIddepto = items.get(j).getIddpto().getIddpto();
+            if ((itemsIddepto == iddpto) && (nmbMunicipio.equals(nmbmunicipio.toUpperCase()))) {
+                j = items.size();
+                existe = true;
+            }
+        }
+        return existe;
+    }
 
+    public boolean findDuplicados(String nmbmunicipio, Integer iddpto, Integer idmunicipio) {
+        String nmbMunicipio;
+        Integer itemsIddepto;
+        Integer idMunicipio;
+        boolean existe = false;
+        if (items == null) {
+            items = (List<Municipio>) getEntityManager().createNamedQuery("Municipio.findAll", Municipio.class).getResultList();
+        }
+        for (int j = 0; j < items.size(); j++) {
+            nmbMunicipio = items.get(j).getNmbmunicipio().toUpperCase();
+            itemsIddepto = items.get(j).getIddpto().getIddpto();
+            if ((itemsIddepto == iddpto) && (nmbMunicipio.equals(nmbmunicipio.toUpperCase()))) {
+                idMunicipio = items.get(j).getIdmunicipio();
+                if (!(idMunicipio == idmunicipio)) {
+                    j = items.size();
+                    existe = true;
+                }
+            }
+        }
+        return existe;
+    }
 }
