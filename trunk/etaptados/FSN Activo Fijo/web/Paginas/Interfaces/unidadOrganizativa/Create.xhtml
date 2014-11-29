@@ -23,7 +23,7 @@
                                            var="uniIdunidadItem"
                                            itemValue="#{uniIdunidadItem}"/>
                         </p:selectOneMenu>
-                        <p:inputText type="hidden" disabled="true" id="estadounidad" value="#{unidadOrganizativaController.selected.setEstadounidad()}" title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="false" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}" />
+                        <p:inputText type="hidden" disabled="true" id="estadounidad" value="#{unidadOrganizativaController.selected.estadounidad}"  title="#{bundle.CreateUnidadOrganizativaTitle_estadounidad}" required="false" requiredMessage="#{bundle.CreateUnidadOrganizativaRequiredMessage_estadounidad}" />
                      </p:panelGrid>
                     <p:commandButton actionListener="#{unidadOrganizativaController.create}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args,'UnidadOrganizativaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UnidadOrganizativaCreateDialog.hide()"/>

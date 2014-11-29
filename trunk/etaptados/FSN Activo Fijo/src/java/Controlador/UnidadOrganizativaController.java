@@ -1,10 +1,9 @@
 package Controlador;
 
-import Modelo.UnidadOrganizativa;
+import BEAN.UnidadOrganizativaFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.UnidadOrganizativaFacade;
-
+import Modelo.UnidadOrganizativa;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +11,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
 
 @Named("unidadOrganizativaController")
 @SessionScoped
@@ -56,15 +56,42 @@ public class UnidadOrganizativaController implements Serializable {
     }
 
     public void create() {
+        String nmbunidad = selected.getNmbunidad().toUpperCase();
+        Integer uniIdunidad = selected.getUniIdunidad().getIdunidad();
+        boolean evaluacion = ejbFacade.findDuplicados(nmbunidad, uniIdunidad);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaCreatedError")));
+        } else {
+            selected.setEstadounidad('1');
+            persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaCreated"));
+            if (!JsfUtil.isValidationFailed()) {
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
+        }
+    }    
+    /*public void create() {
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
-    }
-
+    }*/
     public void update() {
+        String nmbunidad = selected.getNmbunidad().toUpperCase();
+        Integer uniIdunidad = selected.getUniIdunidad().getIdunidad();
+        Integer idunidad = selected.getIdunidad();       
+        boolean evaluacion = ejbFacade.findDuplicados(nmbunidad, uniIdunidad,idunidad);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaUpdatedError")));
+            items = null;
+        } else {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaUpdated"));
+        }
     }
+   /* public void update() {
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaUpdated"));
+    }*/
 
     public void destroy() {
         persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaDeleted"));
@@ -92,7 +119,9 @@ public class UnidadOrganizativaController implements Serializable {
     
     public List<UnidadOrganizativa> getItems() {
         if (items == null) {
-            items = getFacade().findAllbyone("estadounidad");
+            //items = getFacade().findAllbyone("estadounidad");
+            items = getFacade().findAllbyone("UnidadOrganizativa.findAll","estadounidad");
+
         }
         return items;
     }
