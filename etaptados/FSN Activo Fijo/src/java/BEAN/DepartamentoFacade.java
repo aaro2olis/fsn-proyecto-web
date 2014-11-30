@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class DepartamentoFacade extends AbstractFacade<Departamento> {
 
-    private List<Departamento> items = null;
+    private List<Departamento> items ;
     @PersistenceContext(unitName = "FSN_Activo_FijoPU")
 
     private EntityManager em;
