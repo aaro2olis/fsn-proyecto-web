@@ -14,7 +14,9 @@
         <link rel="stylesheet" type="text/css" href="resources/css/componentes.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="resources/css/navstyle.css" media="screen" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/mainFunctions.js"></script>
+        <script type="text/javascript" src="js/desplegable.js"></script>
         <noscript>  Su navegador no soporta Javascript </noscript>  
 	<!--[if lt IE 9]> 
             <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> 
@@ -120,7 +122,7 @@
                                 
                                 //IMPRIMIMOS EL VECTOR CON LAS OPCIONES
                                 for(int i=0 ; i< menuGeneral.length; i++){
-                                    out.println("<LI class=\"has-sub\"><a href='#'><span>"+menuGeneral[i]+"</span></a>");
+                                    out.println("<LI class=\" has-sub\"><a href='#'><span>"+menuGeneral[i]+"</span></a>");
                                     out.println("<ul>");
                                     int cont=1;
                                     switch(i){ 
