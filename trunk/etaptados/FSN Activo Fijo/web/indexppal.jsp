@@ -93,7 +93,8 @@
                                   "Paginas/Interfaces/tipopersona/List.xhtml",          //29
                                   "Paginas/Interfaces/ubicacionfisica/List.xhtml",      //30
                                   "Paginas/Interfaces/unidadOrganizativa/List.xhtml",   //31
-                                  "Paginas/Interfaces/usuario/List.xhtml"               //32
+                                  "Paginas/Interfaces/usuario/List.xhtml",              //32
+                                  "resources/docs/usermanual.pdf"                       //33
                               ];
                                   document.getElementById("miFrame").src= direc[x]; 
                             }
@@ -171,8 +172,21 @@
     		</article>
             </section>
             <footer>
-		<a href="mailto:jazonder@gmail.com"> Enviar correo</a>
-		<p>Ayuda</p>
+		<br />
+		<ul>
+                    <LI><a href='#'>
+                            <img src="resources/img/help1.png" 
+                                 onmouseover="this.src='resources/img/help2.png';" 
+                                 onmouseout="this.src='resources/img/help1.png';" 
+                                 name="Ayuda" 
+                                 onclick=cambia(33); return false />
+                        </a></LI>
+                    <LI><a href='mailto:jazonder@gmail.com'>
+                            <img src="resources/img/email1.png" 
+                                 onmouseover="this.src='resources/img/email2.png';" 
+                                 onmouseout="this.src='resources/img/email1.png';" 
+                                 name="Email"/></a></li>
+		</ul>
             </footer>
 	</div>
     </body>

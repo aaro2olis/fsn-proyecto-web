@@ -132,6 +132,45 @@ footer{
     text-align:right;
     overflow: hidden;
 }
+footer p, a{
+    display: inline-block;
+	*display: inline;     /* for IE7*/
+	text-align:right;
+	margin-right:10px;
+    
+}
+
+footer ul {
+      background-color:#0B0B3B;;
+      min-height: 65px;
+      list-style: none;
+      margin: 0;
+      padding: 0px 2em 0em;
+      overflow:hidden; /*para que los link no salgan de la lista*/
+}
+        
+footer li {
+      float: right;
+      padding: 0px; /*Este padding es para la separacion en cada submenu*/
+}
+
+footer ul li  img{
+       max-height:70px;
+       max-width:70px;
+}        
+
+footer li a {
+      display: block;
+      line-height: 35px;
+      margin: 0px;
+      text-align: center;
+      /*transicion*/
+      -webkit-transition: all 0.3s ease-out; /*safari y chrome*/
+      transition: all 0.3s ease-out;/*w3c*/
+      -o-transition:all 0.3s ease-out;  /* Opera */
+      -moz-transition:all 0.3s ease-out;  /* Mozilla Firefox */
+      -ms-transition:all 0.3s ease-out;   /* Internet Explorer */
+}
 
 
 /********************************
