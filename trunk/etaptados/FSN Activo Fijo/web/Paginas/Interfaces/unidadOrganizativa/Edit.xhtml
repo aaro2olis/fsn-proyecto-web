@@ -25,7 +25,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <!-- Se modifica unidadOrganizativaController.update por unidadOrganizativaController.create para actualizar la tabla -->
-                    <p:commandButton actionListener="#{unidadOrganizativaController.actualizada}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UnidadOrganizativaEditDialog');"/>
+                    <p:commandButton actionListener="#{unidadOrganizativaController.update()}" value="#{bundle.Save}" update="display,:UnidadOrganizativaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UnidadOrganizativaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UnidadOrganizativaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

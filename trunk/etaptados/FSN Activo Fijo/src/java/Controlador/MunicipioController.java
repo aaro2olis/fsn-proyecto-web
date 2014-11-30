@@ -76,7 +76,7 @@ public class MunicipioController implements Serializable {
     }
 
     public void update() {
-        String nmbmunicipio = selected.getNmbmunicipio().toUpperCase();
+        String nmbmunicipio = selected.getNmbmunicipio().toString();
         Integer iddpto = selected.getIddpto().getIddpto();
         Integer idmunicipio = selected.getIdmunicipio();
         boolean evaluacion = ejbFacade.findDuplicados(nmbmunicipio, iddpto,idmunicipio );

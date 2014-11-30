@@ -39,9 +39,9 @@ public class MunicipioFacade extends AbstractFacade<Municipio> {
             items = (List<Municipio>) getEntityManager().createNamedQuery("Municipio.findAll", Municipio.class).getResultList();
         }
         for (int j = 0; j < items.size(); j++) {
-            nmbMunicipio = items.get(j).getNmbmunicipio().toUpperCase();
+            nmbMunicipio = items.get(j).getNmbmunicipio().trim();
             itemsIddepto = items.get(j).getIddpto().getIddpto();
-            if ((itemsIddepto == iddpto) && (nmbMunicipio.equals(nmbmunicipio.toUpperCase()))) {
+            if ((itemsIddepto.equals(iddpto)) && (nmbMunicipio.equalsIgnoreCase(nmbmunicipio.trim()))) {
                 j = items.size();
                 existe = true;
             }
@@ -58,11 +58,11 @@ public class MunicipioFacade extends AbstractFacade<Municipio> {
             items = (List<Municipio>) getEntityManager().createNamedQuery("Municipio.findAll", Municipio.class).getResultList();
         }
         for (int j = 0; j < items.size(); j++) {
-            nmbMunicipio = items.get(j).getNmbmunicipio().toUpperCase();
+            nmbMunicipio = items.get(j).getNmbmunicipio().trim();
             itemsIddepto = items.get(j).getIddpto().getIddpto();
-            if ((itemsIddepto == iddpto) && (nmbMunicipio.equals(nmbmunicipio.toUpperCase()))) {
+            if ((itemsIddepto.equals(iddpto)) && (nmbMunicipio.equalsIgnoreCase(nmbmunicipio.trim()))) {
                 idMunicipio = items.get(j).getIdmunicipio();
-                if (!(idMunicipio == idmunicipio)) {
+                if (!(idMunicipio.equals(idmunicipio))) {
                     j = items.size();
                     existe = true;
                 }

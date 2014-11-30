@@ -18,7 +18,8 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class UnidadOrganizativaFacade extends AbstractFacade<UnidadOrganizativa> {
-    private List<UnidadOrganizativa> items = null;
+
+    private List<UnidadOrganizativa> items;
     @PersistenceContext(unitName = "FSN_Activo_FijoPU")
     private EntityManager em;
 
@@ -42,19 +43,23 @@ public class UnidadOrganizativaFacade extends AbstractFacade<UnidadOrganizativa>
                     .getResultList();
         }
         for (int j = 0; j < items.size(); j++) {
-            if ((Objects.equals(items.get(j).getUniIdunidad().getIdunidad(), uniIdUnidad)) && (nmbUnidad.equals(items.get(j).getNmbunidad().toUpperCase()))) {
-                if (!(items.get(j).getEstadounidad().toString().equals("0"))) {
-                    j = items.size();
-                    existe = true;
-                }
+            nmbunidad = items.get(j).getNmbunidad().trim();
+            if(items.get(j).getUniIdunidad() == null){
+                uni_idunidad=0;
+            }else{
+            uni_idunidad = items.get(j).getUniIdunidad().getIdunidad();
+            }
+            if ((uni_idunidad.equals(uniIdUnidad)) && (nmbunidad.equalsIgnoreCase(nmbUnidad.trim()))) {
+                j = items.size();
+                existe = true;
             }
         }
         return existe;
     }
 
-    public boolean findDuplicados(String nmbunidad, Integer uniIdunidad, Integer idunidad) {
-        String nmbUnidad;
-        Integer uniIdUnidad;
+    public boolean findDuplicados(String nmbUnidad, Integer uniIdUnidad, Integer idunidad) {
+        String nmbunidad;
+        Integer uni_idunidad;
         Integer idUnidad;
         boolean existe = false;
         if (items == null) {
@@ -63,15 +68,18 @@ public class UnidadOrganizativaFacade extends AbstractFacade<UnidadOrganizativa>
                     .getResultList();
         }
         for (int j = 0; j < items.size(); j++) {
-            nmbUnidad = items.get(j).getNmbunidad().toUpperCase();
-            uniIdUnidad = items.get(j).getUniIdunidad().getIdunidad();
-            if ((uniIdUnidad == uniIdunidad) && (nmbUnidad.equals(nmbunidad))) {
+            nmbunidad = items.get(j).getNmbunidad().trim();
+            if(items.get(j).getUniIdunidad() == null){
+                uni_idunidad=0;
+            }else{
+            uni_idunidad = items.get(j).getUniIdunidad().getIdunidad();
+            }
+            if ((uni_idunidad.equals(uniIdUnidad)) && (nmbunidad.equalsIgnoreCase(nmbUnidad.trim()))) 
+                {
                 idUnidad = items.get(j).getIdunidad();
-                if (!(items.get(j).getEstadounidad().toString().equals("0"))) {
-                    if (!(idUnidad == idunidad)) {
+                    if (!(idUnidad.equals(idunidad))) {
                         j = items.size();
                         existe = true;
-                    }
                 }
             }
 
