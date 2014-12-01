@@ -1,40 +1,20 @@
-<%-- 
-    Document   : index
-    Created on : 10-30-2014, 07:10:31 AM
-    Author     : Solis
---%>
-
 <%@page import="java.lang.System"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="resources/css/default.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="resources/css/componentes.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="resources/css/navstyle.css" media="screen" />
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/mainFunctions.js"></script>
-        <script type="text/javascript" src="js/desplegable.js"></script>
-        <noscript>  Su navegador no soporta Javascript </noscript>  
-	<!--[if lt IE 9]> 
-            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> 
-        < ![endif]-->
-        <!--[if IE]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="fsn">
-        
-        <title>Federación Salvadoreña de Natación</title>
-        <script>
-            function resizeIframe(idIframe){
-                var miIframe=document.getElementById(idIframe);
-                var alturaPagina=miIframe.contentWindow.document.body.scrollHeight+50;
-                    miIframe.style.height=alturaPagina+"px"; 
-                }
-        </script>
-        
+        <link href="resources/css/default.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="resources/css/componentes.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="resources/css/navstyle.css" rel="stylesheet" type="text/css" media="screen" /> 
+        <script  src="reources/js/functionsdefault.js" type="text/javascript"></script><!--funciones de toda la pag-->
+        <script  src="resources/js/mainFunctions.js" type="text/javascript"></script><!--slider-->
+        <script  src="resources/js/script.js" ></script><!--menu desplegable-->
+        <script  src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>-->      
+        <noscript>  Su navegador no soporta Javascript </noscript>       
+        <title>Federación Salvadoreña de Natación</title>        
     </head>
     <body>
         <div id="wrapper">
@@ -101,7 +81,7 @@
                                   document.getElementById("miFrame").src= direc[x]; 
                             }
                         </script>
-                        <div id="cssmenu">
+                        <div id='cssmenu'>
                             <%! String menuGeneral[] = { "Consulta", "Gestion", "Reportes","Sesión"};
                                 String menuConsulta[] = {"Activo","Cargo","Categoria", "Detalle de categoria",
                                                         "Empleado", "Especificacion Activo", "Persona", "Rol de usuario","Rol persona", "Tipo Activo",
@@ -118,18 +98,23 @@
                             <% int varol = Integer.parseInt(request.getParameter("varidrol"));
                                 
                                 out.println("<ul>");
-                                out.println("<li onclick=cambia(0); return false;\"><a href='#' class='icon-home'  title ='inicio'  ><span>Inicio</span></a></li> "); 
+                                out.println("<li onclick=\"cambia(0); return false;\" ><a href='#'  class='icon-home'><span>Inicio</span></a></li> "); 
                                 
                                 //IMPRIMIMOS EL VECTOR CON LAS OPCIONES
                                 for(int i=0 ; i< menuGeneral.length; i++){
-                                    out.println("<LI class=\" has-sub\"><a href='#'><span>"+menuGeneral[i]+"</span></a>");
+                                    out.println("<LI class=\'active has-sub\'><a href='#'><span>"+menuGeneral[i]+"</span></a>");
                                     out.println("<ul>");
                                     int cont=1;
                                     switch(i){ 
                                         case 0:
                                              for(int j=0; j<menuConsulta.length ; j++) {  
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                                out.println("<LI class='last' onclick=cambia("+cont+"); return false;\"><a href='#'><span>"+menuConsulta[j]+"</span></a></LI>");
+                                                if(j<menuConsulta.length-1){ 
+                                                    out.println("<LI  onclick=\"cambia("+cont+"); return false;\"><a href='#'><span>"+menuConsulta[j]+"</span></a></LI>");
+                                                }
+                                                else {
+                                                    out.println("<LI class='last' onclick=\"cambia("+cont+"); return false;\"><a href='#'><span>"+menuConsulta[j]+"</span></a></LI>");
+                                                }
                                                 cont++;
                                              }; 
                                             out.println("</ul></LI>");
@@ -138,7 +123,12 @@
                                              cont=menuConsulta.length +1 ;
                                              for(int k=0; k<menuGestion.length ; k++) {
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                                out.println("<LI class='last' onclick=cambia("+cont+"); return false;\"><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");
+                                                if(k<menuGestion.length-1){
+                                                 out.println("<LI  onclick=\"cambia("+cont+"); return false;\"><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");
+                                                }
+                                                else{
+                                                  out.println("<LI class='last' onclick=\"cambia("+cont+"); return false;\"><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");  
+                                                }
                                                 cont++;
                                             }; 
                                             out.println("</ul></LI>");

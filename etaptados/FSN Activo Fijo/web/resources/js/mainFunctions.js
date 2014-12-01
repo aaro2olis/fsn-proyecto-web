@@ -1,25 +1,11 @@
-/*
- * Tutorial Easy slider
- * Autor: Osiris Magro
- * Fecha: 15/02/2010
- * Compártelo como quieras
- */
-
 $(document).ready(function(){
-
-    /*
-     * Variables
-     */
+    /** Variables*/
 
     var slides, timer;
-
     //Crea un objeto con información de los slides
     slides = $('#slider .slidesContainer > .slide');
 
-
-    /*
-     * Funciones
-     */
+    /** Funciones */
     
     //Desplaza el contenedor hacia la dirección definida
     //@direction = [left,right]
