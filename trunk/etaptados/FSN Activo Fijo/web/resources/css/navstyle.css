@@ -116,8 +116,7 @@
         }
 }
 
-//*************************************************************************************
-//*************************************************************************************
+
 @media only screen and (max-width: 700px){
        
         #cssmenu,
@@ -138,7 +137,9 @@
         #cssmenu {
           width:100%;
           font-family: Helvetica, Arial, sans-serif;
+          font-size: 20px;
           color: #ffffff;
+          text-align: center;
         }
         #cssmenu ul ul {
           display: none;
@@ -148,9 +149,9 @@
         }
         #cssmenu > ul > li > a {
           padding: 15px 20px;
-          border-left: 1px solid #1682ba;
-          border-right: 1px solid #1682ba;
-          border-top: 1px solid #1682ba;
+          border-left: 1px solid #0B0B3B;
+          border-right: 1px solid #0B0B3B;
+          border-top: 1px solid #0B0B3B;
           cursor: pointer;
           z-index: 2;
           font-size: 14px;
@@ -158,24 +159,24 @@
           text-decoration: none;
           color: #ffffff;
           text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
-          background: #36aae7;
-          background: -webkit-linear-gradient(#36aae7, #1fa0e4);
+          background: darkblue;
+         /* background: -webkit-linear-gradient(#36aae7, #1fa0e4);
           background: -moz-linear-gradient(#36aae7, #1fa0e4);
           background: -o-linear-gradient(#36aae7, #1fa0e4);
           background: -ms-linear-gradient(#36aae7, #1fa0e4);
-          background: linear-gradient(#36aae7, #1fa0e4);
+          background: linear-gradient(#36aae7, #1fa0e4);*/
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
         #cssmenu > ul > li > a:hover,
         #cssmenu > ul > li.active > a,
         #cssmenu > ul > li.open > a {
           color: #eeeeee;
-          background: #1fa0e4;
-          background: -webkit-linear-gradient(#1fa0e4, #1992d1);
+          background: darkblue;
+          /*background: -webkit-linear-gradient(#1fa0e4, #1992d1);
           background: -moz-linear-gradient(#1fa0e4, #1992d1);
           background: -o-linear-gradient(#1fa0e4, #1992d1);
           background: -ms-linear-gradient(#1fa0e4, #1992d1);
-          background: linear-gradient(#1fa0e4, #1992d1);
+          background: linear-gradient(#1fa0e4, #1992d1);*/
         }
         #cssmenu > ul > li.open > a {
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.15);
@@ -234,13 +235,13 @@
           text-decoration: none;
           font-size: 13px;
           color: #eeeeee;
-          background: #49505a;
+          background: #0781ad;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         #cssmenu ul ul li:hover > a,
         #cssmenu ul ul li.open > a,
         #cssmenu ul ul li.active > a {
-          background: darkblue;
+          background: #045FB4;
           color: #ffffff;
         }
         #cssmenu ul ul li:first-child > a {
@@ -284,7 +285,9 @@
         #cssmenu ul ul li.open > a::after,
         #cssmenu ul ul li > a:hover::after {
           border-color: #ffffff;
+        }    
+        #cssmenu li a.icon-home {
+            background: darkblue url("../img/images-menu/home32.png") no-repeat;
+                 
         }
-
-
 }
