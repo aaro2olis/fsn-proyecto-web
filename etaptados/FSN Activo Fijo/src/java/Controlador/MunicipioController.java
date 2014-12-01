@@ -3,6 +3,7 @@ package Controlador;
 import BEAN.MunicipioFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
+import Modelo.Departamento;
 import Modelo.Municipio;
 import java.io.Serializable;
 import java.util.List;
@@ -18,6 +19,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Named;
 
 @Named("municipioController")
@@ -107,26 +109,23 @@ public class MunicipioController implements Serializable {
         }
         return items;
     }
+
+    public void setItems(List<Municipio> lista) {
+        items = lista;
+    }
+
+public void idDeptoChangeListener(AjaxBehaviorEvent event) {
+        Integer idpto = 0;
+        FacesContext context = FacesContext.getCurrentInstance();
+        //Ubicacionfisica ubicacionFisica = (Ubicacionfisica) ((UIOutput) event.getSource()).getValue();
+        Departamento departamento = (Departamento) event.getComponent().getAttributes().get("value");
+        idpto = departamento.getIddpto();
+        //itemsMunicipios = municipioFacade.findAllbyone("Municipio.findAllPorIddepto", "iddepto", idpto);
+        setItems(getFacade().findAllbyone("Municipio.findAllPorIddepto", "iddepto", idpto));
+        //itemsMunicipios = municipioController.getItemsByDepto(idpto);
+    }
     
-    public List<Municipio> getItemsByDepto(Integer ubicacion) {
-       if (ubicacion==0)
-       {
-           items = getFacade().findAll("Municipio.findAll");
-           return items;
-       }
-       else
-       {
-       Integer iddepto=ubicacion;
-       items=null;
-       items = getFacade().findAllbyone("Municipio.findAllPorIddepto", "iddepto", iddepto);
-       return items;
-       }
-    }
-    public void actionOnClick(ActionEvent event) {
-        Integer iddepto =Integer.parseInt(JsfUtil.getRequestParameter("iddpto"));
-        items=getItemsByDepto(iddepto);
-    }
-    private void persist(PersistAction persistAction, String successMessage) {
+     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {
             setEmbeddableKeys();
             try {
@@ -165,47 +164,49 @@ public class MunicipioController implements Serializable {
     public List<Municipio> getItemsAvailableSelectOne() {
         return getFacade().findAll();
 
-    }
+    
+
+}
 
     @FacesConverter(forClass = Municipio.class)
-    public static class MunicipioControllerConverter implements Converter {
+public static class MunicipioControllerConverter implements Converter {
 
-        @Override
-        public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-            if (value == null || value.length() == 0) {
-                return null;
-            }
-            MunicipioController controller = (MunicipioController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "municipioController");
-            return controller.getMunicipio(getKey(value));
+    @Override
+    public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
+        if (value == null || value.length() == 0) {
+            return null;
         }
-
-        java.lang.Integer getKey(String value) {
-            java.lang.Integer key;
-            key = Integer.valueOf(value);
-            return key;
-        }
-
-        String getStringKey(java.lang.Integer value) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(value);
-            return sb.toString();
-        }
-
-        @Override
-        public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
-            if (object == null) {
-                return null;
-            }
-            if (object instanceof Municipio) {
-                Municipio o = (Municipio) object;
-                return getStringKey(o.getIdmunicipio());
-            } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Municipio.class.getName()});
-                return null;
-            }
-        }
-
+        MunicipioController controller = (MunicipioController) facesContext.getApplication().getELResolver().
+                getValue(facesContext.getELContext(), null, "municipioController");
+        return controller.getMunicipio(getKey(value));
     }
+
+    java.lang.Integer getKey(String value) {
+        java.lang.Integer key;
+        key = Integer.valueOf(value);
+        return key;
+    }
+
+    String getStringKey(java.lang.Integer value) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(value);
+        return sb.toString();
+    }
+
+    @Override
+    public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
+        if (object == null) {
+            return null;
+        }
+        if (object instanceof Municipio) {
+            Municipio o = (Municipio) object;
+            return getStringKey(o.getIdmunicipio());
+        } else {
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Municipio.class.getName()});
+            return null;
+        }
+    }
+
+}
 
 }

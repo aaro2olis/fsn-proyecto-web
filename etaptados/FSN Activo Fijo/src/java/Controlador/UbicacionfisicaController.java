@@ -3,6 +3,7 @@ package Controlador;
 import BEAN.UbicacionfisicaFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
+import Modelo.Departamento;
 import Modelo.Municipio;
 import Modelo.Ubicacionfisica;
 import java.io.Serializable;
@@ -15,12 +16,14 @@ import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
-import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 @Named("ubicacionfisicaController")
 @SessionScoped
@@ -32,7 +35,6 @@ public class UbicacionfisicaController implements Serializable {
     private Ubicacionfisica selected;
     private MunicipioController municipioController;
     private List<Municipio> itemsMunicipios = null;
-
     public UbicacionfisicaController() {
     }
 
@@ -172,17 +174,6 @@ public class UbicacionfisicaController implements Serializable {
     public List<Municipio> getItemsMunicipios() {
         return itemsMunicipios;
     }
-
-    public void idDeptoChangeListener(AjaxBehaviorEvent event) {
-        Integer idpto = 0;
-        FacesContext context = FacesContext.getCurrentInstance();
-        Ubicacionfisica ubicacionFisica = (Ubicacionfisica) ((UIOutput) event.getSource()).getValue();
-//Ubicacionfisica ubicacionFisica = context.getApplication().evaluateExpressionGet(context, "#{ubicacionfisicaController}", Ubicacionfisica.class);
-        idpto = ubicacionFisica.getIddpto().getIddpto();
-        //Integer iddepto=Integer.parseInt(event.getComponent().getAttributes().toString());
-        itemsMunicipios = municipioController.getItemsByDepto(idpto);
-    }
-
     @FacesConverter(forClass = Ubicacionfisica.class)
     public static class UbicacionfisicaControllerConverter implements Converter {
 

@@ -23,7 +23,7 @@
                         <p:inputText id="obsubicacion" value="#{ubicacionfisicaController.selected.obsubicacion}" title="#{bundle.CreateUbicacionfisicaTitle_obsubicacion}" />
                         <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_iddpto}" for="iddpto" />
                         <p:selectOneMenu  id="iddpto" value="#{ubicacionfisicaController.selected.iddpto}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_iddpto}"  immediate="true" >
-                            <f:ajax listener="#{ubicacionfisicaController.idDeptoChangeListener}"/>
+                            <f:ajax  listener="#{municipioController.idDeptoChangeListener}" rendered="idmunicipio" />
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
                                            var="iddptoItem"
@@ -32,10 +32,9 @@
                         <p:outputLabel value="idDepto" for="idmunicipio" />
                         <p:selectOneMenu id="idmunicipio" value="#{ubicacionfisicaController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_idmunicipio}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{ubicacionfisicaController.itemsMunicipios}"
+                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
                                            var="idmunicipioItem"
-                                           itemValue="#{idmunicipioItem}"/>
-                        
+                                           itemValue="#{idmunicipioItem}"/>  
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{ubicacionfisicaController.create}" value="#{bundle.Save}" update="display,:UbicacionfisicaListForm:datalist,:growl" oncomplete="handleSubmit(args,'UbicacionfisicaCreateDialog');"/>
