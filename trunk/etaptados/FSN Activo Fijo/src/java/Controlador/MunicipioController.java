@@ -17,6 +17,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
 @Named("municipioController")
@@ -79,7 +80,7 @@ public class MunicipioController implements Serializable {
         String nmbmunicipio = selected.getNmbmunicipio().toString();
         Integer iddpto = selected.getIddpto().getIddpto();
         Integer idmunicipio = selected.getIdmunicipio();
-        boolean evaluacion = ejbFacade.findDuplicados(nmbmunicipio, iddpto,idmunicipio );
+        boolean evaluacion = ejbFacade.findDuplicados(nmbmunicipio, iddpto, idmunicipio);
         if (evaluacion) {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("MunicipioUpdateError")));
@@ -106,7 +107,25 @@ public class MunicipioController implements Serializable {
         }
         return items;
     }
-
+    
+    public List<Municipio> getItemsByDepto(Integer ubicacion) {
+       if (ubicacion==0)
+       {
+           items = getFacade().findAll("Municipio.findAll");
+           return items;
+       }
+       else
+       {
+       Integer iddepto=ubicacion;
+       items=null;
+       items = getFacade().findAllbyone("Municipio.findAllPorIddepto", "iddepto", iddepto);
+       return items;
+       }
+    }
+    public void actionOnClick(ActionEvent event) {
+        Integer iddepto =Integer.parseInt(JsfUtil.getRequestParameter("iddpto"));
+        items=getItemsByDepto(iddepto);
+    }
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {
             setEmbeddableKeys();
@@ -145,6 +164,7 @@ public class MunicipioController implements Serializable {
 
     public List<Municipio> getItemsAvailableSelectOne() {
         return getFacade().findAll();
+
     }
 
     @FacesConverter(forClass = Municipio.class)

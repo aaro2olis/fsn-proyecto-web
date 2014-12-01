@@ -1,10 +1,10 @@
 package Controlador;
 
-import Modelo.Ubicacionfisica;
+import BEAN.UbicacionfisicaFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.UbicacionfisicaFacade;
-
+import Modelo.Municipio;
+import Modelo.Ubicacionfisica;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +12,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.inject.Named;
 
 @Named("ubicacionfisicaController")
 @SessionScoped
@@ -27,6 +30,8 @@ public class UbicacionfisicaController implements Serializable {
     private BEAN.UbicacionfisicaFacade ejbFacade;
     private List<Ubicacionfisica> items = null;
     private Ubicacionfisica selected;
+    private MunicipioController municipioController;
+    private List<Municipio> itemsMunicipios = null;
 
     public UbicacionfisicaController() {
     }
@@ -55,16 +60,46 @@ public class UbicacionfisicaController implements Serializable {
         return selected;
     }
 
+    /*    public void create() {
+     persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaCreated"));
+     if (!JsfUtil.isValidationFailed()) {
+     items = null;    // Invalidate list of items to trigger re-query.
+     }
+     }*/
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
+        String nmbubicacion = selected.getNmbubicacion();
+        Integer iddpto = selected.getIddpto().getIddpto();
+        Integer idmunicipio = selected.getIdmunicipio().getIdmunicipio();
+        boolean evaluacion = ejbFacade.findDuplicados(nmbubicacion, iddpto, idmunicipio);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaCreatedError")));
+        } else {
+            selected.setEstadoubicacion('1');
+            persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaCreated"));
+            if (!JsfUtil.isValidationFailed()) {
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaUpdated"));
+        String nmbubicacion = selected.getNmbubicacion();
+        Integer iddpto = selected.getIddpto().getIddpto();
+        Integer idmunicipio = selected.getIdmunicipio().getIdmunicipio();
+        Integer idubicacion = selected.getIdubicacion();
+        boolean evaluacion = ejbFacade.findDuplicados(nmbubicacion, iddpto, idmunicipio, idubicacion);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaUpdatedError")));
+            items = null;
+        } else {
+            persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaUpdated"));
+        }
     }
+    /*public void update() {
+     persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaUpdated"));
+     }*/
 
     public void destroy() {
         persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UbicacionfisicaDeleted"));
@@ -75,7 +110,7 @@ public class UbicacionfisicaController implements Serializable {
     }
 
     public void borrar() {
-
+        selected.setEstadoubicacion('0');
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
@@ -85,8 +120,7 @@ public class UbicacionfisicaController implements Serializable {
 
     public List<Ubicacionfisica> getItems() {
         if (items == null) {
-            //items = getFacade().findAll();
-            items = getFacade().findAllbyone("estadoubicacion");
+            items = getFacade().findAllbyone("Ubicacionfisica.findAll", "estadoubicacion");
         }
         return items;
     }
@@ -132,6 +166,23 @@ public class UbicacionfisicaController implements Serializable {
         return getFacade().findAllbyone("estadoubicacion");
     }
 
+    /**
+     * @return the itemsMunicipios
+     */
+    public List<Municipio> getItemsMunicipios() {
+        return itemsMunicipios;
+    }
+
+    public void idDeptoChangeListener(AjaxBehaviorEvent event) {
+        Integer idpto = 0;
+        FacesContext context = FacesContext.getCurrentInstance();
+        Ubicacionfisica ubicacionFisica = (Ubicacionfisica) ((UIOutput) event.getSource()).getValue();
+//Ubicacionfisica ubicacionFisica = context.getApplication().evaluateExpressionGet(context, "#{ubicacionfisicaController}", Ubicacionfisica.class);
+        idpto = ubicacionFisica.getIddpto().getIddpto();
+        //Integer iddepto=Integer.parseInt(event.getComponent().getAttributes().toString());
+        itemsMunicipios = municipioController.getItemsByDepto(idpto);
+    }
+
     @FacesConverter(forClass = Ubicacionfisica.class)
     public static class UbicacionfisicaControllerConverter implements Converter {
 
@@ -151,7 +202,7 @@ public class UbicacionfisicaController implements Serializable {
             return key;
         }
 
-        String getStringKey(java.lang.String value) {
+        String getStringKey(java.lang.Integer value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
@@ -170,7 +221,5 @@ public class UbicacionfisicaController implements Serializable {
                 return null;
             }
         }
-
     }
-
 }

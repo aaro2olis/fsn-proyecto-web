@@ -56,6 +56,7 @@ public class UnidadOrganizativaController implements Serializable {
     }
 
     public void create() {
+        selected.setEstadounidad('1');
         String nmbunidad = selected.getNmbunidad().toUpperCase();
         Integer uniIdunidad = selected.getUniIdunidad().getIdunidad();
         boolean evaluacion = ejbFacade.findDuplicados(nmbunidad, uniIdunidad);
@@ -102,8 +103,8 @@ public class UnidadOrganizativaController implements Serializable {
     }
     //Creada por el mensaje de eliminado
     public void borrar() {
-        
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaDeleted"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UnidadOrganizativaDeleted"));
+        selected.setEstadounidad('0');
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.

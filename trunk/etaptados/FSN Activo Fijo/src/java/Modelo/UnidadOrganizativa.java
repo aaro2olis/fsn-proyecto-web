@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "unidad_organizativa")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "UnidadOrganizativa.findAll", query = "SELECT u FROM UnidadOrganizativa u WHERE NOT u.estadounidad =:estadounidad ORDER BY u.uniIdunidad DESC, u.nmbunidad"),
+    @NamedQuery(name = "UnidadOrganizativa.findAll", query = "SELECT u FROM UnidadOrganizativa u WHERE NOT u.estadounidad =:estadounidad ORDER BY u.uniIdunidad ASC, u.nmbunidad"),
     @NamedQuery(name = "UnidadOrganizativa.findByIdunidad", query = "SELECT u FROM UnidadOrganizativa u WHERE u.idunidad = :idunidad"),
     @NamedQuery(name = "UnidadOrganizativa.findByNmbunidad", query = "SELECT u FROM UnidadOrganizativa u WHERE u.nmbunidad = :nmbunidad"),
     @NamedQuery(name = "UnidadOrganizativa.findByDscunidad", query = "SELECT u FROM UnidadOrganizativa u WHERE u.dscunidad = :dscunidad"),
@@ -103,7 +103,6 @@ public class UnidadOrganizativa implements Serializable {
     public void setDscunidad(String dscunidad) {
         this.dscunidad = dscunidad;
     }
-
     public Character getEstadounidad() {
         return estadounidad;
     }
