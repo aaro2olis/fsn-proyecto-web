@@ -12,8 +12,7 @@
             <h:form id="UbicacionfisicaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ubicacionfisicaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_idubicacion}" for="idubicacion" />
-                        <p:inputText id="idubicacion" value="#{ubicacionfisicaController.selected.idubicacion}" title="#{bundle.CreateUbicacionfisicaTitle_idubicacion}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_idubicacion}"/>
+
                         <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_nmbubicacion}" for="nmbubicacion" />
                         <p:inputText id="nmbubicacion" value="#{ubicacionfisicaController.selected.nmbubicacion}" title="#{bundle.CreateUbicacionfisicaTitle_nmbubicacion}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_nmbubicacion}"/>
                         <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_dirubicacion}" for="dirubicacion" />
@@ -23,21 +22,21 @@
                         <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_obsubicacion}" for="obsubicacion" />
                         <p:inputText id="obsubicacion" value="#{ubicacionfisicaController.selected.obsubicacion}" title="#{bundle.CreateUbicacionfisicaTitle_obsubicacion}" />
                         <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_iddpto}" for="iddpto" />
-                        <p:selectOneMenu id="iddpto" value="#{ubicacionfisicaController.selected.iddpto}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_iddpto}">
+                        <p:selectOneMenu  id="iddpto" value="#{ubicacionfisicaController.selected.iddpto}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_iddpto}"  immediate="true" >
+                            <f:ajax listener="#{ubicacionfisicaController.idDeptoChangeListener}"/>
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
                                            var="iddptoItem"
                                            itemValue="#{iddptoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_idmunicipio}" for="idmunicipio" />
+                        <p:outputLabel value="idDepto" for="idmunicipio" />
                         <p:selectOneMenu id="idmunicipio" value="#{ubicacionfisicaController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_idmunicipio}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{municipioController.items}"
+                            <f:selectItems value="#{ubicacionfisicaController.itemsMunicipios}"
                                            var="idmunicipioItem"
                                            itemValue="#{idmunicipioItem}"/>
-                        </p:selectOneMenu>
-                        <p:inputText type="hidden" disabled="true" id="estadoubicacion" value="#{ubicacionfisicaController.selected.setEstadoubicacion()}" title="#{bundle.CreateUbicacionfisicaTitle_estadoubicacion}" required="false" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_estadoubicacion}"/>
                         
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{ubicacionfisicaController.create}" value="#{bundle.Save}" update="display,:UbicacionfisicaListForm:datalist,:growl" oncomplete="handleSubmit(args,'UbicacionfisicaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UbicacionfisicaCreateDialog.hide()"/>

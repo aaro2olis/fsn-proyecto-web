@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -32,7 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "ubicacionfisica")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u"),
+    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u WHERE NOT u.estadoubicacion=:estadoubicacion"),
     @NamedQuery(name = "Ubicacionfisica.findByIdubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.idubicacion = :idubicacion"),
     @NamedQuery(name = "Ubicacionfisica.findByNmbubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.nmbubicacion = :nmbubicacion"),
     @NamedQuery(name = "Ubicacionfisica.findByDirubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.dirubicacion = :dirubicacion"),
@@ -42,11 +44,10 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Ubicacionfisica implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 3)
     @Column(name = "idubicacion")
-    private String idubicacion;
+    private Integer idubicacion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -81,11 +82,11 @@ public class Ubicacionfisica implements Serializable {
     public Ubicacionfisica() {
     }
 
-    public Ubicacionfisica(String idubicacion) {
+    public Ubicacionfisica(Integer idubicacion) {
         this.idubicacion = idubicacion;
     }
 
-    public Ubicacionfisica(String idubicacion, String nmbubicacion, String dirubicacion, String telefono, Character estadoubicacion) {
+    public Ubicacionfisica(Integer idubicacion, String nmbubicacion, String dirubicacion, String telefono, Character estadoubicacion) {
         this.idubicacion = idubicacion;
         this.nmbubicacion = nmbubicacion;
         this.dirubicacion = dirubicacion;
@@ -93,11 +94,11 @@ public class Ubicacionfisica implements Serializable {
         this.estadoubicacion = estadoubicacion;
     }
 
-    public String getIdubicacion() {
+    public Integer getIdubicacion() {
         return idubicacion;
     }
 
-    public void setIdubicacion(String idubicacion) {
+    public void setIdubicacion(Integer idubicacion) {
         this.idubicacion = idubicacion;
     }
 

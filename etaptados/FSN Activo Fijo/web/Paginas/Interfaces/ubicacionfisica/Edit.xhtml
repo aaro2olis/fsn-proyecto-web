@@ -12,8 +12,6 @@
             <h:form id="UbicacionfisicaEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{ubicacionfisicaController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_idubicacion}" for="idubicacion" />
-                        <p:inputText disabled="true" id="idubicacion" value="#{ubicacionfisicaController.selected.idubicacion}" title="#{bundle.EditUbicacionfisicaTitle_idubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_idubicacion}"/>
                         <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_nmbubicacion}" for="nmbubicacion" />
                         <p:inputText id="nmbubicacion" value="#{ubicacionfisicaController.selected.nmbubicacion}" title="#{bundle.EditUbicacionfisicaTitle_nmbubicacion}" required="true" requiredMessage="#{bundle.EditUbicacionfisicaRequiredMessage_nmbubicacion}"/>
                         <p:outputLabel value="#{bundle.EditUbicacionfisicaLabel_dirubicacion}" for="dirubicacion" />

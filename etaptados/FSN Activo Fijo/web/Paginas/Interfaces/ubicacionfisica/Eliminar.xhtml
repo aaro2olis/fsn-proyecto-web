@@ -12,7 +12,6 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="1" rendered="#{ubicacionfisicaController.selected != null}">
                         <p:outputLabel value="#{bundle.BorrarUbicacionfisicaTitle_confirmacion}"/>
-                        <p:inputText type="hidden" disabled="true" id="estadoubicacion" value="#{ubicacionfisicaController.selected.setEstadoubicacion('0')}" title="#{bundle.CreateUbicacionfisicaTitle_estadoubicacion}"/>
                     </p:panelGrid>
                     <!-- Se modifica unidadOrganizativaController.update por unidadOrganizativaController.create para actualizar la tabla -->
                     <p:commandButton actionListener="#{ubicacionfisicaController.borrar()}" value="#{bundle.Borrar}" update="display,:UbicacionfisicaListForm:datalist,:growl" onclick="UbicacionfisicaBorrarDlg.hide()" oncomplete="handleSubmit(args, 'UbicacionfisicaBorrarDialog');"/>

@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Municipio.findByIdmunicipio", query = "SELECT m FROM Municipio m WHERE m.idmunicipio = :idmunicipio"),
     @NamedQuery(name = "Municipio.findByNmbmunicipio", query = "SELECT m FROM Municipio m WHERE m.nmbmunicipio = :nmbmunicipio"),
     @NamedQuery(name = "Municipio.findByNmbmunicipioYDepto", query = "SELECT m FROM Municipio m WHERE m.nmbmunicipio = :nmbmunicipio and m.iddpto = :iddpto"),
-    @NamedQuery(name = "Municipio.findAllCriterioIntegerIddepto", query = "SELECT m FROM Municipio m WHERE m.iddpto = :iddpto")})
+    @NamedQuery(name = "Municipio.findAllPorIddepto", query = "SELECT m FROM Municipio m WHERE m.iddpto.iddpto = :iddpto ORDER BY m.nmbmunicipio")})
 
 public class Municipio implements Serializable {
 
