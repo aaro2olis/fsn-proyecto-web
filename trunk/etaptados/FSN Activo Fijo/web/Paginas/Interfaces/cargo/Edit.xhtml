@@ -12,8 +12,6 @@
             <h:form id="CargoEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{cargoController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditCargoLabel_idcargo}" for="idcargo" />
-                        <p:inputText id="idcargo" value="#{cargoController.selected.idcargo}" title="#{bundle.EditCargoTitle_idcargo}" required="true" requiredMessage="#{bundle.EditCargoRequiredMessage_idcargo}"/>
                         <p:outputLabel value="#{bundle.EditCargoLabel_nmbcargo}" for="nmbcargo" />
                         <p:inputText id="nmbcargo" value="#{cargoController.selected.nmbcargo}" title="#{bundle.EditCargoTitle_nmbcargo}" required="true" requiredMessage="#{bundle.EditCargoRequiredMessage_nmbcargo}"/>
                         <p:outputLabel value="#{bundle.EditCargoLabel_dsccargo}" for="dsccargo" />

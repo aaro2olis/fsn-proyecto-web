@@ -152,7 +152,7 @@ public class UbicacionfisicaController implements Serializable {
         }
     }
 
-    public Ubicacionfisica getUbicacionfisica(java.lang.String id) {
+    public Ubicacionfisica getUbicacionfisica(java.lang.Integer id) {
         return getFacade().find(id);
     }
 
@@ -174,19 +174,18 @@ public class UbicacionfisicaController implements Serializable {
     @FacesConverter(forClass = Ubicacionfisica.class)
     public static class UbicacionfisicaControllerConverter implements Converter {
 
-        @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
-            if (value == null || value.length() == 0) {
-                return null;
-            }
-            UbicacionfisicaController controller = (UbicacionfisicaController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "ubicacionfisicaController");
-            return controller.getUbicacionfisica(getKey(value));
+        if (value == null || value.length() == 0) {
+            return null;
         }
+       UbicacionfisicaController controller = (UbicacionfisicaController) facesContext.getApplication().getELResolver().
+                getValue(facesContext.getELContext(), null, "ubicacionfisicaController");
+        return controller.getUbicacionfisica(getKey(value));
+    }
 
-        java.lang.String getKey(String value) {
-            java.lang.String key;
-            key = value;
+        java.lang.Integer getKey(String value) {
+            java.lang.Integer key;
+            key = Integer.valueOf(value);
             return key;
         }
 

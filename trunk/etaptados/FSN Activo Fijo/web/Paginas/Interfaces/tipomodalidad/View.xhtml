@@ -12,8 +12,6 @@
             <h:form id="TipomodalidadViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipomodalidadController.selected != null}">
-                        <h:outputText value="#{bundle.ViewTipomodalidadLabel_idmodalidad}"/>
-                        <h:outputText value="#{tipomodalidadController.selected.idmodalidad}" title="#{bundle.ViewTipomodalidadTitle_idmodalidad}"/>
                         <h:outputText value="#{bundle.ViewTipomodalidadLabel_nmbmodalidad}"/>
                         <h:outputText value="#{tipomodalidadController.selected.nmbmodalidad}" title="#{bundle.ViewTipomodalidadTitle_nmbmodalidad}"/>
                         <h:outputText value="#{bundle.ViewTipomodalidadLabel_dscmodalidad}"/>
