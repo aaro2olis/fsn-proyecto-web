@@ -117,12 +117,9 @@ public class MunicipioController implements Serializable {
 public void idDeptoChangeListener(AjaxBehaviorEvent event) {
         Integer idpto = 0;
         FacesContext context = FacesContext.getCurrentInstance();
-        //Ubicacionfisica ubicacionFisica = (Ubicacionfisica) ((UIOutput) event.getSource()).getValue();
         Departamento departamento = (Departamento) event.getComponent().getAttributes().get("value");
         idpto = departamento.getIddpto();
-        //itemsMunicipios = municipioFacade.findAllbyone("Municipio.findAllPorIddepto", "iddepto", idpto);
         setItems(getFacade().findAllbyone("Municipio.findAllPorIddepto", "iddepto", idpto));
-        //itemsMunicipios = municipioController.getItemsByDepto(idpto);
     }
     
      private void persist(PersistAction persistAction, String successMessage) {
@@ -160,13 +157,16 @@ public void idDeptoChangeListener(AjaxBehaviorEvent event) {
     public List<Municipio> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
-
     public List<Municipio> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
-
-    
-
-}
+          if (items == null) {
+            items = getFacade().findAll("Municipio.findAll");
+        }
+          else {
+              //No se ejecuta cuando items diferente a null
+              Integer idpto = 0;
+          }
+        return items;
+  }
 
     @FacesConverter(forClass = Municipio.class)
 public static class MunicipioControllerConverter implements Converter {

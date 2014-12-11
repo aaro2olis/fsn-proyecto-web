@@ -23,7 +23,7 @@
                         <p:inputText id="obsubicacion" value="#{ubicacionfisicaController.selected.obsubicacion}" title="#{bundle.CreateUbicacionfisicaTitle_obsubicacion}" />
                         <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_iddpto}" for="iddpto" />
                         <p:selectOneMenu  id="iddpto" value="#{ubicacionfisicaController.selected.iddpto}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_iddpto}"  immediate="true" >
-                            <f:ajax  listener="#{municipioController.idDeptoChangeListener}" rendered="idmunicipio" />
+                            <p:ajax  listener="#{municipioController.idDeptoChangeListener}" update="idmunicipio" />
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
                                            var="iddptoItem"
