@@ -31,13 +31,13 @@
                         <p:inputText id="valorresidual" value="#{activoController.selected.valorresidual}" title="#{bundle.CreateActivoTitle_valorresidual}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_valorresidual}"/>
 
                         <p:outputLabel value="#{bundle.CreateActivoTitle_nuevo}" for="nuevo" />
-                        <h:selectOneMenu id="nuevo" value="#{activoController.selected.nuevo}" title="#{bundle.CreateActivoLabel_nuevo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_nuevo}">
+                        <p:selectOneMenu id="nuevo" value="#{activoController.selected.nuevo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_nuevo}">
                             <f:selectItem itemValue="0" itemLabel="Nuevo"/>
                             <f:selectItem itemValue="1" itemLabel="Usado 1 año"/>
                             <f:selectItem itemValue="2" itemLabel="Usado 2 años"/>
                             <f:selectItem itemValue="3" itemLabel="Usado 3 años"/> 
                             <f:selectItem itemValue="4" itemLabel="Usado 4 o mas años"/> 
-                        </h:selectOneMenu>
+                        </p:selectOneMenu>
 
                         <p:outputLabel value="#{bundle.CreateActivoLabel_idcategoria}" for="idcategoria" />
                         <p:selectOneMenu id="idcategoria" value="#{activoController.selected.idcategoria}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idcategoria}">

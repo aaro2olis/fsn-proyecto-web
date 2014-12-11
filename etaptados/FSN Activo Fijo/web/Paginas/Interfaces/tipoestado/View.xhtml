@@ -12,8 +12,6 @@
             <h:form id="TipoestadoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipoestadoController.selected != null}">
-                        <h:outputText value="#{bundle.ViewTipoestadoLabel_idtipoestado}"/>
-                        <h:outputText value="#{tipoestadoController.selected.idtipoestado}" title="#{bundle.ViewTipoestadoTitle_idtipoestado}"/>
                         <h:outputText value="#{bundle.ViewTipoestadoLabel_nmbtipoestado}"/>
                         <h:outputText value="#{tipoestadoController.selected.nmbtipoestado}" title="#{bundle.ViewTipoestadoTitle_nmbtipoestado}"/>
                         <h:outputText value="#{bundle.ViewTipoestadoLabel_dsctipoestado}"/>

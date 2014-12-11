@@ -12,8 +12,6 @@
             <h:form id="TipopersonaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipopersonaController.selected != null}">
-                        <h:outputText value="Id Tipo persona"/>
-                        <h:outputText value="#{tipopersonaController.selected.idtipopersona}" title="#{bundle.ViewTipopersonaTitle_idtipopersona}"/>
                         <h:outputText value="Tipo de persona"/>
                         <h:outputText value="#{tipopersonaController.selected.nmbtipopersona}" title="#{bundle.ViewTipopersonaTitle_nmbtipopersona}"/>
                         <h:outputText value="Descripción"/>
