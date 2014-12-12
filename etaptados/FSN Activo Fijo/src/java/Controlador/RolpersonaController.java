@@ -76,7 +76,8 @@ public class RolpersonaController implements Serializable {
 
     public List<Rolpersona> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items=getFacade().findAll("Rolpersona.findAll");
         }
         return items;
     }

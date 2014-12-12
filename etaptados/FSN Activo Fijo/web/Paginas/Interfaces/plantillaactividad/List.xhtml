@@ -29,27 +29,15 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPlantillaactividadTitle_idplantilla}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idplantilla}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPlantillaactividadTitle_dscplantilla}"/>
                             </f:facet>
                             <h:outputText value="#{item.dscplantilla}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPlantillaactividadTitle_estadoplantilla}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estadoplantilla}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPlantillaactividadTitle_idrol}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idrol}"/>
+                            <h:outputText value="#{item.idrol.nmbtipousuario}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{plantillaactividadController.prepareCreate}" update=":PlantillaactividadCreateForm" oncomplete="PF('PlantillaactividadCreateDialog').show()"/>

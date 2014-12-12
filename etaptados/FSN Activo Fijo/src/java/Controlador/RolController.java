@@ -76,7 +76,8 @@ public class RolController implements Serializable {
 
     public List<Rol> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items = getFacade().findAll("Rol.findAll");
         }
         return items;
     }
@@ -118,7 +119,7 @@ public class RolController implements Serializable {
     }
 
     public List<Rol> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        return items = getFacade().findAll("Rol.findAll");
     }
 
     @FacesConverter(forClass = Rol.class)

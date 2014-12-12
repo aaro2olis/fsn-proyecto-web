@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "ubicacionfisica")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u WHERE NOT u.estadoubicacion=:estadoubicacion"),
+    @NamedQuery(name = "Ubicacionfisica.findAll", query = "SELECT u FROM Ubicacionfisica u WHERE NOT u.estadoubicacion=:estadoubicacion ORDER BY u.nmbubicacion ASC"),
     @NamedQuery(name = "Ubicacionfisica.findByIdubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.idubicacion = :idubicacion"),
     @NamedQuery(name = "Ubicacionfisica.findByNmbubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.nmbubicacion = :nmbubicacion"),
     @NamedQuery(name = "Ubicacionfisica.findByDirubicacion", query = "SELECT u FROM Ubicacionfisica u WHERE u.dirubicacion = :dirubicacion"),
