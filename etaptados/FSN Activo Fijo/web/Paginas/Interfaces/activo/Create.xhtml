@@ -11,8 +11,6 @@
             <h:form id="ActivoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="4" rendered="#{activoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateActivoTitle_idactivo}" for="idactivo" />
-                        <p:inputText id="idactivo" value="#{activoController.selected.idactivo}" title="#{bundle.CreateActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idactivo}"/>
                         <p:outputLabel value="#{bundle.CreateActivoLabel_nmbactivo}" for="nmbactivo" />
                         <p:inputText id="nmbactivo" value="#{activoController.selected.nmbactivo}" title="#{bundle.CreateActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_nmbactivo}"/>
                         <p:outputLabel value="#{bundle.CreateActivoLabel_dscactivo}" for="dscactivo" />
@@ -88,7 +86,6 @@
                                            var="idtipoestado"
                                            itemValue="#{idtipoestadoItem}"/>
                         </p:selectOneMenu>                      
-                        <p:inputText type="hidden" disabled="true" id="estadoactivo" value="#{activoController.selected.setEstadoActivo()}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{activoController.create}" value="#{bundle.Save}" update="display,:ActivoListForm:datalist,:growl" oncomplete="handleSubmit(args,'ActivoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ActivoCreateDialog.hide()"/>

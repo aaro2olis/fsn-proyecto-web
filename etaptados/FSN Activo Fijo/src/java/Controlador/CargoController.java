@@ -76,7 +76,8 @@ public class CargoController implements Serializable {
 
     public List<Cargo> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items=getFacade().findAll("Cargo.findAll");
         }
         return items;
     }
@@ -118,7 +119,8 @@ public class CargoController implements Serializable {
     }
 
     public List<Cargo> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        //return getFacade().findAll();
+        return getFacade().findAll("Cargo.findAll");
     }
 
     @FacesConverter(forClass = Cargo.class)

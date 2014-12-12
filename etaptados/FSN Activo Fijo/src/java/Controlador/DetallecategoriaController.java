@@ -56,6 +56,7 @@ public class DetallecategoriaController implements Serializable {
     }
 
     public void create() {
+        
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("DetallecategoriaCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
@@ -76,7 +77,8 @@ public class DetallecategoriaController implements Serializable {
 
     public List<Detallecategoria> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().findAll("Detallecategoria.findAll");
+            
         }
         return items;
     }
@@ -118,7 +120,7 @@ public class DetallecategoriaController implements Serializable {
     }
 
     public List<Detallecategoria> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        return getFacade().findAll("Detallecategoria.findAll");
     }
 
     @FacesConverter(forClass = Detallecategoria.class)

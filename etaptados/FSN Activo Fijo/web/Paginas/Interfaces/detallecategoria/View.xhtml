@@ -12,12 +12,10 @@
             <h:form id="DetallecategoriaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{detallecategoriaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewDetallecategoriaLabel_iddetallecategoria}"/>
-                        <h:outputText value="#{detallecategoriaController.selected.iddetallecategoria}" title="#{bundle.ViewDetallecategoriaTitle_iddetallecategoria}"/>
                         <h:outputText value="#{bundle.ViewDetallecategoriaLabel_dscdetalle}"/>
                         <h:outputText value="#{detallecategoriaController.selected.dscdetalle}" title="#{bundle.ViewDetallecategoriaTitle_dscdetalle}"/>
                         <h:outputText value="#{bundle.ViewDetallecategoriaLabel_idcategoria}"/>
-                        <h:outputText value="#{detallecategoriaController.selected.idcategoria}" title="#{bundle.ViewDetallecategoriaTitle_idcategoria}"/>
+                        <h:outputText value="#{detallecategoriaController.selected.idcategoria.nmbcategoria}" title="#{bundle.ViewDetallecategoriaTitle_idcategoria}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="DetallecategoriaViewDialog.hide()"/>
                 </h:panelGroup>

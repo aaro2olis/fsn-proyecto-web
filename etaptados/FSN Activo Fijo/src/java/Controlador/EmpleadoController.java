@@ -55,6 +55,7 @@ public class EmpleadoController implements Serializable {
     }
 
     public void create() {
+        selected.setIdempleado(selected.carnet(getFacade().count()));
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("EmpleadoCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.

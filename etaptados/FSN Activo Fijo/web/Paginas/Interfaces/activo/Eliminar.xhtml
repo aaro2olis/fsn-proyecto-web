@@ -12,7 +12,6 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="1" rendered="#{activoController.selected != null}">
                         <p:outputLabel value="#{bundle.BorrarActivoTitle_confirmacion}"/>
-                        <p:inputText type="hidden" disabled="true" id="estadoactivo" value="#{activoController.selected.setEstadoActivo('0')}" title="#{bundle.EditActivoLabel_estadoactivo}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{activoController.borrar()}" value="#{bundle.Borrar}" update="display,:ActivoListForm:datalist,:growl" onclick="ActivoBorrarDlg.hide()" oncomplete="handleSubmit(args, 'ActivoBorrarDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ActivoBorrarDlg.hide()"/>

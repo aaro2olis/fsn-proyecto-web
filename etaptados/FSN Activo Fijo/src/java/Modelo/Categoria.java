@@ -135,5 +135,21 @@ public class Categoria implements Serializable {
     public String toString() {
         return nmbcategoria;
     }
-    
+      public String genCodCategoria(Integer cuenta)
+     {String carnet;
+      cuenta=cuenta+1;
+         if (cuenta<10) {
+         carnet="C-0"+cuenta.toString();
+         }
+         else {
+             if (cuenta<100) {
+             carnet="C-"+cuenta.toString();    
+             }
+             else{
+             carnet="C-"+cuenta.toString();
+             }
+         }
+    return carnet;
+             }
+  
 }

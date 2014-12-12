@@ -29,12 +29,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListDesafectacionTitle_iddesafectacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.iddesafectacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDesafectacionTitle_ingresodesafectacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.ingresodesafectacion}"/>
@@ -105,7 +99,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDesafectacionTitle_idtipodesafectacion}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idtipodesafectacion}"/>
+                            <h:outputText value="#{item.idtipodesafectacion.nmbdesafectacion}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{desafectacionController.prepareCreate}" update=":DesafectacionCreateForm" oncomplete="PF('DesafectacionCreateDialog').show()"/>

@@ -12,9 +12,7 @@
             <h:form id="MantenimientoViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{mantenimientoController.selected != null}">
-                        <h:outputText value="#{bundle.ViewMantenimientoLabel_idmantenimiento}"/>
-                        <h:outputText value="#{mantenimientoController.selected.idmantenimiento}" title="#{bundle.ViewMantenimientoTitle_idmantenimiento}"/>
-                        <h:outputText value="#{bundle.ViewMantenimientoLabel_dscmantenimiento}"/>
+                         <h:outputText value="#{bundle.ViewMantenimientoLabel_dscmantenimiento}"/>
                         <h:outputText value="#{mantenimientoController.selected.dscmantenimiento}" title="#{bundle.ViewMantenimientoTitle_dscmantenimiento}"/>
                         <h:outputText value="#{bundle.ViewMantenimientoLabel_costomantenimiento}"/>
                         <h:outputText value="#{mantenimientoController.selected.costomantenimiento}" title="#{bundle.ViewMantenimientoTitle_costomantenimiento}"/>
@@ -30,8 +28,6 @@
                         <h:outputText value="#{mantenimientoController.selected.fecharealrecepcion}" title="#{bundle.ViewMantenimientoTitle_fecharealrecepcion}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewMantenimientoLabel_estadomantenimiento}"/>
-                        <h:outputText value="#{mantenimientoController.selected.estadomantenimiento}" title="#{bundle.ViewMantenimientoTitle_estadomantenimiento}"/>
                         <h:outputText value="#{bundle.ViewMantenimientoLabel_idactivo}"/>
                         <h:outputText value="#{mantenimientoController.selected.idactivo}" title="#{bundle.ViewMantenimientoTitle_idactivo}"/>
                     </p:panelGrid>

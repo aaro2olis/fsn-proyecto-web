@@ -47,11 +47,13 @@
                                            itemValue="#{idpersonaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateDesafectacionLabel_idtipodesafectacion}" for="idtipodesafectacion" />
-                        <p:selectOneMenu id="idtipodesafectacion" value="#{desafectacionController.selected.idtipodesafectacion}" >
+                        <p:selectOneMenu id="idtipodesafectacion" value="#{desafectacionController.selected.idtipodesafectacion}" required="true" >
+                             <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{tipodesafectacionController.itemsAvailableSelectOne}"
-                                           var="idtipodesafectacionItem"
-                                           itemValue="#{idtipodesafectacionItem}"/>
+                                           var="idtipodesafectacion"
+                                           itemValue="#{idtipodesafectacion.nmbdesafectacion}"/>
                         </p:selectOneMenu>
+                      
                     </p:panelGrid>
                     <p:commandButton actionListener="#{desafectacionController.create}" value="#{bundle.Save}" update="display,:DesafectacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'DesafectacionCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="DesafectacionCreateDialog.hide()"/>

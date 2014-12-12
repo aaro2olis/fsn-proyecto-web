@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "activo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Activo.findAll", query = "SELECT a FROM Activo a"),
+    @NamedQuery(name = "Activo.findAll", query = "SELECT a FROM Activo a WHERE NOT a.estadoactivo =:estadoactivo ORDER BY a.idcategoria.nmbcategoria, a.nmbactivo"),
     @NamedQuery(name = "Activo.findByIdactivo", query = "SELECT a FROM Activo a WHERE a.idactivo = :idactivo"),
     @NamedQuery(name = "Activo.findByNmbactivo", query = "SELECT a FROM Activo a WHERE a.nmbactivo = :nmbactivo"),
     @NamedQuery(name = "Activo.findByDscactivo", query = "SELECT a FROM Activo a WHERE a.dscactivo = :dscactivo"),
@@ -215,27 +215,6 @@ public class Activo implements Serializable {
 
     public void setEstadoActivo(Character estadoactivo) {
         this.estadoactivo = estadoactivo;
-    }
-
-   /* public void setEstadoActivo(Character estadoactivo) {
-        Integer C = new Integer(0);
-        if (estadoactivo.equals("0")) {
-            this.estadoactivo = C;
-        } else {
-            this.estadoactivo = Integer.parseInt(estadoactivo);
-        }
-    }
-
-    public void setEstadoActivo(Character estadoactivo) {
-        Character C = new Character('0');
-        if (estadoactivo == '0') {
-            this.estadoactivo = 0;
-        }
-    }*/
-
-    public void setEstadoActivo() {
-        //Al momento de crearse 0 para eliminados
-        this.estadoactivo = 1;
     }
 
     public BigDecimal getCostoadquicision() {
@@ -429,5 +408,24 @@ public class Activo implements Serializable {
     public String toString() {
         return idactivo;
     }
-
+     public String CodActivo(Activo activo,Integer cuenta)
+     {String codigo;
+      String ubicacion;
+      //codigo formado por Ubicacion+Categoria+CategoriaRenta+correlativo general
+      cuenta=cuenta+1;
+      
+         if (cuenta<10) {
+         codigo="-00"+cuenta.toString();
+         }
+         else {
+             if (cuenta<100) {
+             codigo="-0"+cuenta.toString();    
+             }
+             else{
+             codigo="-"+cuenta.toString();
+             }
+         }
+         codigo=activo.idubicacion.getIdubicacion().toString()+"-"+activo.idcategoria.getIdcategoria()+"-"+activo.idtipoactivo.getIdtipoactivo().toString()+codigo;
+    return codigo;
+             }
 }

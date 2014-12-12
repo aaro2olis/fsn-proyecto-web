@@ -56,6 +56,7 @@ public class MantenimientoController implements Serializable {
     }
 
     public void create() {
+        selected.setEstadomantenimiento('1');
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("MantenimientoCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
@@ -67,7 +68,10 @@ public class MantenimientoController implements Serializable {
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("MantenimientoDeleted"));
+        selected.setEstadomantenimiento('0');
+         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("MantenimientoDeleted"));
+
+        //persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("MantenimientoDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
@@ -76,7 +80,8 @@ public class MantenimientoController implements Serializable {
 
     public List<Mantenimiento> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items = getFacade().findAllbyone("Mantenimiento.findAll", "estadomantenimiento");
         }
         return items;
     }
