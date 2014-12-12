@@ -76,7 +76,8 @@ public class TipodesafectacionController implements Serializable {
 
     public List<Tipodesafectacion> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items=getFacade().findAll("Tipodesafectacion.findAll");
         }
         return items;
     }

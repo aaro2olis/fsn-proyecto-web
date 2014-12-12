@@ -76,7 +76,8 @@ public class TipoestadoController implements Serializable {
 
     public List<Tipoestado> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items=getFacade().findAll("Tipoestado.findAll");
         }
         return items;
     }

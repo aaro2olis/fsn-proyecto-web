@@ -29,7 +29,7 @@
                                            var="iddptoItem"
                                            itemValue="#{iddptoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="idDepto" for="idmunicipio" />
+                        <p:outputLabel value="#{bundle.CreateUbicacionfisicaLabel_idmunicipio}" for="idmunicipio" />
                         <p:selectOneMenu id="idmunicipio" value="#{ubicacionfisicaController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.CreateUbicacionfisicaRequiredMessage_idmunicipio}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"

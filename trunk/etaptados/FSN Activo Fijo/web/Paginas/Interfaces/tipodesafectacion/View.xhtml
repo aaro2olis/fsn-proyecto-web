@@ -12,8 +12,6 @@
             <h:form id="TipodesafectacionViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipodesafectacionController.selected != null}">
-                        <h:outputText value="#{bundle.ViewTipodesafectacionLabel_idtipodesafectacion}"/>
-                        <h:outputText value="#{tipodesafectacionController.selected.idtipodesafectacion}" title="#{bundle.ViewTipodesafectacionTitle_idtipodesafectacion}"/>
                         <h:outputText value="#{bundle.ViewTipodesafectacionLabel_nmbdesafectacion}"/>
                         <h:outputText value="#{tipodesafectacionController.selected.nmbdesafectacion}" title="#{bundle.ViewTipodesafectacionTitle_nmbdesafectacion}"/>
                         <h:outputText value="#{bundle.ViewTipodesafectacionLabel_dscdesafectacion}"/>

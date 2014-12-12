@@ -1,10 +1,9 @@
 package Controlador;
 
-import Modelo.Plantillaactividad;
+import BEAN.PlantillaactividadFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.PlantillaactividadFacade;
-
+import Modelo.Plantillaactividad;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +11,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
 
 @Named("plantillaactividadController")
 @SessionScoped
@@ -55,28 +55,62 @@ public class PlantillaactividadController implements Serializable {
         return selected;
     }
 
+    /*public void create() {
+     selected.setEstadoplantilla('1');
+     persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadCreated"));
+     if (!JsfUtil.isValidationFailed()) {
+     items = null;    // Invalidate list of items to trigger re-query.
+     }
+     }*/
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
+        selected.setEstadoplantilla('1');
+        String dscplantilla = selected.getDscplantilla().toUpperCase();
+        Integer idrol = selected.getIdrol().getIdrol();
+        boolean evaluacion = ejbFacade.findDuplicados(dscplantilla, idrol);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadCreatedError")));
+        } else {
+            persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadCreated"));
+            if (!JsfUtil.isValidationFailed()) {
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
         }
     }
 
+    /* public void update() {
+     persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadUpdated"));
+     }*/
+    
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadUpdated"));
+        String dscplantilla = selected.getDscplantilla().toUpperCase();
+        Integer idrol = selected.getIdrol().getIdrol();
+        Integer idplantilla = selected.getIdplantilla();
+        boolean evaluacion = ejbFacade.findDuplicados(dscplantilla, idrol,idplantilla);
+        if (evaluacion) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadUpdateError")));
+        } else {
+            persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadUpdated"));
+        }
     }
 
+    /*public void destroy() {
+     persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadDeleted"));
+     if (!JsfUtil.isValidationFailed()) {
+     selected = null; // Remove selection
+     items = null;    // Invalidate list of items to trigger re-query.
+     }
+     }*/
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadDeleted"));
-        if (!JsfUtil.isValidationFailed()) {
-            selected = null; // Remove selection
-            items = null;    // Invalidate list of items to trigger re-query.
-        }
+        selected.setEstadoplantilla('0');
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("PlantillaactividadDeleted"));
     }
 
     public List<Plantillaactividad> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            // items = getFacade().findAll();
+            return getFacade().findAllbyone("estadoplantilla");
         }
         return items;
     }

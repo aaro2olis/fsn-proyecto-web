@@ -12,9 +12,7 @@
             <h:form id="RolEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{rolController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditRolLabel_idrol}" for="idrol" />
-                        <p:inputText id="idrol" value="#{rolController.selected.idrol}" title="#{bundle.EditRolTitle_idrol}" required="true" requiredMessage="#{bundle.EditRolRequiredMessage_idrol}"/>
-                        <p:outputLabel value="#{bundle.EditRolLabel_nmbtipousuario}" for="nmbtipousuario" />
+                         <p:outputLabel value="#{bundle.EditRolLabel_nmbtipousuario}" for="nmbtipousuario" />
                         <p:inputText id="nmbtipousuario" value="#{rolController.selected.nmbtipousuario}" title="#{bundle.EditRolTitle_nmbtipousuario}" required="true" requiredMessage="#{bundle.EditRolRequiredMessage_nmbtipousuario}"/>
                         <p:outputLabel value="#{bundle.EditRolLabel_dsctipousuario}" for="dsctipousuario" />
                         <p:inputText id="dsctipousuario" value="#{rolController.selected.dsctipousuario}" title="#{bundle.EditRolTitle_dsctipousuario}" />

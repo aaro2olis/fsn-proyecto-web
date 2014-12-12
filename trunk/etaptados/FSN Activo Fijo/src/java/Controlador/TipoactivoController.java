@@ -76,7 +76,7 @@ public class TipoactivoController implements Serializable {
 
     public List<Tipoactivo> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            items = getFacade().findAll("Tipoactivo.findAll");
         }
         return items;
     }

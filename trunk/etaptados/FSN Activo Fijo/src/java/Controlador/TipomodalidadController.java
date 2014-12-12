@@ -76,7 +76,8 @@ public class TipomodalidadController implements Serializable {
 
     public List<Tipomodalidad> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+           items = getFacade().findAll("Tipomodalidad.findAll");
         }
         return items;
     }

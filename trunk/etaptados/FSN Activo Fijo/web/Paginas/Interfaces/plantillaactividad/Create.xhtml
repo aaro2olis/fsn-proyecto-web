@@ -12,12 +12,8 @@
             <h:form id="PlantillaactividadCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{plantillaactividadController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_idplantilla}" for="idplantilla" />
-                        <p:inputText id="idplantilla" value="#{plantillaactividadController.selected.idplantilla}" title="#{bundle.CreatePlantillaactividadTitle_idplantilla}" required="true" requiredMessage="#{bundle.CreatePlantillaactividadRequiredMessage_idplantilla}"/>
                         <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_dscplantilla}" for="dscplantilla" />
                         <p:inputText id="dscplantilla" value="#{plantillaactividadController.selected.dscplantilla}" title="#{bundle.CreatePlantillaactividadTitle_dscplantilla}" required="true" requiredMessage="#{bundle.CreatePlantillaactividadRequiredMessage_dscplantilla}"/>
-                        <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_estadoplantilla}" for="estadoplantilla" />
-                        <p:inputText id="estadoplantilla" value="#{plantillaactividadController.selected.estadoplantilla}" title="#{bundle.CreatePlantillaactividadTitle_estadoplantilla}" required="true" requiredMessage="#{bundle.CreatePlantillaactividadRequiredMessage_estadoplantilla}"/>
                         <p:outputLabel value="#{bundle.CreatePlantillaactividadLabel_idrol}" for="idrol" />
                         <p:selectOneMenu id="idrol" value="#{plantillaactividadController.selected.idrol}" required="true" requiredMessage="#{bundle.EditPlantillaactividadRequiredMessage_idrol}">
                             <f:selectItems value="#{rolController.itemsAvailableSelectOne}"

@@ -12,14 +12,10 @@
             <h:form id="PlantillaactividadViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{plantillaactividadController.selected != null}">
-                        <h:outputText value="#{bundle.ViewPlantillaactividadLabel_idplantilla}"/>
-                        <h:outputText value="#{plantillaactividadController.selected.idplantilla}" title="#{bundle.ViewPlantillaactividadTitle_idplantilla}"/>
                         <h:outputText value="#{bundle.ViewPlantillaactividadLabel_dscplantilla}"/>
                         <h:outputText value="#{plantillaactividadController.selected.dscplantilla}" title="#{bundle.ViewPlantillaactividadTitle_dscplantilla}"/>
-                        <h:outputText value="#{bundle.ViewPlantillaactividadLabel_estadoplantilla}"/>
-                        <h:outputText value="#{plantillaactividadController.selected.estadoplantilla}" title="#{bundle.ViewPlantillaactividadTitle_estadoplantilla}"/>
                         <h:outputText value="#{bundle.ViewPlantillaactividadLabel_idrol}"/>
-                        <h:outputText value="#{plantillaactividadController.selected.idrol}" title="#{bundle.ViewPlantillaactividadTitle_idrol}"/>
+                        <h:outputText value="#{plantillaactividadController.selected.idrol.nmbtipousuario}" title="#{bundle.ViewPlantillaactividadTitle_idrol}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PlantillaactividadViewDialog.hide()"/>
                 </h:panelGroup>

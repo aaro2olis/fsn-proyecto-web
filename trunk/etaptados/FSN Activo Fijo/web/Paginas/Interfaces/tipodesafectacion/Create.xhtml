@@ -12,8 +12,6 @@
             <h:form id="TipodesafectacionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipodesafectacionController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTipodesafectacionLabel_idtipodesafectacion}" for="idtipodesafectacion" />
-                        <p:inputText id="idtipodesafectacion" value="#{tipodesafectacionController.selected.idtipodesafectacion}" title="#{bundle.CreateTipodesafectacionTitle_idtipodesafectacion}" required="true" requiredMessage="#{bundle.CreateTipodesafectacionRequiredMessage_idtipodesafectacion}"/>
                         <p:outputLabel value="#{bundle.CreateTipodesafectacionLabel_nmbdesafectacion}" for="nmbdesafectacion" />
                         <p:inputText id="nmbdesafectacion" value="#{tipodesafectacionController.selected.nmbdesafectacion}" title="#{bundle.CreateTipodesafectacionTitle_nmbdesafectacion}" required="true" requiredMessage="#{bundle.CreateTipodesafectacionRequiredMessage_nmbdesafectacion}"/>
                         <p:outputLabel value="#{bundle.CreateTipodesafectacionLabel_dscdesafectacion}" for="dscdesafectacion" />
