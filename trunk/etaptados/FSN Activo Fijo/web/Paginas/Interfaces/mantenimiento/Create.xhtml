@@ -12,8 +12,6 @@
             <h:form id="MantenimientoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{mantenimientoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_idmantenimiento}" for="idmantenimiento" />
-                        <p:inputText id="idmantenimiento" value="#{mantenimientoController.selected.idmantenimiento}" title="#{bundle.CreateMantenimientoTitle_idmantenimiento}" required="true" requiredMessage="#{bundle.CreateMantenimientoRequiredMessage_idmantenimiento}"/>
                         <p:outputLabel value="#{bundle.CreateMantenimientoLabel_dscmantenimiento}" for="dscmantenimiento" />
                         <p:inputText id="dscmantenimiento" value="#{mantenimientoController.selected.dscmantenimiento}" title="#{bundle.CreateMantenimientoTitle_dscmantenimiento}" required="true" requiredMessage="#{bundle.CreateMantenimientoRequiredMessage_dscmantenimiento}"/>
                         <p:outputLabel value="#{bundle.CreateMantenimientoLabel_costomantenimiento}" for="costomantenimiento" />
@@ -24,8 +22,6 @@
                         <p:calendar id="fechaestimadarecepcion" pattern="MM/dd/yyyy" value="#{mantenimientoController.selected.fechaestimadarecepcion}" title="#{bundle.EditMantenimientoTitle_fechaestimadarecepcion}" required="true" requiredMessage="#{bundle.EditMantenimientoRequiredMessage_fechaestimadarecepcion}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateMantenimientoLabel_fecharealrecepcion}" for="fecharealrecepcion" />
                         <p:calendar id="fecharealrecepcion" pattern="MM/dd/yyyy" value="#{mantenimientoController.selected.fecharealrecepcion}" title="#{bundle.EditMantenimientoTitle_fecharealrecepcion}" required="true" requiredMessage="#{bundle.EditMantenimientoRequiredMessage_fecharealrecepcion}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateMantenimientoLabel_estadomantenimiento}" for="estadomantenimiento" />
-                        <p:inputText id="estadomantenimiento" value="#{mantenimientoController.selected.estadomantenimiento}" title="#{bundle.CreateMantenimientoTitle_estadomantenimiento}" required="true" requiredMessage="#{bundle.CreateMantenimientoRequiredMessage_estadomantenimiento}"/>
                         <p:outputLabel value="#{bundle.CreateMantenimientoLabel_idactivo}" for="idactivo" />
                         <p:selectOneMenu id="idactivo" value="#{mantenimientoController.selected.idactivo}" >
                             <f:selectItems value="#{activoController.itemsAvailableSelectOne}"

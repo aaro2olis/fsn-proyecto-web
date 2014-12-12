@@ -308,9 +308,25 @@ public class Empleado implements Serializable {
         }
         return true;
     }
-
+     public String carnet(Integer cuenta)
+     {String carnet;
+      cuenta=cuenta+1;
+         if (cuenta<10) {
+         carnet="FSN-00"+cuenta.toString();
+         }
+         else {
+             if (cuenta<100) {
+             carnet="FSN-0"+cuenta.toString();    
+             }
+             else{
+             carnet="FSN-"+cuenta.toString();
+             }
+         }
+    return carnet;
+             }
     @Override
     public String toString() {
         return nombres + " " + apepaterno + " " + apematerno;
     }
+    
 }

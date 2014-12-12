@@ -119,7 +119,7 @@ public class TipodesafectacionController implements Serializable {
     }
 
     public List<Tipodesafectacion> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        return getFacade().findAll("Tipodesafectacion.findAll");
     }
 
     @FacesConverter(forClass = Tipodesafectacion.class)

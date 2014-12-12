@@ -56,6 +56,9 @@ public class ActivoController implements Serializable {
     }
 
     public void create() {
+        Integer cantidad = getFacade().count();
+        selected.setIdactivo(selected.CodActivo(selected, cantidad));
+        selected.setEstadoActivo('1');
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ActivoCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
@@ -76,6 +79,7 @@ public class ActivoController implements Serializable {
 
     //Creada por el mensaje de eliminado
     public void borrar() {
+        selected.setEstadoActivo('0');
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ActivoDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
@@ -85,8 +89,8 @@ public class ActivoController implements Serializable {
 
     public List<Activo> getItems() {
         if (items == null) {
-             items = getFacade().findAll();
-            //items = getFacade().findAllbyone("estadoactivo"); activar una vez corregido
+            // items = getFacade().findAll();
+            items = getFacade().findAllbyone("Mantenimiento.findAll", "estadomantenimiento");
         }
         return items;
     }
@@ -128,7 +132,8 @@ public class ActivoController implements Serializable {
     }
 
     public List<Activo> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
+        // return getFacade().findAll();
+        return  getFacade().findAllbyone("Activo.findAll", "estadoactivo");
     }
 
     @FacesConverter(forClass = Activo.class)

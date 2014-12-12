@@ -56,6 +56,7 @@ public class CategoriaController implements Serializable {
     }
 
     public void create() {
+        selected.setIdcategoria(selected.genCodCategoria(getFacade().count()));
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("CategoriaCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
@@ -76,7 +77,8 @@ public class CategoriaController implements Serializable {
 
     public List<Categoria> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+            //items = getFacade().findAll();
+            items=getFacade().findAll("Categoria.findAll");
         }
         return items;
     }

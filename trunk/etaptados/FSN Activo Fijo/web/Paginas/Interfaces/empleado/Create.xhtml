@@ -12,9 +12,7 @@
             <h:form id="EmpleadoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{empleadoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_idempleado}" for="idempleado" />
-                        <p:inputText id="idempleado" value="#{empleadoController.selected.idempleado}" title="#{bundle.CreateEmpleadoTitle_idempleado}" required="true" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_idempleado}"/>
-                        <p:outputLabel value="#{bundle.CreateEmpleadoLabel_nombres}" for="nombres" />
+                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_nombres}" for="nombres" />
                         <p:inputText id="nombres" value="#{empleadoController.selected.nombres}" title="#{bundle.CreateEmpleadoTitle_nombres}" required="true" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_nombres}"/>
                         <p:outputLabel value="#{bundle.CreateEmpleadoLabel_apepaterno}" for="apepaterno" />
                         <p:inputText id="apepaterno" value="#{empleadoController.selected.apepaterno}" title="#{bundle.CreateEmpleadoTitle_apepaterno}" />
