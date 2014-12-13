@@ -59,6 +59,11 @@ public abstract class AbstractFacade<T> {
          getEntityManager().createNamedQuery(namedQueryName).setParameter("emp",par1).setParameter("act", par2).setParameter("ubi", par3).executeUpdate();
          
     }
+    
+    public void updateActivoDes(String namedQueryName, String par1, Character par2) {
+         getEntityManager().createNamedQuery(namedQueryName).setParameter("est",par2).setParameter("act", par1).executeUpdate();
+         
+    }
 
     public List<T> findAllbyone(String namedQueryName, String estado) {
         return getEntityManager().createNamedQuery(namedQueryName)
