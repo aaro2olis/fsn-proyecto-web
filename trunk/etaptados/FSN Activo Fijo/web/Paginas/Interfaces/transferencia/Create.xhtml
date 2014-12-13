@@ -22,7 +22,7 @@
                         <p:calendar id="fechatransferencia" pattern="MM/dd/yyyy" value="#{transferenciaController.selected.fechatransferencia}" title="#{bundle.EditTransferenciaTitle_fechatransferencia}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_fechatransferencia}" showOn="button"/>
                         
                         <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idresponsableantiguo}" for="idresponsableantiguo" />
-                        <p:inputText id="idresponsableantiguo" readonly="true" value="#{transferenciaController.selected.idresponsableantiguo}" title="#{bundle.CreateTransferenciaTitle_idresponsableantiguo}" />
+                        <p:inputText id="idresponsableantiguo" size="30" readonly="true" value="#{transferenciaController.selected.idresponsableantiguo}" title="#{bundle.CreateTransferenciaTitle_idresponsableantiguo}" />
                         
                         <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idresponsablenuevo}" for="responsablenuevo" />
                         <p:selectOneMenu id="responsablenuevo" value="#{transferenciaController.selected.idresponsablenuevo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idcategoria}">

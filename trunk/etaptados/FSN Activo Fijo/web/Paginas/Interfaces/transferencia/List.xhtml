@@ -24,8 +24,8 @@
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
 
-                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowSelect"   update="createButton viewButton  deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton  deleteButton"/>
 
                         <p:column>
                             <f:facet name="header">
@@ -45,7 +45,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTransferenciaTitle_idresponsablenuevo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idresponsablenuevo}"/>
+                            <h:outputText value="#{item.idresponsablenuevo.nombres} #{item.idresponsablenuevo.apepaterno} #{item.idresponsablenuevo.apematerno} "/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -68,7 +68,7 @@
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{transferenciaController.prepareCreate}" update=":TransferenciaCreateForm" oncomplete="PF('TransferenciaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":TransferenciaViewForm" oncomplete="PF('TransferenciaViewDialog').show()" disabled="#{empty transferenciaController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":TransferenciaEditForm" oncomplete="PF('TransferenciaEditDialog').show()" disabled="#{empty transferenciaController.selected}"/>
+                           
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{transferenciaController.destroy}" update=":growl,datalist" disabled="#{empty transferenciaController.selected}"/>
                         </f:facet>
                     </p:dataTable>
