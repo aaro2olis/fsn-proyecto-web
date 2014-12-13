@@ -62,21 +62,26 @@ public class Inventario implements Serializable {
     @Column(name = "horarealizacion")
     @Temporal(TemporalType.TIME)
     private Date horarealizacion;
-    @Basic(optional = false)
+    
     @NotNull
+    @Size(max=100)
     @Column(name = "estadobienactual")
-    private Character estadobienactual;
+    private String estadobienactual;
     @Size(max = 200)
     @Column(name = "observacion")
     private String observacion;
+    @Size(max=100)
     @Column(name = "poseevineta")
-    private Character poseevineta;
+    private String poseevineta;
+    @Size(max=100)
     @Column(name = "existe")
-    private Character existe;
+    private String existe;
+    @Size(max=100)
     @Column(name = "bajocustodia")
-    private Character bajocustodia;
+    private String bajocustodia;
+    @Size(max=100)
     @Column(name = "ubicacionfisica")
-    private Character ubicacionfisica;
+    private String ubicacionfisica;
     @Size(max = 200)
     @Column(name = "justificaciondiferencias")
     private String justificaciondiferencias;
@@ -100,7 +105,7 @@ public class Inventario implements Serializable {
         this.idinventario = idinventario;
     }
 
-    public Inventario(Integer idinventario, Date fecharealizacion, Date horarealizacion, Character estadobienactual) {
+    public Inventario(Integer idinventario, Date fecharealizacion, Date horarealizacion, String estadobienactual) {
         this.idinventario = idinventario;
         this.fecharealizacion = fecharealizacion;
         this.horarealizacion = horarealizacion;
@@ -131,11 +136,11 @@ public class Inventario implements Serializable {
         this.horarealizacion = horarealizacion;
     }
 
-    public Character getEstadobienactual() {
+    public String  getEstadobienactual() {
         return estadobienactual;
     }
 
-    public void setEstadobienactual(Character estadobienactual) {
+    public void setEstadobienactual(String estadobienactual) {
         this.estadobienactual = estadobienactual;
     }
 
@@ -147,35 +152,35 @@ public class Inventario implements Serializable {
         this.observacion = observacion;
     }
 
-    public Character getPoseevineta() {
+    public String  getPoseevineta() {
         return poseevineta;
     }
 
-    public void setPoseevineta(Character poseevineta) {
+    public void setPoseevineta(String  poseevineta) {
         this.poseevineta = poseevineta;
     }
 
-    public Character getExiste() {
+    public String  getExiste() {
         return existe;
     }
 
-    public void setExiste(Character existe) {
+    public void setExiste(String  existe) {
         this.existe = existe;
     }
 
-    public Character getBajocustodia() {
+    public String  getBajocustodia() {
         return bajocustodia;
     }
 
-    public void setBajocustodia(Character bajocustodia) {
+    public void setBajocustodia(String  bajocustodia) {
         this.bajocustodia = bajocustodia;
     }
 
-    public Character getUbicacionfisica() {
+    public String  getUbicacionfisica() {
         return ubicacionfisica;
     }
 
-    public void setUbicacionfisica(Character ubicacionfisica) {
+    public void setUbicacionfisica(String  ubicacionfisica) {
         this.ubicacionfisica = ubicacionfisica;
     }
 
