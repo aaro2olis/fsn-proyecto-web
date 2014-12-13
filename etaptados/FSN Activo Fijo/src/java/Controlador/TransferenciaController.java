@@ -1,10 +1,11 @@
 package Controlador;
 
-import Modelo.Transferencia;
+import BEAN.ActivoFacade;
+import BEAN.TransferenciaFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.TransferenciaFacade;
-
+import Modelo.Activo;
+import Modelo.Transferencia;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +13,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.inject.Named;
 
 @Named("transferenciaController")
 @SessionScoped
@@ -27,7 +29,8 @@ public class TransferenciaController implements Serializable {
     private BEAN.TransferenciaFacade ejbFacade;
     private List<Transferencia> items = null;
     private Transferencia selected;
-
+    private ActivoController ejbFacadeActivo;
+    
     public TransferenciaController() {
     }
 
@@ -49,6 +52,9 @@ public class TransferenciaController implements Serializable {
         return ejbFacade;
     }
 
+     private ActivoController getFacadeActivo() {
+        return ejbFacadeActivo;
+    }   
     public Transferencia prepareCreate() {
         selected = new Transferencia();
         initializeEmbeddableKey();
@@ -56,6 +62,11 @@ public class TransferenciaController implements Serializable {
     }
 
     public void create() {
+        Activo activo=selected.getIdactivo();
+        activo.setIdempleado(selected.getIdresponsablenuevo());
+        activo.setIdubicacion(selected.getIdubicacionnueva());
+        ejbFacadeActivo.setSelected(activo);
+        ejbFacadeActivo.update();
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("TransferenciaCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
@@ -162,4 +173,12 @@ public class TransferenciaController implements Serializable {
 
     }
 
+    public void empleadoAntChangeListener(AjaxBehaviorEvent event) {
+        String empleadoAnterior = "";
+        FacesContext context = FacesContext.getCurrentInstance();
+        Activo activo = (Activo) event.getComponent().getAttributes().get("value");
+        //activo=getFacadeActivo().getActivo(activo.getIdactivo());
+        selected.setIdresponsableantiguo(activo.getIdempleado().toString());
+        selected.setIdubicacionantigua(activo.getIdubicacion().toString());
+    }
 }

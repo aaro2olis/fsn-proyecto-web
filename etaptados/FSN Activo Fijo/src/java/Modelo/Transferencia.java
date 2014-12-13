@@ -52,18 +52,18 @@ public class Transferencia implements Serializable {
     @Column(name = "fechatransferencia")
     @Temporal(TemporalType.DATE)
     private Date fechatransferencia;
-    @Size(max = 10)
+    @Size(max = 100)
     @Column(name = "idresponsableantiguo")
     private String idresponsableantiguo;
-    @Size(max = 10)
-    @Column(name = "idresponsablenuevo")
-    private String idresponsablenuevo;
-    @Size(max = 3)
+    @JoinColumn(name = "idresponsablenuevo", referencedColumnName = "idempleado")
+    @ManyToOne(optional = false)
+    private Empleado idresponsablenuevo;
+    @Size(max = 100)
     @Column(name = "idubicacionantigua")
     private String idubicacionantigua;
-    @Size(max = 3)
-    @Column(name = "idubicacionnueva")
-    private String idubicacionnueva;
+    @JoinColumn(name = "idubicacionnueva", referencedColumnName = "idubicacion")
+    @ManyToOne(optional = false)
+    private Ubicacionfisica idubicacionnueva;
     @JoinColumn(name = "idactivo", referencedColumnName = "idactivo")
     @ManyToOne(optional = false)
     private Activo idactivo;
@@ -104,13 +104,7 @@ public class Transferencia implements Serializable {
         this.idresponsableantiguo = idresponsableantiguo;
     }
 
-    public String getIdresponsablenuevo() {
-        return idresponsablenuevo;
-    }
-
-    public void setIdresponsablenuevo(String idresponsablenuevo) {
-        this.idresponsablenuevo = idresponsablenuevo;
-    }
+    
 
     public String getIdubicacionantigua() {
         return idubicacionantigua;
@@ -120,13 +114,7 @@ public class Transferencia implements Serializable {
         this.idubicacionantigua = idubicacionantigua;
     }
 
-    public String getIdubicacionnueva() {
-        return idubicacionnueva;
-    }
-
-    public void setIdubicacionnueva(String idubicacionnueva) {
-        this.idubicacionnueva = idubicacionnueva;
-    }
+    
 
     public Activo getIdactivo() {
         return idactivo;
@@ -159,6 +147,33 @@ public class Transferencia implements Serializable {
     @Override
     public String toString() {
         return "Modelo.Transferencia[ idtransferencia=" + idtransferencia + " ]";
+    }
+
+    /**
+     * @return the idresponsablenuevo
+     */
+    public Empleado getIdresponsablenuevo() {
+        return idresponsablenuevo;
+    }
+
+    /**
+     * @param idresponsablenuevo the idresponsablenuevo to set
+     */
+    public void setIdresponsablenuevo(Empleado idresponsablenuevo) {
+        this.idresponsablenuevo = idresponsablenuevo;
+    }
+    /**
+     * @return the idubicacionnueva
+     */
+    public Ubicacionfisica getIdubicacionnueva() {
+        return idubicacionnueva;
+    }
+
+    /**
+     * @param idubicacionnueva the idubicacionnueva to set
+     */
+    public void setIdubicacionnueva(Ubicacionfisica idubicacionnueva) {
+        this.idubicacionnueva = idubicacionnueva;
     }
     
 }

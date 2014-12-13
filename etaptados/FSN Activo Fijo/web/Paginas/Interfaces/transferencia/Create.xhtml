@@ -5,30 +5,43 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-
     <ui:composition>
-
         <p:dialog id="TransferenciaCreateDlg" widgetVar="TransferenciaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTransferenciaTitle}">
             <h:form id="TransferenciaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{transferenciaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idtransferencia}" for="idtransferencia" />
-                        <p:inputText id="idtransferencia" value="#{transferenciaController.selected.idtransferencia}" title="#{bundle.CreateTransferenciaTitle_idtransferencia}" required="true" requiredMessage="#{bundle.CreateTransferenciaRequiredMessage_idtransferencia}"/>
-                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_fechatransferencia}" for="fechatransferencia" />
-                        <p:calendar id="fechatransferencia" pattern="MM/dd/yyyy" value="#{transferenciaController.selected.fechatransferencia}" title="#{bundle.EditTransferenciaTitle_fechatransferencia}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_fechatransferencia}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idresponsableantiguo}" for="idresponsableantiguo" />
-                        <p:inputText id="idresponsableantiguo" value="#{transferenciaController.selected.idresponsableantiguo}" title="#{bundle.CreateTransferenciaTitle_idresponsableantiguo}" />
-                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idresponsablenuevo}" for="idresponsablenuevo" />
-                        <p:inputText id="idresponsablenuevo" value="#{transferenciaController.selected.idresponsablenuevo}" title="#{bundle.CreateTransferenciaTitle_idresponsablenuevo}" />
-                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idubicacionantigua}" for="idubicacionantigua" />
-                        <p:inputText id="idubicacionantigua" value="#{transferenciaController.selected.idubicacionantigua}" title="#{bundle.CreateTransferenciaTitle_idubicacionantigua}" />
-                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idubicacionnueva}" for="idubicacionnueva" />
-                        <p:inputText id="idubicacionnueva" value="#{transferenciaController.selected.idubicacionnueva}" title="#{bundle.CreateTransferenciaTitle_idubicacionnueva}" />
                         <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idactivo}" for="idactivo" />
-                        <p:selectOneMenu id="idactivo" value="#{transferenciaController.selected.idactivo}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_idactivo}">
-                            <f:selectItems value="#{activoController.itemsAvailableSelectOne}"
+                         <p:selectOneMenu id="idactivo" value="#{transferenciaController.selected.idactivo}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_idactivo}" immediate="true">
+                             <f:selectItem itemLabel="Selecciona el activo a transferir" noSelectionOption="true"/>
+                             <p:ajax  listener="#{transferenciaController.empleadoAntChangeListener}" update="idresponsableantiguo,idubicacionantigua" />
+                             <f:selectItems value="#{activoController.itemsAvailableSelectOne}"
                                            var="idactivoItem"
                                            itemValue="#{idactivoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_fechatransferencia}" for="fechatransferencia" />
+                        <p:calendar id="fechatransferencia" pattern="MM/dd/yyyy" value="#{transferenciaController.selected.fechatransferencia}" title="#{bundle.EditTransferenciaTitle_fechatransferencia}" required="true" requiredMessage="#{bundle.EditTransferenciaRequiredMessage_fechatransferencia}" showOn="button"/>
+                        
+                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idresponsableantiguo}" for="idresponsableantiguo" />
+                        <p:inputText id="idresponsableantiguo" readonly="true" value="#{transferenciaController.selected.idresponsableantiguo}" title="#{bundle.CreateTransferenciaTitle_idresponsableantiguo}" />
+                        
+                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idresponsablenuevo}" for="responsablenuevo" />
+                        <p:selectOneMenu id="responsablenuevo" value="#{transferenciaController.selected.idresponsablenuevo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idcategoria}">
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/> 
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="idcategoriaItem"
+                                           itemValue="#{idempleadoItem}"/>
+                        </p:selectOneMenu>
+
+
+
+                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idubicacionantigua}" for="idubicacionantigua" />
+                        <p:inputText id="idubicacionantigua" readonly="true" value="#{transferenciaController.selected.idubicacionantigua}" title="#{bundle.CreateTransferenciaTitle_idubicacionantigua}" />
+                        <p:outputLabel value="#{bundle.CreateTransferenciaLabel_idubicacionnueva}" for="ubicacionnueva" />
+                        <p:selectOneMenu id="ubicacionnueva" value="#{transferenciaController.selected.idubicacionnueva}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idcategoria}">
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/> 
+                            <f:selectItems value="#{ubicacionfisicaController.itemsAvailableSelectOne}"
+                                           var="idcategoriaItem"
+                                           itemValue="#{idubicacionItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{transferenciaController.create}" value="#{bundle.Save}" update="display,:TransferenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'TransferenciaCreateDialog');"/>

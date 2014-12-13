@@ -38,7 +38,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Activo.findAll", query = "SELECT a FROM Activo a WHERE NOT a.estadoactivo =:estadoactivo ORDER BY a.idcategoria.nmbcategoria, a.nmbactivo"),
     @NamedQuery(name = "Activo.findByIdactivo", query = "SELECT a FROM Activo a WHERE a.idactivo = :idactivo"),
     @NamedQuery(name = "Activo.findByNmbactivo", query = "SELECT a FROM Activo a WHERE a.nmbactivo = :nmbactivo"),
-    @NamedQuery(name = "Activo.findByDscactivo", query = "SELECT a FROM Activo a WHERE a.dscactivo = :dscactivo"),
     @NamedQuery(name = "Activo.findByObsactivo", query = "SELECT a FROM Activo a WHERE a.obsactivo = :obsactivo"),
     @NamedQuery(name = "Activo.findByMarcaactivo", query = "SELECT a FROM Activo a WHERE a.marcaactivo = :marcaactivo"),
     @NamedQuery(name = "Activo.findByModeloactivo", query = "SELECT a FROM Activo a WHERE a.modeloactivo = :modeloactivo"),
@@ -47,6 +46,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Activo.findByCostoadquicision", query = "SELECT a FROM Activo a WHERE a.costoadquicision = :costoadquicision"),
     @NamedQuery(name = "Activo.findByValorresidual", query = "SELECT a FROM Activo a WHERE a.valorresidual = :valorresidual"),
     @NamedQuery(name = "Activo.findByNuevo", query = "SELECT a FROM Activo a WHERE a.nuevo = :nuevo")})
+
 public class Activo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,11 +61,7 @@ public class Activo implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "nmbactivo")
     private String nmbactivo;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "dscactivo")
-    private String dscactivo;
+    
     @Basic(optional = false)
     @Size(min = 1, max = 200)
     @Column(name = "obsactivo")
@@ -139,10 +135,10 @@ public class Activo implements Serializable {
         this.idactivo = idactivo;
     }
 
-    public Activo(String idactivo, String nmbactivo, String dscactivo, String obsactivo, String marcaactivo, String modeloactivo, Date fechaAdquisicion, Character estadoactivo, BigDecimal costoadquicision, BigDecimal valorresidual, Character nuevo) {
+    public Activo(String idactivo, String nmbactivo, String obsactivo, String marcaactivo, String modeloactivo, Date fechaAdquisicion, Character estadoactivo, BigDecimal costoadquicision, BigDecimal valorresidual, Character nuevo) {
         this.idactivo = idactivo;
         this.nmbactivo = nmbactivo;
-        this.dscactivo = dscactivo;
+        
         this.obsactivo = obsactivo;
         this.marcaactivo = marcaactivo;
         this.modeloactivo = modeloactivo;
@@ -169,13 +165,7 @@ public class Activo implements Serializable {
         this.nmbactivo = nmbactivo;
     }
 
-    public String getDscactivo() {
-        return dscactivo;
-    }
-
-    public void setDscactivo(String dscactivo) {
-        this.dscactivo = dscactivo;
-    }
+    
 
     public String getObsactivo() {
         return obsactivo;

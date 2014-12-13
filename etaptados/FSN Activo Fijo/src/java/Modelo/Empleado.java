@@ -55,7 +55,7 @@ public class Empleado implements Serializable {
     private String idempleado;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 1, max = 50)
     @Column(name = "nombres")
     private String nombres;
     @Size(max = 20)
