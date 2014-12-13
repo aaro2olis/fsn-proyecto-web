@@ -89,7 +89,7 @@
                             }
                         </script>
                         <div id='cssmenu'>
-                            <%! String menuGeneral[] = { "Consulta", "Gestion", "Reportes","Sesión"};
+                            <%! String menuGeneral[] = { "Consulta", "Reportes","Sesión"};
                                 String menuConsulta[] = {"Activo","Cargo","Categoria", "Detalle de categoria",
                                                         "Empleado", "Especificacion Activo", "Persona", "Rol de usuario","Rol persona", "Tipo Activo",
                                                          "Tipo Estado", "Tipo Modalidad", "Tipo Persona", "Ubicacion fisica",
@@ -127,27 +127,14 @@
                                             out.println("</ul></LI>");
                                             break;
                                         case 1:
-                                             cont=menuConsulta.length +1 ;
-                                             for(int k=0; k<menuGestion.length ; k++) {
-                                                //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
-                                                if(k<menuGestion.length-1){
-                                                 out.println("<LI  onclick=\"cambia("+cont+"); return false;\"><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");
-                                                }
-                                                else{
-                                                  out.println("<LI class='last' onclick=\"cambia("+cont+"); return false;\"><a href='#'><span>"+menuGestion[k]+"</span></a></LI>");  
-                                                }
-                                                cont++;
-                                            }; 
-                                            out.println("</ul></LI>");
-                                            break;
-                                        case 2:
+                                             
                                              for(int l=0; l<menuReporte.length ; l++) {
                                                 //DESPLEGANDO EN OBJETO LISTA DE HMTL CON BULLETS FOR NORMAL 
                                                 out.println("<LI class='last'><a href='#'><span>"+menuReporte[l]+"</span></a></LI>");
                                             }; 
                                             out.println("</ul></LI>");
                                             break;
-                                        case 3:
+                                        case 2:
                                             out.println("<LI class='last' ><a href='login.xhtml'><span>Cerrar sesi&oacute;n</span></a></LI>");
                                             break;    
                                     }

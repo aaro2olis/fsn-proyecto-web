@@ -22,6 +22,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Named;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.primefaces.context.RequestContext;
 
@@ -215,15 +217,32 @@ public class UsuarioController implements Serializable {
         context.addMessage(null, new FacesMessage("Successful", "Your message: " + message));
         context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
     }
-
+    
     public void validateLogin() throws IOException {
         Usuario usuario =  ejbFacade.buscaUsuario(idusuario, password); 
         Rol rol = usuario.getIdrol();
         System.out.println("id rol " +rol);
        System.out.println("id rol " +rol.getIdrol());
+       String nom = (rol).toString().replace(" ", "_");
         if (!rol.equals(" ")) {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("indexppal.jsp?varidrol="+rol.getIdrol());
-         
+           //1 admin, 2 presi, 3 asist, 4 conta, 5 audi
+            switch(rol.getIdrol()){
+                case 1: //administrador
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("indexppal.jsp?user="+nom+"?idrol"+rol.getIdrol());
+                    break;
+                case 2: //presidente
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("indexpde.jsp?user="+nom+"?idrol"+rol.getIdrol()); 
+                    break;
+                case 3: // asistente
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("indexasis.jsp?user="+(rol).toString().trim()+"?idrol"+rol.getIdrol());
+                    break;
+                case 4:// contador
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("indexcont.jsp?user="+(rol).toString().trim()+"?idrol"+rol.getIdrol());        
+                    break;
+                case 5: //auditor
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("indexaudi.jsp?user="+(rol).toString().trim()+"?idrol"+rol.getIdrol());        
+                    break;
+            }              
         } 
 //        if(existeUser.equals(false)){
 //           FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
@@ -232,13 +251,16 @@ public class UsuarioController implements Serializable {
 
     }
 
-    public String logout() {
+
+    public void logout()throws ServletException, IOException{
         this.idusuario = null;
         this.password = null;
-        HttpSession httpSession = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-        httpSession.invalidate();
-
-        return "/index";
+         
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        request.getSession().invalidate();
+        request.logout();
+       // FacesContext.getCurrentInstance().getExternalContext().redirect("login.jsp");
     }
+     
      
 }
