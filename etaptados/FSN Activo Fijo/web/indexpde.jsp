@@ -44,7 +44,7 @@
                                   "Paginas/Interfaces/activo/List2.xhtml",              //1
                                   "Paginas/Interfaces/cargo/List2.xhtml",               //2
                                   "Paginas/Interfaces/categoria/List2.xhtml",           //3
-                                  //"Paginas/Interfaces/desafectacion/List2.xhtml",     
+                                 //"Paginas/Interfaces/desafectacion/List2.xhtml",     
                                   "Paginas/Interfaces/detallecategoria/List2.xhtml",    //4
                                   "Paginas/Interfaces/empleado/List2.xhtml",            //5
                                   //"Paginas/Interfaces/especificacionactivo/List2.xhtml",

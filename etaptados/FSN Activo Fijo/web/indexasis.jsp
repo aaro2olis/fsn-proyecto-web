@@ -41,62 +41,77 @@
                               var direc = [
                                   "inicio.html",                                        //0
                                   //Consultas
-                                  "Paginas/Interfaces/activo/List2.xhtml",              //1
-                                  "Paginas/Interfaces/cargo/List2.xhtml",               //2
-                                  "Paginas/Interfaces/categoria/List2.xhtml",           //3
-                                  //"Paginas/Interfaces/desafectacion/List2.xhtml",     
-                                  "Paginas/Interfaces/detallecategoria/List2.xhtml",    //4
-                                  "Paginas/Interfaces/empleado/List2.xhtml",            //5
-                                  //"Paginas/Interfaces/especificacionactivo/List2.xhtml",
-                                  //"Paginas/Interfaces/inventario/List2.xhtml",
-                                  "Paginas/Interfaces/mantenimiento/List2.xhtml",       //6
-                                  "Paginas/Interfaces/persona/List2.xhtml",             //7
-                                  "Paginas/Interfaces/rol/List2.xhtml",                 //8
-                                  "Paginas/Interfaces/rolpersona/List2.xhtml",          //9
-                                  "Paginas/Interfaces/tipoactivo/List2.xhtml",          //10
-                                  //"Paginas/Interfaces/tipodesafectacion/List2.xhtml",
-                                  "Paginas/Interfaces/tipoestado/List2.xhtml",          //11
-                                  "Paginas/Interfaces/tipomodalidad/List2.xhtml",       //12
-                                  "Paginas/Interfaces/tipopersona/List2.xhtml",         //13
-                                  "Paginas/Interfaces/ubicacionfisica/List2.xhtml",     //14
-                                  "Paginas/Interfaces/unidadOrganizativa/List2.xhtml",  //15
-                                  "Paginas/Interfaces/usuario/List2.xhtml",             //16
+                                  "Paginas/Interfaces/actividad/List2.xhtml",            //1
+                                  "Paginas/Interfaces/activo/List2.xhtml",              //2
+                                  "Paginas/Interfaces/cargo/List2.xhtml",               //3
+                                  "Paginas/Interfaces/categoria/List2.xhtml",           //4
+                                  "Paginas/Interfaces/desafectacion/List2.xhtml",       //5
+                                  "Paginas/Interfaces/detallecategoria/List2.xhtml",    //6
+                                  "Paginas/Interfaces/empleado/List2.xhtml",            //7
+                                  "Paginas/Interfaces/especificacionactivo/List2.xhtml", //8
+                                  "Paginas/Interfaces/inventario/List2.xhtml",          //9
+                                  "Paginas/Interfaces/mantenimiento/List2.xhtml",       //10
+                                  "Paginas/Interfaces/persona/List2.xhtml",             //11
+                                  "Paginas/Interfaces/plantillaactividad/List2.xhtml",  //12
+                                  "Paginas/Interfaces/rol/List2.xhtml",                 //13
+                                  "Paginas/Interfaces/rolpersona/List2.xhtml",          //14
+                                  "Paginas/Interfaces/tipoactivo/List2.xhtml",          //15
+                                  "Paginas/Interfaces/tipodesafectacion/List2.xhtml",   //16
+                                  "Paginas/Interfaces/tipoestado/List2.xhtml",          //17
+                                  "Paginas/Interfaces/tipomodalidad/List2.xhtml",       //18
+                                  "Paginas/Interfaces/tipopersona/List2.xhtml",         //19
+                                  "Paginas/Interfaces/transferencia/List2.xhtml",       //20
+                                  "Paginas/Interfaces/ubicacionfisica/List2.xhtml",     //21
+                                  "Paginas/Interfaces/unidadOrganizativa/List2.xhtml",  //22
+                                  "Paginas/Interfaces/usuario/List2.xhtml",             //23
                                   
                                   //gestion
-                                  "Paginas/Interfaces/activo/List.xhtml",               //17
-                                  "Paginas/Interfaces/cargo/List.xhtml",                //18
-                                  "Paginas/Interfaces/categoria/List.xhtml",            //19
-                                  //"Paginas/Interfaces/desafectacion/List.xhtml",  
-                                  "Paginas/Interfaces/detallecategoria/List.xhtml",     //20
-                                  "Paginas/Interfaces/empleado/List.xhtml",             //21
-                                  "Paginas/Interfaces/especificacionactivo/List.xhtml", //22
-                                  //"Paginas/Interfaces/inventario/List.xhtml",           
-                                  //"Paginas/Interfaces/mantenimiento/List.xhtml",
-                                  "Paginas/Interfaces/persona/List.xhtml",              //23
-                                  "Paginas/Interfaces/rol/List.xhtml",                  //24
-                                  "Paginas/Interfaces/rolpersona/List.xhtml",           //25
-                                  "Paginas/Interfaces/tipoactivo/List.xhtml",           //26
-                                  //"Paginas/Interfaces/tipodesafectacion/List.xhtml",
-                                  "Paginas/Interfaces/tipoestado/List.xhtml",           //27
-                                  "Paginas/Interfaces/tipomodalidad/List.xhtml",        //28
-                                  "Paginas/Interfaces/tipopersona/List.xhtml",          //29
-                                  "Paginas/Interfaces/ubicacionfisica/List.xhtml",      //30
-                                  "Paginas/Interfaces/unidadOrganizativa/List.xhtml",   //31
-                                  "Paginas/Interfaces/usuario/List.xhtml",              //32
-                                  "resources/docs/usermanual.pdf"                       //33
+                                  "Paginas/Interfaces/actividad/List.xhtml",            //24
+                                  "Paginas/Interfaces/activo/List.xhtml",              //25
+                                  "Paginas/Interfaces/cargo/List.xhtml",               //26
+                                  "Paginas/Interfaces/categoria/List.xhtml",           //27
+                                  "Paginas/Interfaces/desafectacion/List.xhtml",       //28
+                                  "Paginas/Interfaces/detallecategoria/List.xhtml",    //29
+                                  "Paginas/Interfaces/empleado/List.xhtml",            //30
+                                  "Paginas/Interfaces/especificacionactivo/List.xhtml", //31
+                                  "Paginas/Interfaces/inventario/List.xhtml",          //32
+                                  "Paginas/Interfaces/mantenimiento/List.xhtml",       //33
+                                  "Paginas/Interfaces/persona/List.xhtml",             //34
+                                  "Paginas/Interfaces/plantillaactividad/List.xhtml",  //35
+                                  "Paginas/Interfaces/rol/List.xhtml",                 //36
+                                  "Paginas/Interfaces/rolpersona/List.xhtml",          //37
+                                  "Paginas/Interfaces/tipoactivo/List.xhtml",          //38
+                                  "Paginas/Interfaces/tipodesafectacion/List.xhtml",   //39
+                                  "Paginas/Interfaces/tipoestado/List.xhtml",          //40
+                                  "Paginas/Interfaces/tipomodalidad/List.xhtml",       //41
+                                  "Paginas/Interfaces/tipopersona/List.xhtml",         //42
+                                  "Paginas/Interfaces/transferencia/List.xhtml",       //43
+                                  "Paginas/Interfaces/ubicacionfisica/List.xhtml",     //44
+                                  "Paginas/Interfaces/unidadOrganizativa/List.xhtml",  //45
+                                  "Paginas/Interfaces/usuario/List.xhtml",             //46
+                                  "resources/docs/usermanual.pdf"                       //47
                               ];
                                   document.getElementById("miFrame").src= direc[x]; 
                             }
                         </script>
                         <div id='cssmenu'>
                             <%! String menuGeneral[] = { "Consulta", "Gestion", "Reportes","Sesión"};
-                                String menuConsulta[] = {"Activo","Cargo","Categoria", "Detalle de categoria",
-                                                        "Empleado", "Especificacion Activo", "Persona", "Rol de usuario","Rol persona", "Tipo Activo",
-                                                         "Tipo Estado", "Tipo Modalidad", "Tipo Persona", "Ubicacion fisica",
+                                String menuConsulta[] = {"Actividad","Activo","Cargo","Categoria", 
+                                                        "Desafectación","Detalle de categoria",
+                                                        "Empleado", "Especificacion Activo","Inventario",
+                                                        "Mantenimiento", "Persona","Plantilla Actividad",
+                                                        "Rol de usuario","Rol persona", "Tipo Activo",
+                                                        "Tipo desafectación", "Tipo Estado", "Tipo Modalidad", 
+                                                        "Tipo Persona","Transferencia", "Ubicacion fisica",
                                                         "Unidad Organizativa", "Usuarios"}; 
-                                String menuGestion[] = {"Activo","Cargo","Categoria", "Detalle de categoria",
-                                                        "Empleado", "Especificacion Activo", "Persona", "Rol de usuario","Rol persona", "Tipo Activo",
-                                                         "Tipo Estado", "Tipo Modalidad", "Tipo Persona", "Ubicacion fisica",
+                                
+                                String menuGestion[] = {"Actividad","Activo","Cargo","Categoria", 
+                                                        "Desafectación","Detalle de categoria",
+                                                        "Empleado", "Especificacion Activo","Inventario",
+                                                        "Mantenimiento", "Persona","Plantilla Actividad",
+                                                        "Rol de usuario","Rol persona", "Tipo Activo",
+                                                        "Tipo desafectación","Tipo Estado", "Tipo Modalidad", 
+                                                        "Tipo Persona","Transferencia", "Ubicacion fisica",
                                                         "Unidad Organizativa", "Usuarios"};
                                 String menuReporte[] = {"Activos", "Prestamos"};
                                 
@@ -178,7 +193,7 @@
                                  onmouseover="this.src='resources/img/help2.png';" 
                                  onmouseout="this.src='resources/img/help1.png';" 
                                  name="Ayuda" 
-                                 onclick=cambia(33); return false />
+                                 onclick=cambia(47); return false />
                         </a></LI>
                     <LI><a href='mailto:jazonder@gmail.com'>
                             <img src="resources/img/email1.png" 
