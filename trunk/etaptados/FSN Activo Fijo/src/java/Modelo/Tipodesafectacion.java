@@ -120,7 +120,7 @@ public class Tipodesafectacion implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo.Tipodesafectacion[ idtipodesafectacion=" + idtipodesafectacion + " ]";
+        return nmbdesafectacion;
     }
     
 }
