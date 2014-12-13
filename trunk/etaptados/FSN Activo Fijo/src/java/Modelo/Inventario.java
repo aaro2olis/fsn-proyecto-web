@@ -53,17 +53,17 @@ public class Inventario implements Serializable {
     @Column(name = "idinventario")
     private Integer idinventario;
     @Basic(optional = false)
-    @NotNull
+
     @Column(name = "fecharealizacion")
     @Temporal(TemporalType.DATE)
     private Date fecharealizacion;
     @Basic(optional = false)
-    @NotNull
+
     @Column(name = "horarealizacion")
     @Temporal(TemporalType.TIME)
     private Date horarealizacion;
     
-    @NotNull
+
     @Size(max=100)
     @Column(name = "estadobienactual")
     private String estadobienactual;

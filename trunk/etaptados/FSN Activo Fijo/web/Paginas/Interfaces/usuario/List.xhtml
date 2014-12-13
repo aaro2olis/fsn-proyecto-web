@@ -33,29 +33,18 @@
                             </f:facet>
                             <h:outputText value="#{item.idusuario}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_password}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.password}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_estadousuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estadousuario}"/>
-                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_idempleado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idempleado}"/>
+                            <h:outputText value="#{item.idempleado.nombres} #{item.idempleado.apepaterno} #{item.idempleado.apematerno}" />
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_idrol}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idrol}"/>
+                            <h:outputText value="#{item.idrol.nmbtipousuario}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{usuarioController.prepareCreate}" update=":UsuarioCreateForm" oncomplete="PF('UsuarioCreateDialog').show()"/>

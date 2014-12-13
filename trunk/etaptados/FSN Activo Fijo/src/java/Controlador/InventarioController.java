@@ -1,10 +1,11 @@
 package Controlador;
 
-import Modelo.Inventario;
+import BEAN.ActivoFacade;
+import BEAN.InventarioFacade;
 import Controlador.util.JsfUtil;
 import Controlador.util.JsfUtil.PersistAction;
-import BEAN.InventarioFacade;
-
+import Modelo.Activo;
+import Modelo.Inventario;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,12 +13,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
 
 @Named("inventarioController")
 @SessionScoped
@@ -27,7 +28,9 @@ public class InventarioController implements Serializable {
     private BEAN.InventarioFacade ejbFacade;
     private List<Inventario> items = null;
     private Inventario selected;
-
+    private List<Activo> itemsActivo = null;
+    private BEAN.ActivoFacade ejbFacadeActivo;
+    
     public InventarioController() {
     }
 
@@ -48,7 +51,9 @@ public class InventarioController implements Serializable {
     private InventarioFacade getFacade() {
         return ejbFacade;
     }
-
+    private ActivoFacade getFacadeActivo() {
+        return ejbFacadeActivo;
+    }
     public Inventario prepareCreate() {
         selected = new Inventario();
         initializeEmbeddableKey();
