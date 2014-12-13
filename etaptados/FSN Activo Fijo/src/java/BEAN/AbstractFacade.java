@@ -5,8 +5,12 @@
  */
 package BEAN;
 
+import Modelo.Activo;
+import Modelo.Empleado;
+import Modelo.Ubicacionfisica;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.TemporalType;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -49,6 +53,11 @@ public abstract class AbstractFacade<T> {
 
     public List<T> findAll(String namedQueryName) {
         return getEntityManager().createNamedQuery(namedQueryName).getResultList();
+    }
+    
+    public void updateActivo(String namedQueryName, Empleado par1, String par2, Ubicacionfisica par3) {
+         getEntityManager().createNamedQuery(namedQueryName).setParameter("emp",par1).setParameter("act", par2).setParameter("ubi", par3).executeUpdate();
+         
     }
 
     public List<T> findAllbyone(String namedQueryName, String estado) {
