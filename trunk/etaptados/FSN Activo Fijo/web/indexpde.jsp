@@ -102,7 +102,7 @@
                                 
                             %>
                                 
-                            <% //int varol = Integer.parseInt(request.getParameter("varidrol"));
+                            <% int varol = Integer.parseInt(request.getParameter("varidrol"));
                                 
                                 out.println("<ul>");
                                 out.println("<li onclick=\"cambia(0); return false;\" ><a href='#'  class='icon-home'><span>Inicio</span></a></li> "); 
