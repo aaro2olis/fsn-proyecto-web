@@ -70,12 +70,10 @@ public class Persona implements Serializable {
     @Column(name = "correo")
     private String correo;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 17)
     @Column(name = "nit")
     private String nit;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "dui")
     private String dui;

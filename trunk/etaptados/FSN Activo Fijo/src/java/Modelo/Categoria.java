@@ -48,7 +48,7 @@ public class Categoria implements Serializable {
     @Column(name = "nmbcategoria")
     private String nmbcategoria;
     @Basic(optional = false)
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 250)
     @Column(name = "dsccategoria")
     private String dsccategoria;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idcategoria")

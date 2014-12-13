@@ -13,8 +13,7 @@
                     <p:panelGrid columns="4" rendered="#{activoController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateActivoLabel_nmbactivo}" for="nmbactivo" />
                         <p:inputText id="nmbactivo" value="#{activoController.selected.nmbactivo}" title="#{bundle.CreateActivoTitle_nmbactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_nmbactivo}"/>
-                        <p:outputLabel value="#{bundle.CreateActivoLabel_dscactivo}" for="dscactivo" />
-                        <p:inputText id="dscactivo" value="#{activoController.selected.dscactivo}" title="#{bundle.CreateActivoTitle_dscactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_dscactivo}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateActivoLabel_obsactivo}" for="obsactivo" />
                         <p:inputText id="obsactivo" value="#{activoController.selected.obsactivo}" title="#{bundle.CreateActivoTitle_obsactivo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_obsactivo}"/>
                         <p:outputLabel value="#{bundle.CreateActivoLabel_marcaactivo}" for="marcaactivo" />

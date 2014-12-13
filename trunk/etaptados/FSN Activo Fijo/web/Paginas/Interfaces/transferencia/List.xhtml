@@ -29,12 +29,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTransferenciaTitle_idtransferencia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idtransferencia}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTransferenciaTitle_fechatransferencia}"/>
                             </f:facet>
                             <h:outputText value="#{item.fechatransferencia}">
@@ -63,7 +57,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTransferenciaTitle_idubicacionnueva}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idubicacionnueva}"/>
+                            <h:outputText value="#{item.idubicacionnueva.nmbubicacion}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
