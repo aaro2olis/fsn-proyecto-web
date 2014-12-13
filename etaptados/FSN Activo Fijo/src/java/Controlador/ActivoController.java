@@ -90,7 +90,7 @@ public class ActivoController implements Serializable {
     public List<Activo> getItems() {
         if (items == null) {
             // items = getFacade().findAll();
-            items = getFacade().findAllbyone("Mantenimiento.findAll", "estadomantenimiento");
+            items = getFacade().findAllbyone("Activo.findAll", "estadoactivo");
         }
         return items;
     }

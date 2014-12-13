@@ -46,7 +46,7 @@
                                            itemValue="#{idcategoriaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditActivoLabel_idempleado}" for="idempleado" />
-                        <p:selectOneMenu id="idempleado" value="#{activoController.selected.idempleado}" >
+                        <p:selectOneMenu id="idempleado" disabled="true" value="#{activoController.selected.idempleado}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
                                            var="idempleadoItem"
@@ -81,7 +81,7 @@
                                            itemValue="#{idmodalidadItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditActivoLabel_idubicacion}" for="idubicacion" />
-                        <p:selectOneMenu id="idubicacion" value="#{activoController.selected.idubicacion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idubicacion}">
+                        <p:selectOneMenu id="idubicacion" disabled="true" value="#{activoController.selected.idubicacion}" required="true" requiredMessage="#{bundle.EditActivoRequiredMessage_idubicacion}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{ubicacionfisicaController.itemsAvailableSelectOne}"
                                            var="idubicacionItem"
