@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "desafectacion")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Desafectacion.updateActivo", query = "UPDATE Activo a SET a.estadoactivo=:est WHERE a.idactivo=:act"),
     @NamedQuery(name = "Desafectacion.findAll", query = "SELECT d FROM Desafectacion d"),
     @NamedQuery(name = "Desafectacion.findByIddesafectacion", query = "SELECT d FROM Desafectacion d WHERE d.iddesafectacion = :iddesafectacion"),
     @NamedQuery(name = "Desafectacion.findByIngresodesafectacion", query = "SELECT d FROM Desafectacion d WHERE d.ingresodesafectacion = :ingresodesafectacion"),
@@ -84,6 +85,9 @@ public class Desafectacion implements Serializable {
     @JoinColumn(name = "idtipodesafectacion", referencedColumnName = "idtipodesafectacion")
     @ManyToOne
     private Tipodesafectacion idtipodesafectacion;
+    @JoinColumn(name = "id_activo", referencedColumnName = "idactivo")
+    @ManyToOne(optional = false)
+    private Activo id_activo;
 
     public Desafectacion() {
     }
@@ -217,6 +221,20 @@ public class Desafectacion implements Serializable {
     @Override
     public String toString() {
         return "Modelo.Desafectacion[ iddesafectacion=" + iddesafectacion + " ]";
+    }
+
+    /**
+     * @return the id_activo
+     */
+    public Activo getId_activo() {
+        return id_activo;
+    }
+
+    /**
+     * @param id_activo the id_activo to set
+     */
+    public void setId_activo(Activo id_activo) {
+        this.id_activo = id_activo;
     }
     
 }

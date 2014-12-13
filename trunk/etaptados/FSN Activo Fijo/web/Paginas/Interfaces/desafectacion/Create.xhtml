@@ -12,10 +12,15 @@
             <h:form id="DesafectacionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{desafectacionController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_iddesafectacion}" for="iddesafectacion" />
-                        <p:inputText id="iddesafectacion" value="#{desafectacionController.selected.iddesafectacion}" title="#{bundle.CreateDesafectacionTitle_iddesafectacion}" required="true" requiredMessage="#{bundle.CreateDesafectacionRequiredMessage_iddesafectacion}"/>
-                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_ingresodesafectacion}" for="ingresodesafectacion" />
-                        <p:inputText id="ingresodesafectacion" value="#{desafectacionController.selected.ingresodesafectacion}" title="#{bundle.CreateDesafectacionTitle_ingresodesafectacion}" />
+                        
+                        <p:outputLabel value="Activo a Desafectar" for="id_activo" />
+                        <p:selectOneMenu id="id_activo" value="#{desafectacionController.selected.id_activo}" required="true" requiredMessage="#{bundle.CreateActivoRequiredMessage_idcategoria}">
+                            <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/> 
+                            <f:selectItems value="#{activoController.itemsAvailableSelectOne}"
+                                           var="idcategoriaItem"
+                                           itemValue="#{activoItem}"/>
+                        </p:selectOneMenu>
+                        
                         <p:outputLabel value="#{bundle.CreateDesafectacionLabel_fechacrea}" for="fechacrea" />
                         <p:calendar id="fechacrea" pattern="MM/dd/yyyy" value="#{desafectacionController.selected.fechacrea}" title="#{bundle.EditDesafectacionTitle_fechacrea}" required="true" requiredMessage="#{bundle.EditDesafectacionRequiredMessage_fechacrea}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateDesafectacionLabel_fechaauto}" for="fechaauto" />
@@ -51,8 +56,10 @@
                              <f:selectItem itemLabel="Selecciona una valor" noSelectionOption="true"/>
                             <f:selectItems value="#{tipodesafectacionController.itemsAvailableSelectOne}"
                                            var="idtipodesafectacion"
-                                           itemValue="#{idtipodesafectacion.nmbdesafectacion}"/>
+                                           itemValue="#{idtipodesafectacionItem}"/>
                         </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDesafectacionLabel_ingresodesafectacion}" for="ingresodesafectacion" />
+                        <p:inputText id="ingresodesafectacion" value="#{desafectacionController.selected.ingresodesafectacion}" title="#{bundle.CreateDesafectacionTitle_ingresodesafectacion}" />
                       
                     </p:panelGrid>
                     <p:commandButton actionListener="#{desafectacionController.create}" value="#{bundle.Save}" update="display,:DesafectacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'DesafectacionCreateDialog');"/>

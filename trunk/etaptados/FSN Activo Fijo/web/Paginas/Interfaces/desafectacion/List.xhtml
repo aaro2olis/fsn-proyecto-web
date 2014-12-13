@@ -29,6 +29,12 @@
 
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="Código Activo"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id_activo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDesafectacionTitle_ingresodesafectacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.ingresodesafectacion}"/>

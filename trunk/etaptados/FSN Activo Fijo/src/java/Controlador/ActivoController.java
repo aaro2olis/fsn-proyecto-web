@@ -48,6 +48,11 @@ public class ActivoController implements Serializable {
     private ActivoFacade getFacade() {
         return ejbFacade;
     }
+    
+    public void depreciar(){
+        double cuenta1;
+        
+    }
 
     public Activo prepareCreate() {
         selected = new Activo();

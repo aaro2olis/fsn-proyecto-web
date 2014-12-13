@@ -56,6 +56,7 @@ public class DesafectacionController implements Serializable {
     }
 
     public void create() {
+        getFacade().updateActivoDes("Desafectacion.updateActivo",selected.getId_activo().getIdactivo(),'0');
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("DesafectacionCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
