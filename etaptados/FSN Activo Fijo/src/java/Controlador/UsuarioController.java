@@ -88,6 +88,7 @@ public class UsuarioController implements Serializable {
     }
 
     public void create() {
+        selected.setEstadousuario('1');
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
         FacesContext context = FacesContext.getCurrentInstance();
 
@@ -103,7 +104,8 @@ public class UsuarioController implements Serializable {
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UsuarioDeleted"));
+        selected.setEstadousuario('0');
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
